@@ -49,6 +49,7 @@
   .container-preguntas p {
     text-align: left;
     margin: 2%;
+    font-size: 1rem;
   }
   .container-preguntas i {
     margin: 2%;
@@ -66,6 +67,26 @@
     display: none;    
     
   }
-  p{
-    font-size: 1.5vw;
+  @media (max-width: 576px){
+
+    .container-preguntas{
+      padding: 0;
+    }
+    .pregunta_respuesta {
+      width: 90%;  
+    }
+    #container_dudas{
+      display: none;
+    }
+    .titulo-preguntas{
+      margin: 0;
+      font-size: 2em;
+    }
+    .pregunta{
+      padding: 10px 5px;
+      font-size: 1.2rem;
+    }
+    .container-preguntas p{
+      font-size: 1rem;
+    }
   }

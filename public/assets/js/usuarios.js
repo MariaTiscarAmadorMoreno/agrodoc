@@ -32,7 +32,7 @@ function cargarUsuarios() {
 
                 let row = `
                     <tr data-id="${usuario.id_usu}" data-tipo="${usuario.tipo}">
-                        <td>${usuario.id_usu}</td>
+                        <td class="ocultar-sm">${usuario.id_usu}</td>
                         <td class='editable'>${usuario.nombre}</td>
                         <td class='editable'>${usuario.usuario}</td>
                         <td class='editable'>${usuario.clave}</td>

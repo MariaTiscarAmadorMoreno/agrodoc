@@ -4,8 +4,24 @@ $datos = unserialize($_SESSION['usuario']);
 $nombre = $datos['nombre'] ?? 'Proveedor';
 $id_proveedor = $datos['id_prov'];
 ?>
+<nav id="nav" role="navigation">
+    <div class="container_nav">      
+                <?php   
+                    echo '<div class="container-selector">';        
+                    echo '<a href="javascript:cargar(\'#portada\',\'/views/vertrabajadores.php\');" id="soporteLink">Trabajadores</a>';
+                    echo '</div>'; 
 
-<aside id="sidebar_contratista" role="complementary">
+                    echo '<div class="container-selector">';        
+                    echo '<a href="javascript:cargar(\'#portada\',\'/views/verproyectos.php\');" id="soporteLink">Campañas</a>';
+                    echo '</div>'; 
+
+                    echo '<div class="container-selector">';        
+                    echo '<a href="javascript:cargar(\'#portada\',\'/views/vercontratistas.php\');" id="soporteLink">Contratistas</a>';
+                    echo '</div>'; 
+                ?>
+    </div>
+</nav>
+<aside id="aside" role="complementary">
     <div class="sidebar-header">
         <h3 class="sidebar-title">Menú</h3>
     </div>

@@ -6,6 +6,7 @@ $bloque = [
     $_POST["id_cont"] ?? null,  // id_cont
     $_POST["id_prov"] ?? null,  // id_prov
     $_POST["id_finca"] ?? null, // id_finca
+    $_POST["trabajo"] ?? null, // trabajo
     $_POST["fecha_inicio"] ?? null, // fecha_inicio
     $_POST["fecha_fin"] ?? null    // fecha_fin
 ];

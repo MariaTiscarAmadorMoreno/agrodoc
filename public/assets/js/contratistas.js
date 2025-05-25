@@ -24,7 +24,7 @@ function cargarContratistas() {
                
                 let row = `
                     <tr data-id="${contratista.id_cont}">
-                        <td>${contratista.id_cont}</td>
+                        <td class="ocultar-sm">${contratista.id_cont}</td>
                         <td class='editable'>${contratista.nombre}</td>
                         <td class='editable'>${contratista.cif}</td>
                         <td class='editable'>${contratista.email}</td>

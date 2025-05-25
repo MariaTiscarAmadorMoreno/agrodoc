@@ -17,58 +17,58 @@ if ($tipo === 'contratista') {
     $idCont = $usuario['id_cont'];
     $datos = $controller->getFincasPorContratista($idCont);
 } else {
-   
-    $datos = $controller->getFincas(); 
+
+    $datos = $controller->getFincas();
 }
 ?>
-<div id="datosUsuario" 
-     data-tipo="<?= $tipo ?>" 
-     data-id-cont="<?= $usuario['id_cont'] ?? '' ?>">
+<div id="datosUsuario"
+    data-tipo="<?= $tipo ?>"
+    data-id-cont="<?= $usuario['id_cont'] ?? '' ?>">
 </div>
 <h2>Lista de Fincas</h2>
-
-<table id="fincasTabla">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Contratista</th>
-            <th>Cultivo</th>
-            <th>Hectáreas</th>
-            <th>Localización</th>
-            <th>Ver en mapa</th>
-            <th>Modificar</th>
-            <th>Eliminar</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php foreach ($datos as $finca): ?>
-            <tr data-id="<?= $finca['id_finca'] ?>">
-                <td><?= $finca['id_finca'] ?></td>
-                <td><?= $finca['nombre_contratista'] ?? 'No disponible' ?></td>
-                <td class='editable'><?= $finca['cultivo'] ?></td>
-                <td class='editable'><?= $finca['hectarea'] ?></td>
-                <td class='editable' id="localizacion"><?= $finca['localizacion'] ?></td>
-                <td><a href="javascript:void(0);" class="enlace_mapa">Ver en mapa</a></td>
-                <td>
-                    <button class="editar">Modificar</button>
-                    <button class="guardar" style="display:none;">Guardar</button>
-                </td>
-                <td>
-                    <button class="eliminar" onclick="eliminarFinca(<?= $finca['id_finca'] ?>)">Eliminar</button>
-                </td>
+<div class="table-responsive">
+    <table id="fincasTabla">
+        <thead>
+            <tr>
+                <th class="ocultar-sm">ID</th>
+                <th>Contratista</th>
+                <th>Cultivo</th>
+                <th>Hectáreas</th>
+                <th>Localización</th>
+                <th>Ver en mapa</th>
+                <th>Modificar</th>
+                <th>Eliminar</th>
             </tr>
-        <?php endforeach; ?>
-    </tbody>
-</table>
-
+        </thead>
+        <tbody>
+            <?php foreach ($datos as $finca): ?>
+                <tr data-id="<?= $finca['id_finca'] ?>">
+                    <td class="ocultar-sm"><?= $finca['id_finca'] ?></td>
+                    <td><?= $finca['nombre_contratista'] ?? 'No disponible' ?></td>
+                    <td class='editable'><?= $finca['cultivo'] ?></td>
+                    <td class='editable'><?= $finca['hectarea'] ?></td>
+                    <td class='editable' id="localizacion"><?= $finca['localizacion'] ?></td>
+                    <td><a href="javascript:void(0);" class="enlace_ver">Ver en mapa</a></td>
+                    <td>
+                        <button class="editar">Modificar</button>
+                        <button class="guardar" style="display:none;">Guardar</button>
+                    </td>
+                    <td>
+                        <button class="eliminar" onclick="eliminarFinca(<?= $finca['id_finca'] ?>)">Eliminar</button>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+</div>
 <div id="mapContainer">
-    <div id="map"></div> 
-    <button class="cerrar_mapa" onclick="cerrarMapa()">✖</button>   
+    <div id="map"></div>
+    <button class="cerrar_mapa" onclick="cerrarMapa()">✖</button>
 </div>
 
 
 
-<div class="enlace_crear">
+<div class="boton_crear">
     <a href="javascript:cargar('#portada','/views/nueva_finca.php');">
         <button>Crear finca</button>
     </a>

@@ -34,13 +34,13 @@ $proyecController = new ProyecController();
         <p><strong>Dirección:</strong> <?= $proveedor['direccion'] ?></p>
 
         <details>
-            <summary><strong>Campañas en común</strong></summary>
+            <summary><strong>Campañas</strong></summary>
             <ul class="lista1">
                 <?php 
                     $proyectos = $proyecController->getProyectosPorProveedorYContratista($proveedor['id_prov'], $idContratista);
 
                     foreach ($proyectos as $p) {
-                        echo "<li><strong>{$p['localizacion']}</strong> - {$p['fecha_inicio']} a {$p['fecha_fin']}</li>";
+                        echo "<li><strong>{$p['localizacion']}</strong>:  {$p['trabajo']} - {$p['fecha_inicio']} a {$p['fecha_fin']}</li>";
                     }
                 ?>
             </ul>

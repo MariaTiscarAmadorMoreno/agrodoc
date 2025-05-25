@@ -20,57 +20,58 @@
   <div id="principal">
     <div class="container_header_nav">
       <!--Cabecera-->    
-      <header id="principal_header" role="banner"> 
-         <div class="container_logotipo">
-           <a href="../index.html" name="logotipo">           
-             <img src="../assets/img/logotipoAgrodoc.svg" alt="logotipo svg" title="Agrodoc" class="logotipo">
-           </a>
-         </div>
-         <div class="container_perfiles">
-           <div class="informacion"> 
-             <a href="#" aria-label="Información">
-               <i class="fa-solid fa-circle-info fa-2x"></i>
-             </a>
-         </div>        
-         <div class="perfiles">        
-           <a href="../index.html" class="a-contratista active" id="contratista" aria-label="Soy contratista">Soy contratista</a> 
-           <a href="./paginas/proveedor.html" class="a-proovedor" id="proveedor" aria-label="Soy proveedor">Soy proveedor</a>
-         </div>
-       </div> 
-        
-       <div class="container-selector-group"> 
+    <div class="container_header_nav">
+     <!--Cabecera-->    
+     <header id="principal_header" role="banner"> 
+        <div class="container_logotipo">
+          <a href="../index.html" name="logotipo">           
+            <img src="../assets/img/logotipoAgrodoc.svg" alt="logotipo svg" title="Agrodoc" class="logotipo">
+          </a>
+        </div>
+        <div class="container_perfiles">
+          <div class="informacion"> 
+            <a href="#" aria-label="Información">
+              <i class="fa-solid fa-circle-info fa-2x"></i>
+            </a>
+        </div>        
+        <div class="perfiles">        
+          <a href="../index.html" class="a-contratista active" id="contratista" aria-label="Soy contratista">Soy contratista</a> 
+          <a href="./proveedor/proveedor.html" class="a-proovedor" id="proveedor" aria-label="Soy proveedor">Soy proveedor</a>
+        </div>
+      </div>
+        <div class="container-selector-group">
          <!-- Selector de Soporte -->
+          
         <div class="container-selector">
           <a id="soporteLink" aria-haspopup="true" aria-expanded="false">Soporte <i class="fas fa-solid fa-chevron-down" aria-hidden="true"></i></a>
-          <ul id="soporteMenu" class="selector-menu">
-           <li><a href="./faq.html">FAQ</a></li>
-           <li><a href="./manual.html">Manual de uso</a></li>
-         </ul>
-         </div> 
- 
+            <ul id="soporteMenu" class="selector-menu">
+              <li><a href="./faq.html">FAQ</a></li>
+              <li><a href="./manual.html">Manual de uso</a></li>
+            </ul>
+        </div> 
         <!-- Selector de Idioma -->
-        <div class="container-selector">
+        <!-- <div class="container-selector">
           <a id="languageLink" aria-haspopup="true" aria-expanded="false">Idioma <i class="fas fa-solid fa-chevron-down" aria-hidden="true"></i></a>
-           <ul id="languageMenu" class="selector-menu">
-             <li><a href="#">Español</a></li>
-             <li><a href="#">Inglés</a></li>
-           </ul>
+            <ul id="languageMenu" class="selector-menu">
+              <li><a href="#">Español</a></li>
+              <li><a href="#">Inglés</a></li>
+            </ul>
+        </div> -->
+        <!-- Blog --> 
+         <div class="container_blog">               
+            <div class="container-selector">          
+              <a href="./blog.html" id="blogLink">Blog</a>
+              <div id="newBadge">NEW</div>                     
+            </div>
         </div>
- 
-        <!-- Blog -->  
-        <div id="newBadge">NEW</div>      
-        <div class="container-selector">          
-          <a href="./blog.html" id="blogLink">Blog</a>                    
-        </div>         
-      </div> 
-       
-         <!-- Login -->
-          <div class="loging"> 
-             <a href="/views/login.php">
-                 <i class="fas fa-user usuario"></i>  Entrar
-             </a>
-           </div>                 
-      </header>
+        </div>
+        <!-- Login -->
+         <div class="loging"> 
+            <a href="/views/login.php">
+                <i class="fas fa-user usuario"></i>  Entrar
+            </a>
+          </div>
+     </header>
       <!-- Menú de navegación -->
      <div id="menuHamburguesa" aria-label="Abrir menú">&#9776</div>
      <nav id="nav" role="navigation">  
@@ -78,7 +79,7 @@
          <li><a href="../index.html">Inicio</a></li>
          <li><a href="./plataforma.html">Plataforma CAE</a></li>
          <li><a href="./software.html">Software PRL</a></li>
-         <li><a>Mas soluciones <i class="fas fa-solid fa-chevron-down" aria-hidden="true"></i></a>
+         <li class="enlace_soluciones"><a>Mas soluciones <i class="fas fa-solid fa-chevron-down" aria-hidden="true"></i></a>
            <ul>
              <li><a href="./directorio.html">Directorio de proveedores</a></li>
              <li><a href="./control_de_accesos.html">Control de accesos</a></li>
@@ -103,8 +104,8 @@
             </div>
         
             <div class="form-group">
-                <label for="apellidos">Apellidos <span>*</span></label>
-                <input type="text" id="apellidos" name="apellidos" required>
+                <label for="apellidos">Apellidos</label>
+                <input type="text" id="apellidos" name="apellidos">
             </div>
         
             <!-- Nombre de la empresa -->
@@ -127,14 +128,14 @@
         
             <!-- Número de teléfono -->
             <div class="form-group">
-                <label for="telefono">Número de teléfono <span>*</span></label>
-                <input type="tel" id="telefono" name="telefono" pattern="[0-9]{9}" required>
+                <label for="telefono">Número de teléfono</label>
+                <input type="tel" id="telefono" name="telefono" pattern="[0-9]{9}">
             </div>
         
             <!-- Departamento -->
             <div class="form-group">
-                <label for="departamento">Departamento <span>*</span></label>
-                <select id="departamento" name="departamento" required>
+                <label for="departamento">Departamento</label>
+                <select id="departamento" name="departamento">
                     <option value="">-- Ninguno --</option>
                     <option value="ventas">Ventas</option>
                     <option value="atencion-cliente">Atención al cliente</option>
@@ -145,8 +146,8 @@
         
             <!-- Cargo -->
             <div class="form-group">
-                <label for="cargo">Cargo <span>*</span></label>
-                <select id="cargo" name="cargo" required>
+                <label for="cargo">Cargo</label>
+                <select id="cargo" name="cargo">
                     <option value="">-- Ninguno --</option>
                     <option value="director">Director</option>
                     <option value="gerente">Gerente</option>
@@ -156,8 +157,8 @@
         
             <!-- Servicio que interesa -->
             <div class="form-group">
-                <label for="servicio">Servicio que te interesa <span>*</span></label>
-                <select id="servicio" name="servicio" required>
+                <label for="servicio">Servicio que te interesa</label>
+                <select id="servicio" name="servicio">
                     <option value="">-- Ninguno --</option>
                     <option value="gestión-documental">Gestión Documental</option>
                     <option value="facturación-electrónica">Facturación Electrónica</option>
@@ -168,8 +169,8 @@
         
             <!-- Comentarios -->
             <div class="form-group">
-                <label for="mensaje">¿En qué podemos ayudarte? <span>*</span></label>
-                <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+                <label for="mensaje">¿En qué podemos ayudarte?</label>
+                <textarea id="mensaje" name="mensaje" rows="5"></textarea>
             </div>
         
             <!-- Consentimiento -->
@@ -210,7 +211,7 @@
         © 2025 AGRODOC GLOBAL, S.A. &#45; Todos los derechos reservados.
       </div>
     
-      <div class="footer-links">
+      <div class="container_rrss">
         <a href="https://www.instagram.com/" target="_blank" aria-label="Instagram">
           <img src="../assets/img/instagram.png" alt="Instagram" class="rrss">
         </a>

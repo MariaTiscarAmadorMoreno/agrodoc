@@ -9,7 +9,7 @@ tablaFincas.addEventListener("click", (event) => {
     row.dataset.originalLocalizacion = row.querySelector("td:nth-child(5)").innerText;
 
     row.querySelectorAll(".editable").forEach((cell) => {
-      let valor = cell.innerText.trim(); // para eliminar el boton
+      let valor = cell.innerText.trim(); // Excluir el boton
       let enlaceMapa = cell.querySelector('.enlace_mapa');
   
       if (enlaceMapa) {
@@ -57,7 +57,7 @@ tablaFincas.addEventListener("click", (event) => {
 
     let datos = [id, cultivo, hectareas, localizacion];
 
-    console.log("📡 Datos enviados para modificar:", datos);
+    console.log("Datos enviados para modificar:", datos);
 
    
     fetch("/controllers/FincasController.php?action=modificarFinca", {

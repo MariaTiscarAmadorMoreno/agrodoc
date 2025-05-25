@@ -16,12 +16,13 @@ contactForm.addEventListener('submit', function(event) {
         }
     });
 
-    // Validación del email
     const email = document.getElementById('email');
-    var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-    if (emailPattern.test(email.value)) {
+    var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (!emailPattern.test(email.value)) {
         email.style.border = '2px solid red';
         isValid = false;
+    } else {
+        email.style.border = '1px solid #ccc';
     }
 
     // Validación del teléfono 

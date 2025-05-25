@@ -4,13 +4,18 @@ tablaProyectos.addEventListener("click", (event) => {
   if (event.target.classList.contains("editar")) {
     let row = event.target.closest("tr");
 
-    // ✅ Guardamos las fechas originales para compararlas después
-    row.dataset.originalFechaInicio = row.querySelector("td:nth-child(5)").innerText;
-    row.dataset.originalFechaFin = row.querySelector("td:nth-child(6)").innerText;
+    row.dataset.originalTrabajo = row.querySelector("td:nth-child(2)").innerText;
 
-    // ✅ Convertimos directamente a input tipo date (no hay que cambiar formato)
-    row.querySelector("td:nth-child(5)").innerHTML = `<input type="date" value="${row.dataset.originalFechaInicio}">`;
-    row.querySelector("td:nth-child(6)").innerHTML = `<input type="date" value="${row.dataset.originalFechaFin}">`;
+    //Guardamos las fechas originales para compararlas después
+    row.dataset.originalFechaInicio = row.querySelector(".fecha-inicio").innerText;
+    row.dataset.originalFechaFin = row.querySelector(".fecha-fin").innerText;
+
+    
+    row.querySelector(".fecha-inicio" ).innerHTML = `<input type="date" value="${row.dataset.originalFechaInicio}">`;
+    row.querySelector(".fecha-fin" ).innerHTML = `<input type="date" value="${row.dataset.originalFechaFin}">`;
+
+    row.querySelector("td:nth-child(2)").innerHTML = `<input type="text" value="${row.dataset.originalTrabajo}">`;
+
 
     row.querySelector(".editar").style.display = "none";
     row.querySelector(".guardar").style.display = "inline-block";
@@ -21,34 +26,34 @@ tablaProyectos.addEventListener("click", (event) => {
   if (event.target.classList.contains("guardar")) {
     let row = event.target.closest("tr");
     let id = row.dataset.id;
-    let fechaInicio = row.querySelector("td:nth-child(5) input").value;
-    let fechaFin = row.querySelector("td:nth-child(6) input").value;
+    let trabajo = row.querySelector("td:nth-child(2) input").value
+    let fechaInicio = row.querySelector(".fecha-inicio input").value;
+    let fechaFin = row.querySelector(".fecha-fin input").value;
 
-    // ✅ Si no hay cambios, cancelamos la operación
+
+    // Si no hay cambios, cancelamos la operación
     if (
+      trabajo === row.dataset.originalTrabajo &&
       fechaInicio === row.dataset.originalFechaInicio &&
       fechaFin === row.dataset.originalFechaFin
     ) {
       alert("No se realizaron cambios, los datos son los mismos.");
 
-      // ✅ Restauramos los valores originales
-      row.querySelector("td:nth-child(5)").innerText = row.dataset.originalFechaInicio;
-      row.querySelector("td:nth-child(6)").innerText = row.dataset.originalFechaFin;
+      //Restauramos los valores originales
+      row.querySelector("td:nth-child(2)").innerText = row.dataset.originalTrabajo;
+      row.querySelector(".fecha-inicio").innerText = row.dataset.originalFechaInicio;
+      row.querySelector(".fecha-fin").innerText = row.dataset.originalFechaFin;
 
       row.querySelector(".editar").style.display = "inline-block";
       row.querySelector(".guardar").style.display = "none";
       return;
     }
 
-    let datos = [
-      id,
-      fechaInicio,
-      fechaFin
-    ];
+    let datos = [id, trabajo, fechaInicio, fechaFin];
 
     console.log("Datos enviados para modificar:", datos);
 
-    // ✅ Enviar por AJAX mediante fetch
+    //Enviar por AJAX mediante fetch
     fetch("/controllers/ProyecController.php?action=modificarProyecto", {
       method: "POST",
       headers: {
@@ -61,9 +66,10 @@ tablaProyectos.addEventListener("click", (event) => {
         if (data.mensaje) {
           alert(data.mensaje);
 
-          // ✅ Actualizamos la tabla directamente con los nuevos valores
-          row.querySelector("td:nth-child(5)").innerText = fechaInicio;
-          row.querySelector("td:nth-child(6)").innerText = fechaFin;
+          //Actualizamos la tabla directamente con los nuevos valores
+          row.querySelector("td:nth-child(2)").innerText = trabajo;
+          row.querySelector(".fecha-inicio").innerText = fechaInicio;
+          row.querySelector(".fecha-fin").innerText = fechaFin;
 
           row.querySelector(".editar").style.display = "inline-block";
           row.querySelector(".guardar").style.display = "none";

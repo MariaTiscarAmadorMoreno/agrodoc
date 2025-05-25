@@ -24,7 +24,7 @@ function cargarProveedores() {
                
                 let row = `
                     <tr data-id="${proveedor.id_prov}">
-                        <td>${proveedor.id_prov}</td>
+                        <td class="ocultar-sm">${proveedor.id_prov}</td>
                         <td class='editable'>${proveedor.nombre}</td>
                         <td class='editable'>${proveedor.apellidos}</td>
                         <td class='editable'>${proveedor.cif}</td>

@@ -24,7 +24,7 @@ function cargarFincas() {
                
                 let row = `
                     <tr data-id="${finca.id_finca}">
-                        <td>${finca.id_finca}</td>
+                        <td class="ocultar-sm">${finca.id_finca}</td>
                         <td class='editable'>${finca.nombre_contratista}</td>
                         <td class='editable'>${finca.cultivo}</td>
                         <td class='editable'>${finca.hectarea}</td>

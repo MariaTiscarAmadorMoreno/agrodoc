@@ -47,25 +47,3 @@ function cargarProveedores() {
         .catch(error => console.error("Error al cargar proveedores:", error));
 }
 
-// Enviar datos mediante fetch
-// form.addEventListener('submit', (e) => {
-//     e.preventDefault();
-
-//     const formData = new FormData(form);
-
-//     fetch('/controllers/UserController.php?action=crearUsuario', {
-//         method: 'POST',
-//         body: formData
-//     })
-//     .then(response => response.json())
-//     .then(data => {
-//         if (data.mensaje) {
-//             alert(data.mensaje);
-//             window.location.href = "/views/verusuario.php";
-//         } else {
-//             alert(data.error);
-//         }
-//     })
-//     .catch(error => console.error("Error al crear usuario:", error));
-// });
-

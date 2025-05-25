@@ -38,6 +38,7 @@
 
   #main_soluciones h1 {
     color: var(--color-cuarto);
+    font-size: 2.5rem;
     font-weight: bold;
     padding: 2% 0%;
 
@@ -75,7 +76,7 @@
     gap: 8px;
   }
   
-  .directorio_proveedores_2 {
+  .container_articulo_img {
     display: flex;
     width: 90%;
     margin: 3% auto;
@@ -83,19 +84,19 @@
     align-items: center;
   }
   
-  .directorio_proveedores_2 div {
+  .container_articulo_img div {
     flex: 1;
   }
-  .directorio_proveedores_2 .enlace-suscripcion{
+  .container_articulo_img .enlace-suscripcion{
     width: 50%;
     margin: 0% auto;
   }
   
-  .directorio-img {
+  .container-img {
     display: flex;
     justify-content: flex-end;
   }
-  .img-responsive-directorio {
+  .img-responsive-articulo {
     width: 70%;
     height: auto;
     object-fit: cover;
@@ -158,7 +159,7 @@
   }
   
   .proceso-icono span {
-    font-size: 2.9vw;
+    font-size: 2.7rem;
     font-weight: bold;
     color: var(--color-secundario);
   }
@@ -169,7 +170,7 @@
   }
   
   .proceso-item p {
-    font-size: 1.2vw;
+    font-size: 1rem;
     color: var(--color-primario);
     text-align: center;
   }
@@ -177,17 +178,6 @@
     padding-bottom: 5%;
   }
 
-
-  .container_directorio_proveedores_1 {
-    width: 50%;
-    margin-left: 5%;
-  }
-  
-  
-  .container_directorio_proveedores_1 p {
-    color: var(--color-primario);
-    font-weight: bold;
-  }
 
 /* estilos pagina de control de acceso */
 
@@ -202,7 +192,7 @@
 }
 .container_control h1{
   color: var(--color-secundario);
-  font-size: 3.5vw;
+  font-size: 2.7rem;
   margin-left: 7%;
 }
 
@@ -333,7 +323,7 @@
 }
 .titulo-personal h1{
   color: var(--color-secundario);
-  font-size: 3.5vw;
+  font-size: 3.3rem;
   text-align: center;
 }
 
@@ -346,7 +336,7 @@
 .container-pestañas div{
   width: 30%;
   padding: 40px;
-  font-size: large;  
+  font-size: 1.2rem;  
 }
 .pestaña {
   background-color: rgba(244, 244, 244, 0.5);
@@ -449,4 +439,84 @@
     flex: 1 1 100%;
   }
 }
+@media (max-width: 576px) {
+.aside_soluciones{
+  padding: 0;
+}
+.aside_soluciones ul{
+  gap: 15px;
+}
+.container_directorio_proveedores_1{
+  width: 90%;
+}
+#main_soluciones h1 {
+  font-size: 2rem;
 
+}
+.container-img{
+  display: none;
+}
+.container-proceso {
+  gap: 10px;
+}
+.proceso-item {
+  width: auto;
+  height: auto;
+  padding: 10px;
+}
+ /* para centrar a la altura de la cabecera fija */
+#plataforma-articulo_2 {
+  scroll-margin-top: 295px; 
+}
+#plataforma-articulo_3 {
+  scroll-margin-top: 295px; 
+}
+#plataforma-articulo_4 {
+  scroll-margin-top: 295px; 
+}
+/* pagina control de accesos */
+.container_control h1{
+  font-size: 2rem;
+  margin-left: 0;
+  text-align: center;
+}
+#control-articulo_1{
+  width: 100%;
+}
+.control-img {
+  display: none;
+}
+#control-articulo_4{
+  padding: 0;
+}
+.ventajas-fichaje{
+  padding: 0;
+  margin: 0;
+}
+.ventajas-fichaje h2 {
+  margin-bottom: 0;
+  margin: 10% 0; 
+}
+.columna{
+  gap: 10px;
+}
+.titulo-personal h1{
+  font-size: 2.5rem;
+}
+.container-pestañas{
+  margin-top: 0;
+}
+.container-pestañas div{
+  width: 50%;
+  padding: 20px;
+  font-size: 1rem;
+  
+}
+.tab-content{
+  padding: 10px;
+}
+.personal-articulo{
+  margin: 0 auto;
+  text-align: center;
+}
+}

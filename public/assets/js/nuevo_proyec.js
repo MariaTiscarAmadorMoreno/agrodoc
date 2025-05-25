@@ -26,42 +26,6 @@ function cargarProveedores() {
         .catch(error => console.error("Error al cargar proveedores:", error));
 }
 
-// // Función para cargar fincas basadas en el contratista seleccionado
-// function cargarFincas(id_cont) {
-//     if (!id_cont) {
-//         alert("Primero debe seleccionar un contratista para ver sus fincas.");
-//         return;
-//     }
-
-//     console.log(`Cargando fincas para el contratista ID: ${id_cont}`);
-
-//     fetch(`/controllers/FincasController.php?action=listarFincasPorContratista&id_cont=${id_cont}`)
-//         .then(response => response.json())
-//         .then(data => {
-//             console.log("Fincas cargadas:", data);
-
-//             idFincaSelect.innerHTML = '<option value="">-- Seleccionar Finca --</option>';
-//             if (data.length > 0) {
-//                 data.forEach(finca => {
-//                     idFincaSelect.innerHTML += `<option value="${finca.id_finca}">${finca.localizacion}</option>`;
-//                 });
-//             } else {
-//                 alert("No hay fincas asociadas a este contratista.");
-//             }
-//         })
-//         .catch(error => console.error("Error al cargar fincas:", error));
-// }
-
-// // Evento para cargar fincas al seleccionar contratista
-// idContSelect.addEventListener('change', () => {
-//     const id_cont = idContSelect.value;
-//     if (id_cont) {
-//         cargarFincas(id_cont);
-//     } else {
-//         idFincaSelect.innerHTML = '<option value="">-- Seleccionar Finca --</option>';
-//     }
-// });
-
 const idContInput = document.querySelector('[name="id_cont"]');
 const idCont = idContInput ? idContInput.value : null;
 

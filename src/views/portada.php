@@ -13,7 +13,7 @@ $id_proveedor = $usuario['id_prov'] ?? null;
 ?>
 
 <?php if ($tipo === 'admin'): ?>
-    <img src="/assets/img/logotipoAgrodoc.svg" alt="portada" title="portada" class="portada">
+    <img src="/assets/img/logotipoAgrodoc.svg" alt="portada" title="portada">
 
 <?php elseif ($tipo === 'contratista'): ?>
     <div class="container_datos">

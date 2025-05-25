@@ -12,3 +12,6 @@ RUN chown -R www-data:www-data /var/www/html /var/www/src
 
 # Exponer el puerto 80
 EXPOSE 80
+# Habilitar el modulo rewrite
+RUN a2enmod rewrite
+

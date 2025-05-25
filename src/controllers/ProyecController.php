@@ -14,7 +14,8 @@ class ProyecController
         $sql = "SELECT pr.*, 
                    c.nombre AS nombre_contratista, 
                    p.nombre AS nombre_proveedor,  
-                   f.localizacion AS localizacion_finca
+                   f.localizacion AS localizacion_finca,
+                   f.cultivo AS tipo_cultivo
             FROM proyectos pr
             LEFT JOIN contratistas c ON pr.id_cont = c.id_cont
             LEFT JOIN proveedores p ON pr.id_prov = p.id_prov
@@ -66,20 +67,21 @@ class ProyecController
         try {
             $datos = json_decode($datosSerializados, true);
 
-            // Comprobamos que el array tenga los 3 parámetros requeridos
-            if (count($datos) !== 3) {
+           
+            if (count($datos) !== 4) {
                 echo json_encode(["error" => "Número incorrecto de parámetros"]);
                 return;
             }
 
             $sql = "UPDATE proyectos 
-                    SET fecha_inicio = ?, fecha_fin = ?
+                    SET trabajo = ?, fecha_inicio = ?, fecha_fin = ?
                     WHERE id_proyec = ?";
 
             $stmt = $this->db->conn->prepare($sql);
             $stmt->execute([
                 $datos[1],
                 $datos[2],
+                $datos[3],
                 $datos[0]
             ]);
 
@@ -98,8 +100,8 @@ class ProyecController
     public function setProyecto($datos)
     {
 
-        $sql = "INSERT INTO proyectos (id_cont, id_prov, id_finca, fecha_inicio, fecha_fin) 
-                VALUES (?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO proyectos (id_cont, id_prov, id_finca, trabajo,fecha_inicio, fecha_fin) 
+                VALUES (?, ?, ?, ?, ?, ?)";
 
         $stmt = $this->db->conn->prepare($sql);
         $stmt->execute([
@@ -107,7 +109,8 @@ class ProyecController
             $datos[1] ?? null,
             $datos[2] ?? null,
             $datos[3] ?? null,
-            $datos[4] ?? null
+            $datos[4] ?? null,
+            $datos[5] ?? null
         ]);
     }
 

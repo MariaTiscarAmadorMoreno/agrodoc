@@ -1,224 +1,247 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Plataforma AgroDoc - Gestión documental agrícola" />
-    <meta name="keywords" content="agricultura, gestión documental, agro, empresas, proveedores" />
-    <link rel="icon" type="image/png" sizes="128x128" href="../assets/img/favicon.png">
-    <!-- FontAwasome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- css -->
-    <link rel="stylesheet" type="text/css" href="../assets/css/estilos_tv.css">
-    <link rel="stylesheet" type="text/css" href="../assets/css/soluciones.css">
-    <!-- script para chat en vivo -->
-    <script src="//code.tidio.co/qoe3mhwmfpdrgnjupiwlei0hkc9cy2ut.js" async></script>    
-    <title>Agrodoc-Plataforma CAE</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Plataforma AgroDoc - Gestión documental agrícola" />
+  <meta name="keywords" content="agricultura, gestión documental, agro, empresas, proveedores" />
+  <link rel="icon" type="image/png" sizes="128x128" href="../assets/img/favicon.png">
+  <!-- FontAwasome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- css -->
+  <link rel="stylesheet" type="text/css" href="../assets/css/estilos_tv.css">
+  <link rel="stylesheet" type="text/css" href="../assets/css/soluciones.css">
+  <!-- script para chat en vivo -->
+  <script src="//code.tidio.co/qoe3mhwmfpdrgnjupiwlei0hkc9cy2ut.js" async></script>
+  <title>Agrodoc-Plataforma CAE</title>
 </head>
+
 <body>
   <!--Contenedor principal-->
   <div id="principal">
     <div class="container_header_nav">
-      <!--Cabecera-->    
-      <header id="principal_header" role="banner"> 
-         <div class="container_logotipo">
-           <a href="../index.html" name="logotipo">           
-             <img src="../assets/img/logotipoAgrodoc.svg" alt="logotipo svg" title="Agrodoc" class="logotipo">
-           </a>
-         </div>
-         <div class="container_perfiles">
-           <div class="informacion"> 
-             <a href="#" aria-label="Información">
-               <i class="fa-solid fa-circle-info fa-2x"></i>
-             </a>
-         </div>        
-         <div class="perfiles">        
-           <a href="../index.html" class="a-contratista active" id="contratista" aria-label="Soy contratista">Soy contratista</a> 
-           <a href="./paginas/proveedor.html" class="a-proovedor" id="proveedor" aria-label="Soy proveedor">Soy proveedor</a>
-         </div>
-       </div> 
-        
-       <div class="container-selector-group"> 
-         <!-- Selector de Soporte -->
-        <div class="container-selector">
-          <a id="soporteLink" aria-haspopup="true" aria-expanded="false">Soporte <i class="fas fa-solid fa-chevron-down" aria-hidden="true"></i></a>
-          <ul id="soporteMenu" class="selector-menu">
-           <li><a href="./faq.html">FAQ</a></li>
-           <li><a href="./manual.html">Manual de uso</a></li>
-         </ul>
-         </div> 
- 
-        <!-- Selector de Idioma -->
-        <div class="container-selector">
-          <a id="languageLink" aria-haspopup="true" aria-expanded="false">Idioma <i class="fas fa-solid fa-chevron-down" aria-hidden="true"></i></a>
-           <ul id="languageMenu" class="selector-menu">
-             <li><a href="#">Español</a></li>
-             <li><a href="#">Inglés</a></li>
-           </ul>
+      <!--Cabecera-->
+      <header id="principal_header" role="banner">
+        <div class="container_logotipo">
+          <a href="../index.html" name="logotipo">
+            <img src="../assets/img/logotipoAgrodoc.svg" alt="logotipo svg" title="Agrodoc" class="logotipo">
+          </a>
         </div>
- 
-        <!-- Blog -->  
-        <div id="newBadge">NEW</div>      
-        <div class="container-selector">          
-          <a href="./blog.html" id="blogLink">Blog</a>                    
-        </div>         
-      </div> 
-       
-         <!-- Login -->
-          <div class="loging"> 
-             <a href="/views/login.php">
-                 <i class="fas fa-user usuario"></i>  Entrar
-             </a>
-           </div>                 
+        <div class="container_perfiles">
+          <div class="informacion">
+            <a href="#" aria-label="Información">
+              <i class="fa-solid fa-circle-info fa-2x"></i>
+            </a>
+          </div>
+          <div class="perfiles">
+            <a href="../index.html" class="a-contratista active" id="contratista" aria-label="Soy contratista">Soy
+              contratista</a>
+            <a href="./proveedor/proveedor.html" class="a-proovedor" id="proveedor" aria-label="Soy proveedor">Soy
+              proveedor</a>
+          </div>
+        </div>
+        <div class="container-selector-group">
+          <!-- Selector de Soporte -->
+
+          <div class="container-selector">
+            <a id="soporteLink" aria-haspopup="true" aria-expanded="false">Soporte <i
+                class="fas fa-solid fa-chevron-down" aria-hidden="true"></i></a>
+            <ul id="soporteMenu" class="selector-menu">
+              <li><a href="./faq.html">FAQ</a></li>
+              <li><a href="./manual.html">Manual de uso</a></li>
+            </ul>
+          </div>
+          <!-- Selector de Idioma -->
+          <!-- <div class="container-selector">
+          <a id="languageLink" aria-haspopup="true" aria-expanded="false">Idioma <i class="fas fa-solid fa-chevron-down" aria-hidden="true"></i></a>
+            <ul id="languageMenu" class="selector-menu">
+              <li><a href="#">Español</a></li>
+              <li><a href="#">Inglés</a></li>
+            </ul>
+        </div> -->
+          <!-- Blog -->
+          <div class="container_blog">
+            <div class="container-selector">
+              <a href="./blog.html" id="blogLink">Blog</a>
+              <div id="newBadge">NEW</div>
+            </div>
+          </div>
+        </div>
+        <!-- Login -->
+        <div class="loging">
+          <a href="/views/login.php">
+            <i class="fas fa-user usuario"></i> Entrar
+          </a>
+        </div>
       </header>
       <!-- Menú de navegación -->
-     <div id="menuHamburguesa" aria-label="Abrir menú">&#9776</div>
-     <nav id="nav" role="navigation">  
-       <ul class="container_nav">
-         <li><a href="../index.html">Inicio</a></li>
-         <li><a href="./plataforma.html">Plataforma CAE</a></li>
-         <li><a href="./software.html">Software PRL</a></li>
-         <li><a>Mas soluciones <i class="fas fa-solid fa-chevron-down" aria-hidden="true"></i></a>
-           <ul>
-             <li><a href="./directorio.html">Directorio de proveedores</a></li>
-             <li><a href="./control_de_accesos.html">Control de accesos</a></li>
-             <li><a href="./personal_sobre_el_terreno.html">Personal sobre el terreno</a></li>
-           </ul>
-         </li>
-         <li><a href="./contacto.html">Contacto</a></li>
-       </ul>     
-     </nav>
-   </div>
+      <div id="menuHamburguesa" aria-label="Abrir menú">&#9776</div>
+      <!-- Navegador -->
+      <nav id="nav" role="navigation">
+        <ul class="container_nav">
+          <li><a href="../index.html">Inicio</a></li>
+          <li><a href="./plataforma.html">Plataforma CAE</a></li>
+          <li><a href="./software.html">Software PRL</a></li>
+          <li class="enlace_soluciones"><a id="enlace_soluciones">Mas soluciones <i class="fas fa-solid fa-chevron-down"
+                aria-hidden="true"></i></a>
+            <ul>
+              <li><a href="./directorio.html">Directorio de proveedores</a></li>
+              <li><a href="./control_de_accesos.html">Control de accesos</a></li>
+              <li><a href="./personal_sobre_el_terreno.html">Personal sobre el terreno</a></li>
+            </ul>
+          </li>
+          <li><a href="./contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
     <!-- Sección de contenido -->
     <aside id="aside" role="complementary" class="aside_soluciones">
       <ul>
         <li><a href="#control-articulo_1">Sistemas de control </a></li>
         <li><a href="#control-articulo_2">¿Qué es?</a></li>
         <li><a href="#control-articulo_3">¿Cómo funciona?</a></li>
-        <li><a href="#control-articulo_4">Ventajas</a></li>         
+        <li><a href="#control-articulo_4">Ventajas</a></li>
       </ul>
-     </aside>
-   <!-- Contenido principal -->
-   <main id="main_control" role="main" > 
-    <div class="container_control"> 
-      <h1 class="espacio_blanco">Sistema de control de acceso vía smartphone</h1>    
-      <article id="control-articulo_1" > 
-        <div class="container-control-articulo_1">    
-        <h2>Fichar en el trabajo con el móvil ligado a la documentación CAE</h2>         
-        <p>Fichar en el trabajo con el móvil es la solución más económica y sencilla para controlar que sólo accedan a tus proyectos trabajadores y máquinas aptas controlando al tiempo sus jornadas y horas trabajadas.</p>
-        </div> 
-        <div class="container_enlace_suscripcion enlace_fila">
-          <a href="./webminar.html" class="enlace-informacion"> <i class="fa-regular fa-circle-play fa-2x play"></i>Accede a nuestro webminar y realiza tus preguntas</a>
-          <a href="./contacto.html" class="enlace-suscripcion">Solicita mas información</a>
-        </div>           
+    </aside>
+    <!-- Contenido principal -->
+    <main id="main_control" role="main">
+      <div class="container_control">
+        <h1 class="espacio_blanco">Sistema de control de acceso vía smartphone</h1>
+        <article id="control-articulo_1">
+          <div class="container-control-articulo_1">
+            <h2>Fichar en el trabajo con el móvil ligado a la documentación CAE</h2>
+            <p>Fichar en el trabajo con el móvil es la solución más económica y sencilla para controlar que sólo accedan
+              a tus proyectos trabajadores y máquinas aptas controlando al tiempo sus jornadas y horas trabajadas.</p>
+          </div>
+          <div class="container_enlace_suscripcion enlace_fila">
+            <a href="./webminar.html" class="enlace-informacion"> <i
+                class="fa-regular fa-circle-play fa-2x play"></i>Accede a nuestro webminar y realiza tus preguntas</a>
+            <a href="./contacto.html" class="enlace-suscripcion">Solicita mas información</a>
+          </div>
+        </article>
+      </div>
+      <article id="control-articulo_2">
+        <div>
+          <h2 class="espacio_blanco">App registro jornada laboral ¿Qué es?</h2>
+          <p>Nuestra App de registro de jornada laboral es una app que permite a cualquier smartphone identificar a los
+            trabajadores y máquinas que entran en un proyecto,
+            y devolver su estado de aptitud en función del estado de su documentación CAE en tiempo real, al tiempo que
+            marca sus horas de entrada y/o salida para un posterior control de sus jornadas y horas trabajadas.</p>
+          <p>También es posible utilizar la app en modo auditoría en caso de que no sea posible controlar los accesos al
+            proyecto.</p>
+        </div>
+        <div class="control-img">
+          <img src="../assets/img/movil.jpeg" alt="Uso de un móvil" title="Uso de un móvil"
+            class="img-responsive-control">
+        </div>
       </article>
-    </div>
-   <article id="control-articulo_2">
-    <div>
-      <h2 class="espacio_blanco">App registro jornada laboral ¿Qué es?</h2>
-      <p>Nuestra App de registro de jornada laboral es una app que permite a cualquier smartphone identificar a los trabajadores y máquinas que entran en un proyecto, 
-      y devolver su estado de aptitud en función del estado de su documentación CAE en tiempo real, al tiempo que marca sus horas de entrada y/o salida para un posterior control de sus jornadas y horas trabajadas.</p>
-      <p>También es posible utilizar la app en modo auditoría en caso de que no sea posible controlar los accesos al proyecto.</p>
-    </div>
-    <div class="control-img">
-      <img src="../assets/img/movil.jpeg" alt="Uso de un móvil" title="Uso de un móvil" class="img-responsive-control">
-    </div> 
-  </article>
-  <article id="control-articulo_3">
-    <div>
-      <h2>Fichar en el trabajo con el móvil ¿Cómo funciona?</h2> 
-      <p>Escaneando unos carnets identificativos con código QR infalsificables que las propias subcontratas pueden imprimir a sus trabajadores y máquinas, conocerás el estado documental en tiempo real, y el detalle de sus entradas y salidas, 
-        obteniendo posteriormente informes exportables a Excel de forma automática.</p>
-      <p>Además, podrás consultar el detalle de los trabajadores y máquinas en tu smartphone y tener un control de presencia de quién se encuentra dentro del proyecto en cualquier momento.</p>
-    </div>
-  </article> 
-  <article id="control-articulo_4">
-      <h2 class="espacio_blanco">¿Por qué deberías utilizar una app para fichar en el trabajo?</h2> 
-      <p>Fichar en el trabajo con el móvil ha revolucionado el mundo empresarial y hoy en día, es posible aprovecharla para cumplir con las normativas de trabajo y mejorar el rendimiento en el entorno laboral. Además, el registro de vacaciones 
-        y ausencias justificadas ofrece una visión completa de la situación para la empresa y Recursos Humanos.</p>
-      <p>Gracias al fichaje con móvil, es posible aumentar la productividad, cumplir con las normas y garantizar el bienestar laboral de todos los trabajadores. Con un control detallado de las horas trabajadas, es posible mejorar la eficiencia y 
-        evitar sanciones y multas por incumplimiento de las normativas laborales. En definitiva, la implementación de apps en el ámbito laboral puede ser una gran ayuda para las empresas y los trabajadores, y contribuir a la mejora y crecimiento de la compañía.</p>
+      <article id="control-articulo_3">
+        <div>
+          <h2>Fichar en el trabajo con el móvil ¿Cómo funciona?</h2>
+          <p>Escaneando unos carnets identificativos con código QR infalsificables que las propias subcontratas pueden
+            imprimir a sus trabajadores y máquinas, conocerás el estado documental en tiempo real, y el detalle de sus
+            entradas y salidas,
+            obteniendo posteriormente informes exportables a Excel de forma automática.</p>
+          <p>Además, podrás consultar el detalle de los trabajadores y máquinas en tu smartphone y tener un control de
+            presencia de quién se encuentra dentro del proyecto en cualquier momento.</p>
+        </div>
+      </article>
+      <article id="control-articulo_4">
+        <h2 class="espacio_blanco">¿Por qué deberías utilizar una app para fichar en el trabajo?</h2>
+        <p>Fichar en el trabajo con el móvil ha revolucionado el mundo empresarial y hoy en día, es posible aprovecharla
+          para cumplir con las normativas de trabajo y mejorar el rendimiento en el entorno laboral. Además, el registro
+          de vacaciones
+          y ausencias justificadas ofrece una visión completa de la situación para la empresa y Recursos Humanos.</p>
+        <p>Gracias al fichaje con móvil, es posible aumentar la productividad, cumplir con las normas y garantizar el
+          bienestar laboral de todos los trabajadores. Con un control detallado de las horas trabajadas, es posible
+          mejorar la eficiencia y
+          evitar sanciones y multas por incumplimiento de las normativas laborales. En definitiva, la implementación de
+          apps en el ámbito laboral puede ser una gran ayuda para las empresas y los trabajadores, y contribuir a la
+          mejora y crecimiento de la compañía.</p>
         <div class="ventajas-fichaje">
           <h2>Ventajas de fichar con el móvil</h2>
-  <div class="columnas">
-    <div class="columna">
-      <div class="ventaja">
-        <i class="fas fa-user-check icono"></i>
-        <div>
-          <h3>Sólo trabajadores aptos en tu proyecto</h3>
-          <p>Conocerás su aptitud documental en tiempo real en los momentos clave de entrada, salida o cuando audites.</p>
-        </div>
-      </div>
-      <div class="ventaja">
-        <i class="fas fa-file-excel icono"></i>
-        <div>
-          <h3>Listerías y hojas de control automáticas</h3>
-          <p>Exportables a Excel. El Smartphone se conecta a la nube y rellena los datos para su tratamiento.</p>
-        </div>
-      </div>
-      <div class="ventaja">
-        <i class="fas fa-users icono"></i>
-        <div>
-          <h3>Listados de presencia en tiempo real</h3>
-          <p>Conoce quién está presente en tu proyecto y mejora la seguridad.</p>
-        </div>
-      </div>
-      <div class="ventaja">
-        <i class="fas fa-signal icono"></i>
-        <div>
-          <h3>También funciona offline</h3>
-          <p>Los datos se guardan y se sincronizan cuando haya conexión.</p>
-        </div>
-      </div>
-      <div class="ventaja">
-        <i class="fas fa-id-card icono"></i>
-        <div>
-          <h3>Gestión de visitas y suministradores</h3>
-          <p>Carnets para personas sin documentación CAE obligatoria.</p>
-        </div>
-      </div>
-    </div>
-    <div class="columna">
-      <div class="ventaja">
-        <i class="fas fa-mobile-alt icono"></i>
-        <div>
-          <h3>Sin carnés físicos si lo deseas</h3>
-          <p>Carnets accesibles desde el móvil con la App para trabajadores.</p>
-        </div>
-      </div>
-      <div class="ventaja">
-        <i class="fas fa-cogs icono"></i>
-        <div>
-          <h3>Sólo máquinas aptas en tu proyecto</h3>
-          <p>Verifica su aptitud documental en tiempo real.</p>
-        </div>
-      </div>
-      <div class="ventaja">
-        <i class="fas fa-qrcode icono"></i>
-        <div>
-          <h3>QR infalsificable y foto del trabajador</h3>
-          <p>Evita suplantaciones con QR + fotografía en los carnets.</p>
-        </div>
-      </div>
-      <div class="ventaja">
-        <i class="fas fa-clock icono"></i>
-        <div>
-          <h3>Control simple o de alta precisión</h3>
-          <p>Paga por horas reales trabajadas y reduce costes innecesarios.</p>
-        </div>
-      </div>
-      <div class="ventaja">
-        <i class="fas fa-sync-alt icono"></i>
-        <div>
-          <h3>Compatible con cualquier dispositivo</h3>
-          <p>Smartphones, tornos, lectores… lo que necesites.</p>
-        </div>
-      </div>
-    </div>
-  </div>       
-  </article> 
-</main>
+          <div class="columnas">
+            <div class="columna">
+              <div class="ventaja">
+                <i class="fas fa-user-check icono"></i>
+                <div>
+                  <h3>Sólo trabajadores aptos en tu proyecto</h3>
+                  <p>Conocerás su aptitud documental en tiempo real en los momentos clave de entrada, salida o cuando
+                    audites.</p>
+                </div>
+              </div>
+              <div class="ventaja">
+                <i class="fas fa-file-excel icono"></i>
+                <div>
+                  <h3>Listerías y hojas de control automáticas</h3>
+                  <p>Exportables a Excel. El Smartphone se conecta a la nube y rellena los datos para su tratamiento.
+                  </p>
+                </div>
+              </div>
+              <div class="ventaja">
+                <i class="fas fa-users icono"></i>
+                <div>
+                  <h3>Listados de presencia en tiempo real</h3>
+                  <p>Conoce quién está presente en tu proyecto y mejora la seguridad.</p>
+                </div>
+              </div>
+              <div class="ventaja">
+                <i class="fas fa-signal icono"></i>
+                <div>
+                  <h3>También funciona offline</h3>
+                  <p>Los datos se guardan y se sincronizan cuando haya conexión.</p>
+                </div>
+              </div>
+              <div class="ventaja">
+                <i class="fas fa-id-card icono"></i>
+                <div>
+                  <h3>Gestión de visitas y suministradores</h3>
+                  <p>Carnets para personas sin documentación CAE obligatoria.</p>
+                </div>
+              </div>
+            </div>
+            <div class="columna">
+              <div class="ventaja">
+                <i class="fas fa-mobile-alt icono"></i>
+                <div>
+                  <h3>Sin carnés físicos si lo deseas</h3>
+                  <p>Carnets accesibles desde el móvil con la App para trabajadores.</p>
+                </div>
+              </div>
+              <div class="ventaja">
+                <i class="fas fa-cogs icono"></i>
+                <div>
+                  <h3>Sólo máquinas aptas en tu proyecto</h3>
+                  <p>Verifica su aptitud documental en tiempo real.</p>
+                </div>
+              </div>
+              <div class="ventaja">
+                <i class="fas fa-qrcode icono"></i>
+                <div>
+                  <h3>QR infalsificable y foto del trabajador</h3>
+                  <p>Evita suplantaciones con QR + fotografía en los carnets.</p>
+                </div>
+              </div>
+              <div class="ventaja">
+                <i class="fas fa-clock icono"></i>
+                <div>
+                  <h3>Control simple o de alta precisión</h3>
+                  <p>Paga por horas reales trabajadas y reduce costes innecesarios.</p>
+                </div>
+              </div>
+              <div class="ventaja">
+                <i class="fas fa-sync-alt icono"></i>
+                <div>
+                  <h3>Compatible con cualquier dispositivo</h3>
+                  <p>Smartphones, tornos, lectores… lo que necesites.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+      </article>
+    </main>
     <!-- Pie de página -->
     <footer id="footer" role="contentinfo">
       <div class="footer-links">
@@ -228,12 +251,12 @@
         <a href="./politica_privacidad.html" aria-label="Política de privacidad">Política de privacidad</a>
         <a href="mailto:agrodoc@agrodoc.com" aria-label="Enviar un correo a AgroDoc">Email: agrodoc@agrodoc.com</a>
       </div>
-    
+
       <div>
         © 2025 AGRODOC GLOBAL, S.A. &#45; Todos los derechos reservados.
       </div>
-    
-      <div class="footer-links">
+
+      <div class="container_rrss">
         <a href="https://www.instagram.com/" target="_blank" aria-label="Instagram">
           <img src="../assets/img/instagram.png" alt="Instagram" class="rrss">
         </a>
@@ -246,38 +269,55 @@
       </div>
     </footer>
     <!-- Modal de Información -->
-<div id="infoModal" class="modal">
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <h2>Información para Contratistas y Proveedores</h2>
-    <div class="info-content">
-      <h3>Contratista</h3>
-      <ul>
-        <li><strong>Gestión Documental CAE:</strong> Cuando como contratista deseas recibir la documentación de tus subcontratistas. Cuando como subcontratista deseas recibir la documentación de tus propios subcontratistas. Cuando como promotora/propiedad, deseas solicitar la documentación a tu contratista principal y/o a todos sus subcontratistas.</li>
-        <li><strong>Facturación electrónica:</strong> Cuando como comprador/contratador de bienes/servicios, deseas recibir las facturas de tus proveedores electrónicamente.</li>
-        <li><strong>Homologación y Compliance de Empresas:</strong> Cuando como comprador/contratador de bienes/servicios, deseas recibir la documentación/información de homologación y/o compliance de tus proveedores según tus exigencias.</li>
-        <li><strong>Herramienta de Compras:</strong> Cuando como Empresa Contratista deseas recibir ofertas de tus proveedores a tus RFQ’s.</li>
-      </ul>
+    <div id="infoModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Información para Contratistas y Proveedores</h2>
+        <div class="info-content">
+          <h3>Contratista</h3>
+          <ul>
+            <li><strong>Gestión Documental CAE:</strong> Cuando como contratista deseas recibir la documentación de tus
+              subcontratistas. Cuando como subcontratista deseas recibir la documentación de tus propios
+              subcontratistas. Cuando como promotora/propiedad, deseas solicitar la documentación a tu contratista
+              principal y/o a todos sus subcontratistas.</li>
+            <li><strong>Facturación electrónica:</strong> Cuando como comprador/contratador de bienes/servicios, deseas
+              recibir las facturas de tus proveedores electrónicamente.</li>
+            <li><strong>Homologación y Compliance de Empresas:</strong> Cuando como comprador/contratador de
+              bienes/servicios, deseas recibir la documentación/información de homologación y/o compliance de tus
+              proveedores según tus exigencias.</li>
+            <li><strong>Herramienta de Compras:</strong> Cuando como Empresa Contratista deseas recibir ofertas de tus
+              proveedores a tus RFQ’s.</li>
+          </ul>
 
-      <h3>Proveedor</h3>
-      <ul>
-        <li><strong>Gestión Documental CAE:</strong> Cuando como subcontratista, debes remitir tu documentación y/o las de tus propias subcontratas a tu contratista principal. Cuando como subcontratista de nivel inferior, debes remitir tu documentación a tu subcontratista de nivel superior. Cuando como contratista principal, debes remitir tu documentación y/o la de todos tus subcontratistas a tu promotora/propiedad.</li>
-        <li><strong>Facturación electrónica:</strong> Cuando como proveedor/vendedor/contratista, debes emitir las facturas a tus clientes/contratistas/administración pública electrónicamente.</li>
-        <li><strong>Homologación y Compliance de Empresas:</strong> Cuando como proveedor de bienes/servicios, debes remitir la documentación de homologación y/o compliance o según las exigencias de tu empresa a tus proveedores.</li>
-        <li><strong>Información de obras:</strong> Cuando como proveedor, deseas encontrar nuevos  proyectos y/o clientes a los que vender tus bienes y servicios.</li>
-      </ul>
+          <h3>Proveedor</h3>
+          <ul>
+            <li><strong>Gestión Documental CAE:</strong> Cuando como subcontratista, debes remitir tu documentación y/o
+              las de tus propias subcontratas a tu contratista principal. Cuando como subcontratista de nivel inferior,
+              debes remitir tu documentación a tu subcontratista de nivel superior. Cuando como contratista principal,
+              debes remitir tu documentación y/o la de todos tus subcontratistas a tu promotora/propiedad.</li>
+            <li><strong>Facturación electrónica:</strong> Cuando como proveedor/vendedor/contratista, debes emitir las
+              facturas a tus clientes/contratistas/administración pública electrónicamente.</li>
+            <li><strong>Homologación y Compliance de Empresas:</strong> Cuando como proveedor de bienes/servicios, debes
+              remitir la documentación de homologación y/o compliance o según las exigencias de tu empresa a tus
+              proveedores.</li>
+            <li><strong>Información de obras:</strong> Cuando como proveedor, deseas encontrar nuevos proyectos y/o
+              clientes a los que vender tus bienes y servicios.</li>
+          </ul>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
 
-    
-</div> 
+
+  </div>
   <!-- JS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+    integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="../assets/js/menu.js"></script>
   <script src="../assets/js/perfil.js"></script>
   <script src="../assets/js/animation_new.js"></script>
   <script src="../assets/js/icon_infomation.js"></script>
   <script src="../assets/js/desplegable.js"></script>
 </body>
+
 </html>

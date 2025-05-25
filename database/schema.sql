@@ -64,9 +64,22 @@ CREATE TABLE trabajadores (
     FOREIGN KEY (id_prov) REFERENCES proveedores(id_prov) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
+--Tabla de Docuemntos
+CREATE TABLE documentos (
+    id_doc INTEGER AUTO_INCREMENT NOT NULL,
+    tipo_documento ENUM('dni', 'alta_ss', 'prl', 'reconocimiento_medico', 'aut_maquinaria') NOT NULL,
+    ruta_archivo VARCHAR(255) NOT NULL,
+    fecha_caducidad DATE, 
+    id_trab INTEGER NOT NULL,
+    PRIMARY KEY (id_doc),
+    FOREIGN KEY (id_trab) REFERENCES trabajadores(id_trab) ON UPDATE CASCADE ON DELETE CASCADE
+);
+
+
 -- Tabla de Proyectos
 CREATE TABLE proyectos (
     id_proyec INTEGER AUTO_INCREMENT NOT NULL,
+    trabajo VARCHAR (100),
     fecha_inicio DATE,
     fecha_fin DATE,
     id_cont INTEGER NOT NULL,
@@ -111,9 +124,16 @@ INSERT INTO trabajadores (nombre, apellidos, dni, email, telefono, direccion, do
 ('Juan', 'Pérez Rodríguez', '12345678A', 'juan.perez@example.com', '600112233', 'Calle Azul 21, Almería', TRUE, 1),
 ('Carmen', 'Gómez Ruiz', '87654321B', 'carmen.gomez@example.com', '600445566', 'Calle Amarilla 67, Almería', TRUE, 2);
 
-INSERT INTO proyectos (fecha_inicio, fecha_fin, id_cont, id_prov, id_finca) VALUES
-('2024-01-01', '2024-03-31', 1, 1, 1),
-('2024-04-01', '2024-06-30', 2, 2, 2);
+INSERT INTO documentos (tipo_documento,ruta_archivo,fecha_caducidad, id_trab) VALUES
+('dni', '/documentos_trab', '2025-03-31', '1'),
+('alta_ss', '/documentos_trab', '2025-05-31', '1'),
+('prl', '/documentos_trab', '2025-08-31', '1'),
+('reconocimiento_medico', '/documentos_trab', '2025-10-31', '1'),
+('aut_maquinaria', '/documentos_trab', '2025-08-31', '1');
+
+INSERT INTO proyectos (trabajo,fecha_inicio, fecha_fin, id_cont, id_prov, id_finca) VALUES
+('recogida de cosecha', '2024-01-01', '2024-03-31', 1, 1, 1),
+('plantar', '2024-04-01', '2024-06-30', 2, 2, 2);
 
 INSERT INTO proyectos_trabajadores (id_trab, id_proyec) VALUES
 (1, 1),

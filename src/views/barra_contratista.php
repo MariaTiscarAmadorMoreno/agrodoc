@@ -5,8 +5,26 @@ $nombre = $datos['nombre'] ?? 'Contratista';
 $id_contratista = $datos['id_cont'];
 ?>
 
+<nav id="nav" role="navigation">
+    <div class="container_nav">      
+                <?php            
 
-<aside id="sidebar_contratista" role="complementary">
+                    echo '<div class="container-selector">';        
+                    echo '<a href="javascript:cargar(\'#portada\',\'/views/verfincas.php\');" id="soporteLink">Fincas</a>';
+                    echo '</div>';
+
+                    echo '<div class="container-selector">';        
+                    echo '<a href="javascript:cargar(\'#portada\',\'/views/verproyectos.php\');" id="soporteLink">Campañas</a>';
+                    echo '</div>'; 
+
+                    echo '<div class="container-selector">';        
+                    echo '<a href="javascript:cargar(\'#portada\',\'/views/verproveedores.php\');" id="soporteLink">Proveedores</a>';
+                    echo '</div>'; 
+                               
+                ?>
+    </div>
+</nav>
+<aside id="aside" role="complementary">
     <div class="sidebar-header">
         <h3 class="sidebar-title">Menú</h3>
     </div>

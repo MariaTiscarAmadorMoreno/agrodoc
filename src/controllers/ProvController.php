@@ -12,7 +12,7 @@ class ProvController
 
     public function getProveedores()
     {
-        $sql = "SELECT * FROM proveedores ORDER BY nombre ASC";
+        $sql = "SELECT * FROM proveedores ORDER BY id_prov ASC";
         $resultado = $this->db->ejecutarConsulta($sql);
 
         if ($resultado) {

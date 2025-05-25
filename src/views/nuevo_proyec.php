@@ -40,7 +40,10 @@ $idCont = $usuario['id_cont'] ?? null;
                 <option value="">-- Seleccionar Finca --</option>
             </select>
         </div>
-
+        <div>
+            <label for="trabajo">Trabajo:</label>
+            <input placeholder="Trabajo" required="required" name="trabajo" type="text" id="trabajo">
+        </div>
         <!-- Desplegable de proveedores -->
         <div id="proveedorField">
             <label for="id_prov">Selecciona un proveedor:</label>

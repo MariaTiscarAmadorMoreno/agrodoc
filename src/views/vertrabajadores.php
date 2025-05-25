@@ -17,21 +17,21 @@ if ($tipo === 'proveedor') {
     $idProv = $usuario['id_prov'];
     $datos = $controller->getTrabajadoresPorProveedor($idProv);
 } else {
-   
-    $datos = $controller->getTrabajadores(); 
+
+    $datos = $controller->getTrabajadores();
 }
 ?>
-<div id="datosUsuario" 
-     data-tipo="<?= $tipo ?>" 
-     data-id-prov="<?= $usuario['id_prov'] ?? '' ?>">
+<div id="datosUsuario"
+    data-tipo="<?= $tipo ?>"
+    data-id-prov="<?= $usuario['id_prov'] ?? '' ?>">
 </div>
 
 <h2>Lista de Trabajadores</h2>
-
-<table id="trabajadoresTabla">
-    <thead>
-    <tr>
-                <th>ID</th>
+<div class="table-responsive">
+    <table id="trabajadoresTabla">
+        <thead>
+            <tr>
+                <th class="ocultar-sm">ID</th>
                 <th>Nombre</th>
                 <th>Apellidos</th>
                 <th>DNI</th>
@@ -43,32 +43,32 @@ if ($tipo === 'proveedor') {
                 <th>Modificar</th>
                 <th>Eliminar</th>
             </tr>
-    </thead>
-    <tbody>
-        <?php foreach ($datos as $trabajador): ?>
-            <tr data-id="<?= $trabajador['id_trab'] ?>">
-                <td><?= $trabajador['id_trab'] ?></td>
-                <td class='editable'><?= $trabajador['nombre'] ?></td>
-                <td class='editable'><?= $trabajador['apellidos'] ?></td>
-                <td class='editable'><?= $trabajador['dni'] ?></td>
-                <td class='editable'><?= $trabajador['email'] ?></td>
-                <td class='editable'><?= $trabajador['telefono'] ?></td>
-                <td class='editable'><?= $trabajador['direccion'] ?></td>
-                <td class='editable'><?= $trabajador['documentos'] ? 'Sí' : 'No' ?></td>
-                <td><?= $trabajador['nombre_proveedor']?? 'No disponible' ?> <?=$trabajador['apellidos_proveedor'] ?? 'No disponible' ?></td>
-                <td>
-                    <button class="editar">Modificar</button>
-                    <button class="guardar" style="display:none;">Guardar</button>
-                </td>
-                <td>
-                    <button class="eliminar" onclick="eliminarTrabajador(<?= $trabajador['id_trab'] ?>)">Eliminar</button>
-                </td>
-            </tr>
-        <?php endforeach; ?>
-    </tbody>
-</table>
-
-<div class="enlace_crear">
+        </thead>
+        <tbody>
+            <?php foreach ($datos as $trabajador): ?>
+                <tr data-id="<?= $trabajador['id_trab'] ?>">
+                    <td class="ocultar-sm"><?= $trabajador['id_trab'] ?></td>
+                    <td class='editable'><?= $trabajador['nombre'] ?></td>
+                    <td class='editable'><?= $trabajador['apellidos'] ?></td>
+                    <td class='editable'><?= $trabajador['dni'] ?></td>
+                    <td class='editable'><?= $trabajador['email'] ?></td>
+                    <td class='editable'><?= $trabajador['telefono'] ?></td>
+                    <td class='editable'><?= $trabajador['direccion'] ?></td>
+                    <td><?= $trabajador['documentos'] ? 'Sí' : 'No' ?></td>
+                    <td><?= $trabajador['nombre_proveedor'] ?? 'No disponible' ?> <?= $trabajador['apellidos_proveedor'] ?? 'No disponible' ?></td>
+                    <td>
+                        <button class="editar">Modificar</button>
+                        <button class="guardar" style="display:none;">Guardar</button>
+                    </td>
+                    <td>
+                        <button class="eliminar" onclick="eliminarTrabajador(<?= $trabajador['id_trab'] ?>)">Eliminar</button>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+</div>
+<div class="boton_crear">
     <a href="javascript:cargar('#portada','/views/nuevo_trab.php');">
         <button>Crear trabajador</button>
     </a>

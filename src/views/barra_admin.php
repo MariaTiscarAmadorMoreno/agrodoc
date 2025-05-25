@@ -1,24 +1,8 @@
 <?php
 session_start();
-if (isset($_SESSION['usuario'])) {
-    $datosdeusuario = @unserialize($_SESSION['usuario']); 
 
-    if ($datosdeusuario === false || !is_array($datosdeusuario)) {
-        echo "Error: Sesión no válida.";
-        var_dump($_SESSION['usuario']);
-        exit; 
-    }
-
-    if (isset($datosdeusuario['nombre'])) {
-        $nombre = $datosdeusuario['nombre'];
-    } else {
-        $nombre = "Usuario desconocido";
-    }
-} else {
-    $nombre = "Sesión no iniciada";
-}
 ?>
-<div id="menuHamburguesa">&#9776</div>
+
 <nav id="nav" role="navigation">
     <div class="container_nav">      
                 <?php   
@@ -46,12 +30,5 @@ if (isset($_SESSION['usuario'])) {
                     echo '</div>';                                 
                 ?>
     </div>
-    <div class="usuario">
-        <span id="nom"><?php echo $nombre; ?></span>
-        <div class="loging">
-            <a href="/app/logout">
-                <i class="fa-solid fa-right-from-bracket usuario"></i> Salir
-            </a>
-        </div>
-    </div>
 </nav>
+<script src="/assets/js/menu.js"></script>

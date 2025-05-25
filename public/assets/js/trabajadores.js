@@ -21,14 +21,14 @@ function cargarTrabajadores() {
             data.forEach(trabajador => {
                 const row = `
                     <tr data-id="${trabajador.id_trab}">
-                        <td>${trabajador.id_trab}</td>
+                        <td class="ocultar-sm">${trabajador.id_trab}</td>
                         <td class='editable'>${trabajador.nombre}</td>
                         <td class='editable'>${trabajador.apellidos}</td>
                         <td class='editable'>${trabajador.dni}</td>
                         <td class='editable'>${trabajador.email}</td>
                         <td class='editable'>${trabajador.telefono}</td>
                         <td class='editable'>${trabajador.direccion}</td>
-                        <td class='editable'>${trabajador.documentos ? 'Sí' : 'No'}</td>
+                        <td>${trabajador.documentos ? 'Sí' : 'No'}</td>
                         <td>${trabajador.nombre_proveedor ?? ''} ${trabajador.apellidos_proveedor ?? ''}</td>
                         <td>
                             <button onclick="editarTrabajador(${trabajador.id_trab})">Modificar</button>

@@ -39,6 +39,7 @@
       </div>
         <div class="container-selector-group">
          <!-- Selector de Soporte -->
+          
         <div class="container-selector">
           <a id="soporteLink" aria-haspopup="true" aria-expanded="false">Soporte <i class="fas fa-solid fa-chevron-down" aria-hidden="true"></i></a>
             <ul id="soporteMenu" class="selector-menu">
@@ -47,18 +48,20 @@
             </ul>
         </div> 
         <!-- Selector de Idioma -->
-        <div class="container-selector">
+        <!-- <div class="container-selector">
           <a id="languageLink" aria-haspopup="true" aria-expanded="false">Idioma <i class="fas fa-solid fa-chevron-down" aria-hidden="true"></i></a>
             <ul id="languageMenu" class="selector-menu">
               <li><a href="#">Español</a></li>
               <li><a href="#">Inglés</a></li>
             </ul>
-        </div>
+        </div> -->
         <!-- Blog --> 
-          <div id="newBadge">NEW</div>      
+         <div class="container_blog">               
             <div class="container-selector">          
-              <a href="./paginas/blog.html" id="blogLink">Blog</a>                    
+              <a href="./paginas/blog.html" id="blogLink">Blog</a>
+              <div id="newBadge">NEW</div>                     
             </div>
+        </div>
         </div>
         <!-- Login -->
          <div class="loging"> 
@@ -75,7 +78,7 @@
         <li><a href="#">Inicio</a></li>
         <li><a href="./paginas/plataforma.html">Plataforma CAE</a></li>
         <li><a href="./paginas/software.html">Software PRL</a></li>
-        <li><a>Mas soluciones <i class="fas fa-solid fa-chevron-down" aria-hidden="true"></i></a>
+        <li class="enlace_soluciones"><a id="enlace_soluciones">Mas soluciones <i class="fas fa-solid fa-chevron-down" aria-hidden="true"></i></a>
           <ul>
             <li><a href="./paginas/directorio.html">Directorio de proveedores</a></li>
             <li><a href="./paginas/control_de_accesos.html">Control de accesos</a></li>
@@ -87,20 +90,33 @@
     </nav>
   </div>
     <!-- Sección de actualidad -->
-   <aside id="aside_index" role="complementary">   
+   <!-- <aside id="aside_index" role="complementary">   
     <div class="container_suscripcion">
       <h1>Tranquilidad en tu cadena de suministro y subcontratación</h1> 
       <p>Únete sin coste* como contratista a la nube inteligente de soluciones de Agrodoc, 
         y optimiza la relación con tus proveedores a lo largo de las fases de tu cadena de suministro y 
         subcontratación.</p>
-      <div class="container-enlace-suscripcion">
+      <div class="container-enlace-suscripcion enlace_fila">
         <a href="./paginas/quienes_somos.html" class="enlace-informacion"><i class="fa-regular fa-circle-play fa-2x play"></i>Conócenos en 2 minutos</a>
         <a href="./paginas/contacto.html" class="enlace-suscripcion">Solicita más información</a>
       </div>
      </div>
-   </aside> 
+   </aside>  -->
    <!-- Contenido principal -->
-  <main id="main" role="main">      
+  <main id="main" role="main">
+      <div class="container_suscripcion">
+        <article id="articulo_0" >  
+        <h1>Tranquilidad en tu cadena de suministro y subcontratación</h1> 
+        <p>Únete sin coste* como contratista a la nube inteligente de soluciones de Agrodoc, 
+          y optimiza la relación con tus proveedores a lo largo de las fases de tu cadena de suministro y 
+          subcontratación.</p>
+        <div class="container-enlace-suscripcion enlace_fila">
+          <a href="./paginas/quienes_somos.html" class="enlace-informacion"><i class="fa-regular fa-circle-play fa-2x play"></i>Conócenos en 2 minutos</a>
+          <a href="./paginas/contacto.html" class="enlace-suscripcion">Solicita más información</a>
+        </div>
+      </article> 
+       </div>
+     
         <article id="articulo_1">
           <h2 class="espacio_blanco">¿QUE SOMOS?</h2>         
           <p>
@@ -215,7 +231,7 @@
       <div>
         © 2025 AGRODOC GLOBAL, S.A. &#45; Todos los derechos reservados.
       </div>    
-      <div class="footer-links">
+      <div class="container_rrss">
         <a href="https://www.instagram.com/" target="_blank" aria-label="Instagram">
           <img src="./assets/img/instagram.png" alt="Instagram" class="rrss">
         </a>
@@ -238,7 +254,7 @@
         <li><strong>Gestión Documental CAE:</strong> Cuando como contratista deseas recibir la documentación de tus subcontratistas. Cuando como subcontratista deseas recibir la documentación de tus propios subcontratistas. Cuando como promotora/propiedad, deseas solicitar la documentación a tu contratista principal y/o a todos sus subcontratistas.</li>
         <li><strong>Facturación electrónica:</strong> Cuando como comprador/contratador de bienes/servicios, deseas recibir las facturas de tus proveedores electrónicamente.</li>
         <li><strong>Homologación y Compliance de Empresas:</strong> Cuando como comprador/contratador de bienes/servicios, deseas recibir la documentación/información de homologación y/o compliance de tus proveedores según tus exigencias.</li>
-        <li><strong>Herramienta de Compras:</strong> Cuando como Empresa Contratista deseas recibir ofertas de tus proveedores a tus RFQ’s.</li>
+        <li><strong>Herramienta de Compras:</strong> Cuando como Empresa Contratista deseas recibir ofertas de tus proveedores.</li>
       </ul>
 
       <h3>Proveedor</h3>
@@ -246,7 +262,7 @@
         <li><strong>Gestión Documental CAE:</strong> Cuando como subcontratista, debes remitir tu documentación y/o las de tus propias subcontratas a tu contratista principal. Cuando como subcontratista de nivel inferior, debes remitir tu documentación a tu subcontratista de nivel superior. Cuando como contratista principal, debes remitir tu documentación y/o la de todos tus subcontratistas a tu promotora/propiedad.</li>
         <li><strong>Facturación electrónica:</strong> Cuando como proveedor/vendedor/contratista, debes emitir las facturas a tus clientes/contratistas/administración pública electrónicamente.</li>
         <li><strong>Homologación y Compliance de Empresas:</strong> Cuando como proveedor de bienes/servicios, debes remitir la documentación de homologación y/o compliance o según las exigencias de tu empresa a tus proveedores.</li>
-        <li><strong>Información de obras:</strong> Cuando como proveedor, deseas encontrar nuevos  proyectos y/o clientes a los que vender tus bienes y servicios.</li>
+        <li><strong>Información de proyectos:</strong> Cuando como proveedor, deseas encontrar nuevos  proyectos y/o clientes a los que vender tus bienes y servicios.</li>
       </ul>
     </div>
   </div>

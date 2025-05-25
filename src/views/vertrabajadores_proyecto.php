@@ -31,7 +31,7 @@ $trabajadoresDisponibles = $trabController->getTrabajadoresPorProveedor($idProve
 
     <div class="container_form">
 
-        <h3>Campaña #<?= $proyecto['id_proyec'] ?> - <?= $proyecto['localizacion_finca'] ?></h3>
+        <h3>Campaña #<?= $proyecto['id_proyec'] ?> - <?= $proyecto['localizacion_finca'] ?> - <?= $proyecto['trabajo'] ?></h3>
 
         <!-- Trabajadores asignados -->
         <strong>Trabajadores asignados:</strong>

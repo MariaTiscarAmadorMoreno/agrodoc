@@ -9,7 +9,7 @@ class UserController
 
     public function __construct()
     {
-        
+
         $this->db = new basededatos();
     }
 
@@ -69,7 +69,7 @@ class UserController
             ]);
 
             //echo json_encode(["mensaje" => "Usuario creado exitosamente"]);
-        } catch (PDOException $e) {            
+        } catch (PDOException $e) {
             if ($e->getCode() == 23000) {
                 echo json_encode(["error" => "El nombre de usuario ya existe."]);
             } else {
@@ -103,7 +103,13 @@ class UserController
 
             $datos = json_decode($datosSerializados, true);
 
-            if (!isset($datos[0]) || !isset($datos[1])) {
+            $id = $datos['id'] ?? null;
+            $usuario = $datos['usuario'] ?? null;
+            $clave = $datos['clave'] ?? null;
+            $nombre = $datos['nombre'] ?? null;
+            $tipo = $datos['tipo'] ?? 'admin';  
+
+            if (!$id || !$usuario || !$nombre) {
                 echo json_encode(["error" => "Datos incompletos"]);
                 exit;
             }
@@ -111,7 +117,8 @@ class UserController
             $sql = "UPDATE usuarios SET usuario = ?, clave = ?, nombre = ?, tipo = ? WHERE id_usu = ?";
 
             $stmt = $this->db->conn->prepare($sql);
-            $stmt->execute([$datos[1], $datos[2], $datos[3], $datos[4], $datos[0]]);           
+            $stmt->execute([$usuario, $clave, $nombre, $tipo, $id]);
+
 
             if ($stmt->rowCount() > 0) {
                 echo json_encode(["mensaje" => "Usuario actualizado correctamente."]);
@@ -166,4 +173,3 @@ if (isset($_GET['action'])) {
             exit;
     }
 }
-

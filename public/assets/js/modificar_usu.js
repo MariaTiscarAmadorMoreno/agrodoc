@@ -6,7 +6,8 @@ tablaUsuarios.addEventListener("click", (event) => {
 
     //Guardamos los valores originales para comparar después
     row.dataset.originalNombre = row.querySelector("td:nth-child(2)").innerText;
-    row.dataset.originalUsuario = row.querySelector("td:nth-child(3)").innerText;
+    row.dataset.originalUsuario =
+      row.querySelector("td:nth-child(3)").innerText;
     row.dataset.originalClave = row.querySelector("td:nth-child(4)").innerText;
 
     row.querySelectorAll(".editable").forEach((cell) => {
@@ -40,9 +41,12 @@ tablaUsuarios.addEventListener("click", (event) => {
       alert("No se realizaron cambios, los datos son los mismos.");
 
       //Volvermos a mostrar los valores originales si no hay cambios
-      row.querySelector("td:nth-child(2)").innerText = row.dataset.originalNombre;
-      row.querySelector("td:nth-child(3)").innerText = row.dataset.originalUsuario;
-      row.querySelector("td:nth-child(4)").innerText = row.dataset.originalClave;
+      row.querySelector("td:nth-child(2)").innerText =
+        row.dataset.originalNombre;
+      row.querySelector("td:nth-child(3)").innerText =
+        row.dataset.originalUsuario;
+      row.querySelector("td:nth-child(4)").innerText =
+        row.dataset.originalClave;
 
       row.querySelector(".editar").style.display = "inline-block";
       row.querySelector(".guardar").style.display = "none";
@@ -54,14 +58,15 @@ tablaUsuarios.addEventListener("click", (event) => {
       return;
     }
 
-    let datos = [
-      id,
-      usuario,
-      clave,
-      nombre,
-      tipo === "contratista" ? idCont : null,
-      tipo === "proveedor" ? idProv : null,
-    ];
+    let datos = {
+      id: id,
+      usuario: usuario,
+      clave: clave,
+      nombre: nombre,
+      tipo: tipo,
+      id_cont: idCont,
+      id_prov: idProv,
+    };
 
     console.log("Datos enviados para modificar:", datos);
 

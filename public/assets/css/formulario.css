@@ -1,79 +1,103 @@
 /* Estilos para formulario */
 .container_form_public {
-    background-image: url("../img/formacion.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    margin: 0%;
-    width: 100%;
-  }
+  background-image: url("../img/formacion.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: 0%;
+  width: 100%;
+}
+.contact-form {
+  width: 90%;
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+.form-group.checkbox-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.contact-form h2 {
+  color: var(--color-primario);
+}
+label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+input,
+select,
+textarea,
+button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+input[type="checkbox"] {
+  width: auto;
+  margin-bottom: 10px;
+}
+.consentimiento {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.5;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+}
+
+button {
+  background-color: var(--color-primario);
+  color: #fff;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--color-hover);
+}
+
+.contact-form span {
+  color: red;
+}
+@media (max-width: 576px) {
   .contact-form {
-    width: 90%;
-    max-width: 600px;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    text-align: center;
   }
+  form h2 {
+    font-family: 1.2rem;
+  }
+
+  input
+ {
   
-  .form-group {
-    margin-bottom: 20px;
+    padding: 8px;
   }
-  .form-group.checkbox-group {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  
-  .contact-form h2 {
-    color: var(--color-primario);
-  }
+
   label {
-    font-weight: bold;
-    display: block;
-    margin-bottom: 5px;
+    font-size: 1rem;
   }
-  
-  input,
-  select,
-  textarea,
-  button {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+
+  p,
+  a {
+    font-size: 0.85em;
   }
-  
-  input[type="checkbox"] {
-    width: auto;
-    margin-bottom: 10px;
-  }
-  .consentimiento {
-    font-size: 14px;
-    color: #666;
-    line-height: 1.5;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    padding: 10px;
-  }
-  
-  button {
-    background-color: var(--color-primario);
-    color: #fff;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  button:hover {
-    background-color: var(--color-hover);
-  }
-  
-  .contact-form span {
-    color: red;
-  }
+}

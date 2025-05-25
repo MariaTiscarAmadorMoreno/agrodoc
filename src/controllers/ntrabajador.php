@@ -21,7 +21,7 @@ $controller->setTrabajador($datosSerializados);
 $tipo = $_SESSION['usuario'] ? unserialize($_SESSION['usuario'])['tipo'] : null;
 
 if ($tipo === 'admin') {
-    header("Location: /views/app_admin.php?opcion=5");
+    header("Location: /views/app_admin.php?opcion=6");
 } else {
 
     header("Location: /views/app_proveedor.php?opcion=1");

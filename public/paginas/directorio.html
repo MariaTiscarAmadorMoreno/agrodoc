@@ -20,76 +20,76 @@
   <!--Contenedor principal-->
   <div id="principal">
     <div class="container_header_nav">
-      <!--Cabecera-->    
-      <header id="principal_header" role="banner"> 
-         <div class="container_logotipo">
-           <a href="../index.html" name="logotipo">           
-             <img src="../assets/img/logotipoAgrodoc.svg" alt="logotipo svg" title="Agrodoc" class="logotipo">
-           </a>
-         </div>
-         <div class="container_perfiles">
-           <div class="informacion"> 
-             <a href="../index.html" aria-label="Información">
-               <i class="fa-solid fa-circle-info fa-2x"></i>
-             </a>
-         </div>        
-         <div class="perfiles">        
-           <a href="#" class="a-contratista active" id="contratista" aria-label="Soy contratista">Soy contratista</a> 
-           <a href="./paginas/proveedor.html" class="a-proovedor" id="proveedor" aria-label="Soy proveedor">Soy proveedor</a>
-         </div>
-       </div> 
-        
-       <div class="container-selector-group"> 
+     <!--Cabecera-->    
+     <header id="principal_header" role="banner"> 
+        <div class="container_logotipo">
+          <a href="../index.html" name="logotipo">           
+            <img src="../assets/img/logotipoAgrodoc.svg" alt="logotipo svg" title="Agrodoc" class="logotipo">
+          </a>
+        </div>
+        <div class="container_perfiles">
+          <div class="informacion"> 
+            <a href="#" aria-label="Información">
+              <i class="fa-solid fa-circle-info fa-2x"></i>
+            </a>
+        </div>        
+        <div class="perfiles">        
+          <a href="../index.html" class="a-contratista active" id="contratista" aria-label="Soy contratista">Soy contratista</a> 
+          <a href="./proveedor/proveedor.html" class="a-proovedor" id="proveedor" aria-label="Soy proveedor">Soy proveedor</a>
+        </div>
+      </div>
+        <div class="container-selector-group">
          <!-- Selector de Soporte -->
+          
         <div class="container-selector">
           <a id="soporteLink" aria-haspopup="true" aria-expanded="false">Soporte <i class="fas fa-solid fa-chevron-down" aria-hidden="true"></i></a>
-          <ul id="soporteMenu" class="selector-menu">
-           <li><a href="./faq.html">FAQ</a></li>
-           <li><a href="./manual.html">Manual de uso</a></li>
-         </ul>
-         </div> 
- 
+            <ul id="soporteMenu" class="selector-menu">
+              <li><a href="./faq.html">FAQ</a></li>
+              <li><a href="./manual.html">Manual de uso</a></li>
+            </ul>
+        </div> 
         <!-- Selector de Idioma -->
-        <div class="container-selector">
+        <!-- <div class="container-selector">
           <a id="languageLink" aria-haspopup="true" aria-expanded="false">Idioma <i class="fas fa-solid fa-chevron-down" aria-hidden="true"></i></a>
-           <ul id="languageMenu" class="selector-menu">
-             <li><a href="#">Español</a></li>
-             <li><a href="#">Inglés</a></li>
-           </ul>
+            <ul id="languageMenu" class="selector-menu">
+              <li><a href="#">Español</a></li>
+              <li><a href="#">Inglés</a></li>
+            </ul>
+        </div> -->
+        <!-- Blog --> 
+         <div class="container_blog">               
+            <div class="container-selector">          
+              <a href="./blog.html" id="blogLink">Blog</a>
+              <div id="newBadge">NEW</div>                     
+            </div>
         </div>
- 
-        <!-- Blog -->  
-        <div id="newBadge">NEW</div>      
-        <div class="container-selector">          
-          <a href="./blog.html" id="blogLink">Blog</a>                    
-        </div>         
-      </div> 
-       
-         <!-- Login -->
-          <div class="loging"> 
-             <a href="/views/login.php">
-                 <i class="fas fa-user usuario"></i>  Entrar
-             </a>
-           </div>                 
-      </header>
-      <!-- Menú de navegación -->
-     <div id="menuHamburguesa" aria-label="Abrir menú">&#9776</div>
-     <nav id="nav" role="navigation">  
-       <ul class="container_nav">
-         <li><a href="../index.html">Inicio</a></li>
-         <li><a href="./plataforma.html">Plataforma CAE</a></li>
-         <li><a href="./software.html">Software PRL</a></li>
-         <li><a>Mas soluciones <i class="fas fa-solid fa-chevron-down" aria-hidden="true"></i></a>
-           <ul>
-             <li><a href="./directorio.html">Directorio de proveedores</a></li>
-             <li><a href="./control_de_accesos.html">Control de accesos</a></li>
-             <li><a href="./personal_sobre_el_terreno.html">Personal sobre el terreno</a></li>
-           </ul>
-         </li>
-         <li><a href="./contacto.html">Contacto</a></li>
-       </ul>     
-     </nav>
-   </div>
+        </div>
+        <!-- Login -->
+         <div class="loging"> 
+            <a href="/views/login.php">
+                <i class="fas fa-user usuario"></i>  Entrar
+            </a>
+          </div>
+     </header>
+     <!-- Menú de navegación -->
+    <div id="menuHamburguesa" aria-label="Abrir menú">&#9776</div>
+    <!-- Navegador -->
+    <nav id="nav" role="navigation">  
+      <ul class="container_nav">
+        <li><a href="../index.html">Inicio</a></li>
+        <li><a href="./plataforma.html">Plataforma CAE</a></li>
+        <li><a href="./software.html">Software PRL</a></li>
+        <li class="enlace_soluciones"><a id="enlace_soluciones">Mas soluciones <i class="fas fa-solid fa-chevron-down" aria-hidden="true"></i></a>
+          <ul>
+            <li><a href="./directorio.html">Directorio de proveedores</a></li>
+            <li><a href="./control_de_accesos.html">Control de accesos</a></li>
+            <li><a href="./personal_sobre_el_terreno.html">Personal sobre el terreno</a></li>
+          </ul>
+        </li>
+        <li><a href="./contacto.html">Contacto</a></li>
+      </ul>     
+    </nav>
+  </div>
     <!-- Sección de contenido -->
     <aside id="aside" role="complementary" class="aside_soluciones">
       <ul>
@@ -114,18 +114,18 @@
           </div>
         </article>
       </div>  
-        <article id="directorio-articulo_2" class="directorio_proveedores_2">
+        <article id="directorio-articulo_2" class="container_articulo_img">
           <div>
-          <h2 class="espacio_blanco">¿Qué es el directorio de proveedores?</h2>         
-          <p>El directorio de proveedores es una poderosa base de datos de proveedores en una nube, fruto del conocimiento común recopilado a través de la gestión de su 
-            documentación CAE y de homologación.</p>
-          <p>La necesidad de aportar documentación e información para proyectos previos o en marcha, garantiza una base de datos totalmente fiable y actualizada por los
+            <h2 class="espacio_blanco">¿Qué es el directorio de proveedores?</h2>         
+            <p>El directorio de proveedores es una poderosa base de datos de proveedores en una nube, fruto del conocimiento común recopilado a través de la gestión de su 
+              documentación CAE y de homologación.</p>
+            <p>La necesidad de aportar documentación e información para proyectos previos o en marcha, garantiza una base de datos totalmente fiable y actualizada por los
              propios proveedores de forma continua.</p>
-          <a href="./contacto.html" class="enlace-suscripcion">Solicita tus claves y accede gratis</a>
-        </div>     
-       <div class="directorio-img">
-        <img src="../assets/img/agrucultura.jpg" alt="Plataforma CAE" title="Plataforma CAE" class="img-responsive-directorio">
-       </div>
+            <a href="./contacto.html" class="enlace-suscripcion">Solicita tus claves y accede gratis</a>
+          </div>     
+          <div class="container-img">
+            <img src="../assets/img/agrucultura.jpg" alt="Plataforma CAE" title="Plataforma CAE" class="img-responsive-articulo">
+          </div>
         </article>
         <article id="directorio-articulo_3" class="directorio_proveedores_3">
           <div>
@@ -184,7 +184,7 @@
         © 2025 AGRODOC GLOBAL, S.A. &#45; Todos los derechos reservados.
       </div>
     
-      <div class="footer-links">
+      <div class="container_rrss">
         <a href="https://www.instagram.com/" target="_blank" aria-label="Instagram">
           <img src="../assets/img/instagram.png" alt="Instagram" class="rrss">
         </a>

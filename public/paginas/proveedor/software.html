@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Plataforma AgroDoc - Gestión documental agrícola" />
     <meta name="keywords" content="agricultura, gestión documental, agro, empresas, proveedores" />
-    <link rel="icon" type="image/png" sizes="128x128" href="../assets/img/favicon.png">
+    <link rel="icon" type="image/png" sizes="128x128" href="../../assets/img/favicon.png">
     <!-- FontAwasome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- css -->
@@ -34,7 +34,7 @@
          </div>        
          <div class="perfiles">        
           <a href="../../index.html" class="a-contratista active" id="contratista" aria-label="Soy contratista">Soy contratista</a> 
-          <a href="./proveedor.html class="a-proovedor" id="proveedor" aria-label="Soy proveedor">Soy proveedor</a>
+          <a href="./proveedor.html" class="a-proovedor" id="proveedor" aria-label="Soy proveedor">Soy proveedor</a>
         </div>
        </div> 
         
@@ -49,24 +49,24 @@
          </div> 
  
         <!-- Selector de Idioma -->
-        <div class="container-selector">
+        <!-- <div class="container-selector">
           <a id="languageLink" aria-haspopup="true" aria-expanded="false">Idioma <i class="fas fa-solid fa-chevron-down" aria-hidden="true"></i></a>
            <ul id="languageMenu" class="selector-menu">
              <li><a href="#">Español</a></li>
              <li><a href="#">Inglés</a></li>
            </ul>
-        </div>
+        </div> -->
  
         <!-- Blog -->  
-        <div id="newBadge">NEW</div>      
-        <div class="container-selector">          
-          <a href="./blog.html" id="blogLink">Blog</a>                    
-        </div>         
-      </div> 
-       
+         <div class="container_blog">               
+            <div class="container-selector">          
+              <a href="./blog.html" id="blogLink">Blog</a>
+              <div id="newBadge">NEW</div>                     
+            </div>
+        </div>       
          <!-- Login -->
           <div class="loging"> 
-             <a href="../../../src/views/login.php">
+             <a href="/views/login.php">
                  <i class="fas fa-user usuario"></i>  Entrar
              </a>
            </div>                 
@@ -75,10 +75,10 @@
      <div id="menuHamburguesa" aria-label="Abrir menú">&#9776</div>
      <nav id="nav" role="navigation">  
        <ul class="container_nav">
-         <li><a href="../index.html">Inicio</a></li>
+         <li><a href="./proveedor.html">Inicio</a></li>
          <li><a href="./plataforma.html">Plataforma CAE</a></li>
          <li><a href="./software.html">Software PRL</a></li>
-         <li><a>Mas soluciones <i class="fas fa-solid fa-chevron-down" aria-hidden="true"></i></a>
+         <li class="enlace_soluciones"><a>Mas soluciones <i class="fas fa-solid fa-chevron-down" aria-hidden="true"></i></a>
            <ul>
              <li><a href="./directorio.html">Directorio de proveedores</a></li>
              <li><a href="./control_de_accesos.html">Control de accesos</a></li>
@@ -121,7 +121,7 @@
         © 2025 AGRODOC GLOBAL, S.A. &#45; Todos los derechos reservados.
       </div>
     
-      <div class="footer-links">
+      <div class="container_rrss">
         <a href="https://www.instagram.com/" target="_blank" aria-label="Instagram">
           <img src="../../assets/img/instagram.png" alt="Instagram" class="rrss">
         </a>
@@ -162,10 +162,10 @@
 </div> 
   <!-- JS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="../assets/js/menu.js"></script>
-  <script src="../assets/js/perfil.js"></script>
-  <script src="../assets/js/animation_new.js"></script>
-  <script src="../assets/js/icon_infomation.js"></script>
-  <script src="../assets/js/desplegable.js"></script>
+  <script src="../../assets/js/menu.js"></script>
+  <script src="../../assets/js/perfil.js"></script>
+  <script src="../../assets/js/animation_new.js"></script>
+  <script src="../../assets/js/icon_infomation.js"></script>
+  <script src="../../assets/js/desplegable.js"></script>
 </body>
 </html>

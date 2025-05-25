@@ -42,7 +42,7 @@ $proyecController = new ProyecController();
                 $proyectos = $proyecController->getProyectosPorProveedorYContratista($idProveedor, $contratista['id_cont']);
 
                 foreach ($proyectos as $p) {
-                    echo "<li><strong>{$p['localizacion']}</strong> - {$p['fecha_inicio']} a {$p['fecha_fin']}</li>";
+                    echo "<li><strong>{$p['localizacion']}</strong>:  {$p['trabajo']} - {$p['fecha_inicio']} a {$p['fecha_fin']}</li>";
                 }
                 ?>
             </ul>
