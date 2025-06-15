@@ -7,54 +7,57 @@ if (!isset($_SESSION['usuario'])) {
 ?>
 
 <div class="volver">
-    <a href="javascript:cargar('#portada','/views/verusuarios.php');"><button>Volver</button></a>
+   <a href="/views/app_admin.php?opcion=1"><button>Atrás</button></a>
 </div>
 
 <div class="container_form">
     <h2 class="form-title"> Nuevo usuario </h2>
 
-    <form action="/controllers/nusuario.php" method="POST">
-        <div>
-            <label for="usuario">Usuario:</label>
-            <input placeholder="Usuario" required name="usuario" type="text" id="usuario">
-        </div>
-        <div>
-            <label for="clave">Clave:</label>
-            <input placeholder="Clave" required name="clave" type="password" id="clave">
-        </div>
-        <div>
-            <label for="nombre">Nombre:</label>
-            <input placeholder="Nombre" required name="nombre" type="text" id="nombre">
-        </div>
-        <div>
-            <label for="tipo">Tipo:</label>
-            <select name="tipo" id="tipo" required>
-                <option value="admin">Administrador</option>
-                <option value="contratista">Contratista</option>
-                <option value="proveedor">Proveedor</option>
-            </select>
-        </div>
+    <form id="formNuevoUsuario" method="POST">
+        <h3>Crear nuevo usuario</h3>
 
-        <!-- Desplegable de contratistas -->
+        <label for="usuario">Nombre de usuario:</label>
+        <input type="text" id="usuario" name="usuario">
+        <div class="error" id="errorUsuario"></div>
+
+        <label for="clave">Contraseña:</label>
+        <input type="text" id="clave" name="clave">
+        <div class="error" id="errorClave"></div>
+
+        <label for="nombre">Nombre completo:</label>
+        <input type="text" id="nombre" name="nombre">
+        <div class="error" id="errorNombre"></div>
+
+        <label for="tipo">Tipo de usuario:</label>
+        <select id="tipo" name="tipo">
+            <option value="">-- Seleccionar tipo --</option>
+            <option value="admin">Administrador</option>
+            <option value="contratista">Contratista</option>
+            <option value="proveedor">Proveedor</option>
+        </select>
+        <div class="error" id="errorTipo"></div>
+
+        <!-- Contratista (aparece solo si se selecciona) -->
         <div id="contratistaField" style="display: none;">
-            <label for="id_cont">Selecciona un contratista:</label>
-            <select name="id_cont" id="id_cont">
-                <option value="">-- Seleccionar Contratista --</option>
-            </select>
+            <label for="id_cont">Contratista:</label>
+            <select id="id_cont" name="id_cont"></select>
+            <div class="error" id="errorCont"></div>
         </div>
 
-        <!-- Desplegable de proveedores -->
+        <!-- Proveedor (aparece solo si se selecciona) -->
         <div id="proveedorField" style="display: none;">
-            <label for="id_prov">Selecciona un proveedor:</label>
-            <select name="id_prov" id="id_prov">
-                <option value="">-- Seleccionar Proveedor --</option>
-            </select>
+            <label for="id_prov">Proveedor:</label>
+            <select id="id_prov" name="id_prov"></select>
+            <div class="error" id="errorProv"></div>
         </div>
 
-        <input type="submit" value="Insertar" class="submit-btn">
+        <br>
+        <button type="submit" class="submit-btn">Crear Usuario</button>      
+        <div class="error" id="errorGeneral"></div>
     </form>
+
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="/assets/js/nuevo_usu.js"></script>
- <!-- <script src="/assets/js/usuarios.js"></script> -->
+<!-- <script src="/assets/js/usuarios.js"></script> -->

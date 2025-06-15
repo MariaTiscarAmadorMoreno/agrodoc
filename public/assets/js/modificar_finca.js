@@ -1,91 +1,51 @@
-const tablaFincas = document.getElementById("fincasTabla");
+document.getElementById('formEditarFinca').addEventListener('submit', function (e) {
+    e.preventDefault();
 
-tablaFincas.addEventListener("click", (event) => {
-  if (event.target.classList.contains("editar")) {
-    let row = event.target.closest("tr");
+    document.querySelectorAll('.error').forEach(div => div.textContent = '');
 
-    row.dataset.originalCultivo = row.querySelector("td:nth-child(3)").innerText;
-    row.dataset.originalHectareas = row.querySelector("td:nth-child(4)").innerText;
-    row.dataset.originalLocalizacion = row.querySelector("td:nth-child(5)").innerText;
+    const id = document.getElementById('id').value;
+    const localizacion = document.getElementById('localizacion').value.trim();
+    const cultivo = document.getElementById('cultivo').value.trim();
+    const hectarea = document.getElementById('hectarea').value.trim();
+    const id_cont = document.getElementById('id_cont').value;
 
-    row.querySelectorAll(".editable").forEach((cell) => {
-      let valor = cell.innerText.trim(); // Excluir el boton
-      let enlaceMapa = cell.querySelector('.enlace_mapa');
-  
-      if (enlaceMapa) {
-          enlaceMapa.remove(); 
-      }
-  
-      cell.innerHTML = `<input type="text" value="${valor}">`;
-  
-      if (enlaceMapa) {
-          cell.appendChild(enlaceMapa);
-      }
-  });
+    let hayErrores = false;
 
-    row.querySelector(".editar").style.display = "none";
-    row.querySelector(".guardar").style.display = "inline-block";
-  }
-});
+    if (!localizacion) {
+        document.getElementById('errorLocalizacion').textContent = "La localizacion es obligatorio.";
+        hayErrores = true;
+    } 
 
-tablaFincas.addEventListener("click", (event) => {
-  if (event.target.classList.contains("guardar")) {
-    let row = event.target.closest("tr");
-    let id = row.dataset.id;
-    let cultivo = row.querySelector("td:nth-child(3) input").value; 
-    let hectareas = parseInt(row.querySelector("td:nth-child(4) input").value) || 0;
-    let localizacion = row.querySelector("td:nth-child(5) input").value;
-    let originalHectareas = parseInt(row.dataset.originalHectareas) || 0;
-
-  
-    if (
-      cultivo === row.dataset.originalCultivo &&
-      hectareas === originalHectareas &&
-      localizacion === row.dataset.originalLocalizacion
-    ) {
-      alert("No se realizaron cambios, los datos son los mismos.");
-
-     
-      row.querySelector("td:nth-child(3)").innerText = row.dataset.originalCultivo;
-      row.querySelector("td:nth-child(4)").innerText = originalHectareas;
-      row.querySelector("td:nth-child(5)").innerText = row.dataset.originalLocalizacion;
-
-      row.querySelector(".editar").style.display = "inline-block";
-      row.querySelector(".guardar").style.display = "none";
-      return;
+    if (!cultivo) {
+        document.getElementById('errorCultivo').textContent = "El tipo de cultivo es obligatoria.";
+        hayErrores = true;
     }
 
-    let datos = [id, cultivo, hectareas, localizacion];
+        if (!hectarea) {
+        document.getElementById('errorHectarea').textContent = "El número de hectáreas es obligatoria.";
+        hayErrores = true;
+    }
 
-    console.log("Datos enviados para modificar:", datos);
+    if (hayErrores) return;
 
-   
-    fetch("/controllers/FincasController.php?action=modificarFinca", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({ datos: datos })
+    const datos = { id, localizacion, cultivo, hectarea, id_cont};
+
+    fetch('/controllers/FincasController.php?action=modificarFinca', {
+        method: 'POST',
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ datos })
     })
-      .then((response) => response.json())
-      .then((data) => {
+    .then(r => r.json())
+    .then(data => {
         if (data.mensaje) {
-          alert(data.mensaje);
-
-          
-          row.querySelector("td:nth-child(3)").innerText = cultivo;
-          row.querySelector("td:nth-child(4)").innerText = hectareas;
-          row.querySelector("td:nth-child(5)").innerText = localizacion;
-
-          row.querySelector(".editar").style.display = "inline-block";
-          row.querySelector(".guardar").style.display = "none";
+            alert(data.mensaje);
+            cargar('#portada', '/views/verfincas.php');
         } else {
-          alert(data.error);
+            document.getElementById('errorGeneral').textContent = data.error || "Error al modificar.";
         }
-      })
-      .catch((error) => {
-        console.error("Error al modificar finca:", error);
-        alert("Error en el servidor.");
-      });
-  }
+    })
+    .catch(() => {
+        document.getElementById('errorGeneral').textContent = "Error en el servidor.";
+    });
 });
+

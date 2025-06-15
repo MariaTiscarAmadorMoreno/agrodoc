@@ -31,11 +31,11 @@ function cargarTrabajadores() {
                         <td>${trabajador.documentos ? 'Sí' : 'No'}</td>
                         <td>${trabajador.nombre_proveedor ?? ''} ${trabajador.apellidos_proveedor ?? ''}</td>
                         <td>
-                            <button onclick="editarTrabajador(${trabajador.id_trab})">Modificar</button>
-                            <button style="display:none;" onclick="guardarTrabajador(${trabajador.id_trab})">Guardar</button>
+                            <button class='editar' onclick="editarTrabajador(${trabajador.id_trab})" >Modificar</button>
+                            
                         </td>
                         <td>
-                            <button onclick="eliminarTrabajador(${trabajador.id_trab})">Eliminar</button>
+                            <button class='eliminar' onclick="eliminarTrabajador(${trabajador.id_trab})">Eliminar</button>
                         </td>
                     </tr>
                 `;

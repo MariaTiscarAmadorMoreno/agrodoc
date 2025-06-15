@@ -45,6 +45,17 @@
   padding: 20px;
   width: 100%;
 }
+ #homolagacion_prov{
+  background-image: url("../img/portada_homologacion.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: 0%;
+  padding: 20px;
+  width: 100%;
+
+}
+/* homolagacion_prov */
 #main_plataforma h1 {
   color: var(--color-cuarto);
   font-size: 2.5rem;

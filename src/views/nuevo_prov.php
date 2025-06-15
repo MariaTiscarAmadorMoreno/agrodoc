@@ -7,41 +7,56 @@ if (!isset($_SESSION['usuario'])) {
 ?>
 
 <div class="volver">
-    <a href="javascript:cargar('#portada','/views/verproveedores.php');"><button>Volver</button></a>
+    <a href="/views/app_admin.php?opcion=5"><button>Atrás</button></a>
 </div>
 
 <div class="container_form">
     <h2 class="form-title"> Nuevo proveedor </h2>
 
-    <form action="/controllers/nproveedor.php" method="POST">
-    <div>
-                    <label for="nombre">Nombre:</label>
-                    <input placeholder="Nombre" required="required" name="nombre" type="text" id="nombre">
-                </div>
-                <div>
-                    <label for="apellidos">Apellidos:</label>
-                    <input placeholder="Apellidos" required="required" name="apellidos" type="text" id="apellidos">                    
-                </div>
-                <div>
-                    <label for="cif">CIF:</label>
-                    <input placeholder="CIF" required="required" name="cif" type="text" id="cif">
-                </div>
-                <div>
-                    <label for="email">Email:</label>
-                    <input placeholder="Email" required="required" name="email" type="text" id="email">
-                </div>
-                <div>
-                    <label for="telefono">Télefono:</label>
-                    <input placeholder="Teléfono" required="required" name="telefono" type="text" id="telefono">
-                </div>
-                <div>
-                    <label for="direccion">Dirección:</label>
-                    <input placeholder="Dirección" required="required" name="direccion" type="text" id="direccion">
-                </div>     
+    <form id="formNuevoProveedor" method="POST">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre">
+        <div class="error" id="errorNombre"></div>
 
-                <input type="submit" value="Insertar" class="submit-btn">
+        <label for="apellidos">Apellidos:</label>
+        <input type="text" id="apellidos" name="apellidos">
+        <div class="error" id="errorApellidos"></div>
+
+        <label for="cif">CIF:</label>
+        <input type="text" id="cif" name="cif">
+        <div class="error" id="errorCIF"></div>
+
+        <label for="email">Correo electrónico:</label>
+        <input type="email" id="email" name="email">
+        <div class="error" id="errorEmail"></div>
+        
+        <label for="telefono">Teléfono:</label>
+        <input type="text" id="telefono" name="telefono">
+        <div class="error" id="errorTelefono"></div>
+
+        <label for="calle">Calle:</label>
+        <input type="text" id="calle" name="calle">
+        <div class="error" id="errorCalle"></div>
+
+        <label for="numero">Número:</label>
+        <input type="text" id="numero" name="numero">
+        <div class="error" id="errorNumero"></div>
+
+        <label for="cp">Código Postal:</label>
+        <input type="text" id="cp" name="cp">
+        <div class="error" id="errorCP"></div>
+
+        <label for="poblacion">Población:</label>
+        <input type="text" id="poblacion" name="poblacion">
+        <div class="error" id="errorPoblacion"></div>
+
+        <label for="provincia">Provincia:</label>
+        <input type="text" id="provincia" name="provincia">
+        <div class="error" id="errorProvincia"></div>
+
+        <button type="submit" class="submit-btn">Crear contratista</button>
+        <div class="error" id="errorGeneral"></div>
     </form>
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="/assets/js/nuevo_prov.js"></script>

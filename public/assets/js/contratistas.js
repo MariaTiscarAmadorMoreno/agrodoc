@@ -1,4 +1,4 @@
-console.log("contratista.js cargado correctamente");
+//console.log("contratista.js cargado correctamente");
 
 //Función para actualizar los datos después de eliminar o modificar
 function cargarContratistas() {

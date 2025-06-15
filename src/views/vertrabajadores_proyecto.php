@@ -16,23 +16,16 @@ $trabController = new TrabController();
 
 // Obtener campañas del proveedor
 $proyectos = $proyecController->getProyectosPorProveedor($idProveedor);
-
 // Obtener trabajadores disponibles del proveedor
 $trabajadoresDisponibles = $trabController->getTrabajadoresPorProveedor($idProveedor);
 ?>
-
 <div class="volver">
     <a href="javascript:cargar('#portada','/views/verproyectos.php');"><button>Volver a lista de Campañas</button></a>
 </div>
-
 <h2>Gestión de trabajadores por campaña</h2>
-
 <?php foreach ($proyectos as $proyecto): ?>
-
     <div class="container_form">
-
         <h3>Campaña #<?= $proyecto['id_proyec'] ?> - <?= $proyecto['localizacion_finca'] ?> - <?= $proyecto['trabajo'] ?></h3>
-
         <!-- Trabajadores asignados -->
         <strong>Trabajadores asignados:</strong>
         <ul>
@@ -49,8 +42,6 @@ $trabajadoresDisponibles = $trabController->getTrabajadoresPorProveedor($idProve
             }
             ?>
         </ul>
-
-
         <!-- Formulario para añadir trabajador -->
         <form action="/controllers/ntrabajador_proyecto.php" method="POST">
             <?php

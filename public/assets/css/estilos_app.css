@@ -87,8 +87,8 @@ body {
 .container_nav {
   display: flex;
   flex-direction: row;
-  gap: 1.7rem;
   padding: 10px;
+  gap: 5px;
   border-top: #ddd 1px solid;
 }
 
@@ -106,9 +106,10 @@ nav a:hover {
 
 #portada {
   width: 100%;
+  min-height: 50vh;  
   background-color: #d1cfcf;
 }
-#portada img {
+#img_portada {
   width: 40%;
   height: auto;
   margin-left: 25%;
@@ -179,15 +180,23 @@ h2 {
   overflow-x: auto;
 }
 table {
-  width: 80%;  
+  width: 80%;
   margin: 0 auto;
   border-collapse: collapse;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
-
+table .icono{
+  width: 30px;
+  height: auto;
+}
 thead {
   background-color: #335f47;
   color: white;
+}
+caption h3 {
+    padding: 2% 0;
+    color: var(--color-cuarto);
+    font-size: var(--font-large);
 }
 
 th,
@@ -200,7 +209,7 @@ td {
 tbody tr:nth-child(even) {
   background-color: #f2f2f2;
 }
-
+/* Estilos del botones */
 button {
   padding: 5px 10px;
   background-color: #f1af00;
@@ -212,8 +221,8 @@ button {
 }
 
 button.editar {
-  padding: 5px 10px;
-  background-color: orangered;
+  /* padding: 5px 10px; */
+  /* background-color: orangered; */
   border: none;
   color: white;
   border-radius: 3px;
@@ -236,30 +245,40 @@ button:hover {
 }
 
 /* Estilos enlace crear*/
-.enlace_crear {
+.boton_crear {
   display: flex;
   justify-content: center;
   margin: 2rem auto;
   width: 100%;
 }
-.enlace_crear a {
+.boton_crear a {
   text-decoration: none;
   font-weight: bold;
   width: 30%;
 }
-.enlace_crear a button {
+.boton_crear a button {
   color: #ffffff;
   background-color: rgb(236, 26, 26);
   width: 100%;
   padding: 10px 20px;
-  font-size: var(--font-base);
+  font-size: 1rem;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s;
 }
 
-.enlace_crear a button:hover {
+.boton_crear a button:hover {
   background-color: #f1af00;
+}
+/* Estilos a los iconos */
+.text-green{
+  color:green;
+}
+.text-orange{
+  color: orange;
+}
+.text-red{
+  color: red;
 }
 
 /* Estilos volver*/
@@ -282,15 +301,59 @@ button:hover {
 .volver a button:hover {
   background-color: rgb(236, 26, 26);
 }
+/* Estilos modal para modificar */
+.modal {
+  position: fixed;
+  top: 5%; left: 0;
+  width: 100%; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+    z-index: 1000;
+  overflow: hidden;
+}
+.modal-contenido {
+  max-height: 90vh;
+  overflow-y: auto;
+  width: 80%;
+  max-width: 600px;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  border: #555 1px solid;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  
+}
+.modal-contenido h3{
+  font-size: var(--font-xlarge);
+  color: var(--color-secundario);
+  text-align: center;
+}
+
+.container_botones_modal{
+  display: flex; 
+  justify-content: center;
+  gap: 8px; 
+
+}
+.container_botones_modal button{
+  width: 35%;
+}
+.container_botones_modal button:hover{
+  background-color: var(--color-terciario);
+}
+.oculto {
+  display: none;
+}
 
 /* estilos enlace mapa */
 
 #mapContainer {
   position: fixed;
   top: 10%;
-  left: 10%;
-  width: 80%;
-  height: 600px;
+  left: 25%;
+  width: 50%;
+  height: 70vh;
   background-color: #ffffff;
   border: 2px solid #ccc;
   z-index: 1000;
@@ -309,7 +372,7 @@ button:hover {
   background-color: red;
   color: white;
   border: none;
-  width: 10%;
+  width: 15%;
   padding: 5px 10px;
   cursor: pointer;
   z-index: 1100;
@@ -338,7 +401,13 @@ button:hover {
 .container_form h2 {
   font-size: 2.5rem;
   margin-bottom: 10px;
-  color: #c4232b;
+  color:var(--color-primario);
+}
+
+.container_form h3 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color:var(--color-secundario);
 }
 .container_form strong {
   font-size: var(--font-base);
@@ -374,7 +443,9 @@ select {
   font-size: var(--font-base);
   background: #f9f9f9;
 }
-
+fieldset {
+  padding: 10px;
+}
 .submit-btn {
   margin-top: 20px;
   background: #f1af00;
@@ -389,8 +460,13 @@ select {
 .submit-btn:hover {
   background: rgb(236, 26, 26);
 }
+
+.error {
+  color: #C00; 
+  font-size: var(--font-base);
+  margin: 0.3rem 0;
+}
 /* Estilos para la modal  */
-/* Estilo para el fondo del modal */
 .modal {
   display: none;
   position: fixed;
@@ -517,14 +593,19 @@ select {
     padding: 0.75rem;
   }
 
-  enlace_crear a button,
+  boton_crear a button,
   .volver a button {
     width: 80%;
     margin: 1rem auto;
   }
-
+  #mapContainer {
+    top: 30%;
+    left: 15%;
+    width: 70%;
+    height: 50vh;
+  }
   table {
-    width: 100%; 
+    width: 100%;
   }
 
   th,
@@ -539,7 +620,7 @@ select {
   td.ocultar-sm {
     display: none;
   }
-  table button{
+  table button {
     font-size: var(--font-small);
   }
 }
@@ -577,6 +658,9 @@ select {
   }
   p {
     font-size: var(--font-base);
+  }
+  .boton_crear a {
+    width: 50%;
   }
   .volver {
     display: none;

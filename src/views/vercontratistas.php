@@ -12,8 +12,6 @@ $tipo = $usuario['tipo'] ?? '';
 include_once('../controllers/ContController.php');
 
 $controller = new ContController();
-
-
 $datos = $controller->getContratistas();
 
 
@@ -46,14 +44,16 @@ $datos = $controller->getContratistas();
                     <td class='editable'><?= $contratista['direccion'] ?></td>
                     <?php if ($tipo === 'admin'): ?>
                         <td>
-                            <button class="editar">Modificar</button>
-                            <button class="guardar" style="display:none;">Guardar</button>
+                            <a href="javascript:cargar('#portada','/views/modificar_cont.php?id=<?= $contratista['id_cont'] ?>')">
+                                <img src="/assets/img/editar.png" class="editar icono">
+                            </a>
                         </td>
                         <td>
-                            <button class="eliminar" onclick="eliminarContratista(<?= $contratista['id_cont'] ?>)">Eliminar</button>
+                            <a href="javascript:eliminarContratista(<?= $contratista['id_cont'] ?>)">
+                                <img src="/assets/img/eliminar.png" class="eliminar icono" alt="Eliminar">
+                            </a>
                         </td>
                     <?php endif; ?>
-
                 </tr>
             <?php endforeach; ?>
         </tbody>
@@ -64,7 +64,7 @@ $datos = $controller->getContratistas();
     <!-- Botón para crear proveedor solo si es administrador -->
     <div class="boton_crear">
         <a href="javascript:cargar('#portada','/views/nuevo_cont.php');">
-            <button>Crear proveedor</button>
+            <button>Crear contratista</button>
         </a>
     </div>
 <?php endif; ?>
@@ -76,7 +76,4 @@ $datos = $controller->getContratistas();
     </div>
 <?php endif; ?>
 
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="/assets/js/contratistas.js"></script>
-<script src="/assets/js/modificar_cont.js"></script>

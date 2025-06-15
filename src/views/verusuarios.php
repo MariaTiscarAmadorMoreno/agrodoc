@@ -50,11 +50,15 @@ $datos = $controller->getUsuarios();
                         ?>
                     </td>
                     <td>
-                        <button class="editar">Modificar</button>
-                        <button class="guardar" style="display:none;">Guardar</button>
+                        <a href="javascript:cargar('#portada','/views/modificar_usu.php?id=<?= $usuario['id_usu'] ?>');">
+                            <img src="/assets/img/editar.png" class="editar icono">
+                        </a>
                     </td>
+
                     <td>
-                        <button class="eliminar" onclick="eliminarUsuario(<?= $usuario['id_usu'] ?>)">Eliminar</button>
+                        <a href="javascript:eliminarUsuario(<?= $usuario['id_usu'] ?>)">
+                            <img src="/assets/img/eliminar.png" class="eliminar icono" alt="Eliminar">
+                        </a>
                     </td>
                 </tr>
             <?php endforeach; ?>
@@ -72,4 +76,3 @@ $datos = $controller->getUsuarios();
 <script src="/assets/js/usuarios.js">
     cargarUsuarios();
 </script>
-<script src="/assets/js/modificar_usu.js"></script>

@@ -6,23 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Plataforma AgroDoc - Gestión documental agrícola" />
     <meta name="keywords" content="agricultura, gestión documental, agro, empresas, proveedores" />
-    <link rel="icon" type="image/png" sizes="128x128" href="../assets/img/favicon.png">
+    <link rel="icon" type="image/png" sizes="128x128" href="../../assets/img/favicon.png">
     <!-- FontAwasome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- css -->
-    <link rel="stylesheet" type="text/css" href="../../assets/css/estilos_tv_proveedor.css">
+    <link rel="stylesheet" type="text/css" href="../../assets/css/estilos_tv.css">
     <link rel="stylesheet" type="text/css" href="../../assets/css/plataforma.css">
-    
+    <!-- script para chat en vivo -->
+  <script src="//code.tidio.co/qoe3mhwmfpdrgnjupiwlei0hkc9cy2ut.js" async></script>
     <title>Agrodoc-Plataforma CAE</title>
 </head>
 <body>  
   <!--Contenedor principal-->
-  <div id="principal">
-    <div class="container_header_nav">
+  <div id="principal">  
+  <div class="container_header_nav_proveedor">
      <!--Cabecera-->    
-     <header id="principal_header" role="banner"> 
+     <header id="principal_header_proveedor" role="banner"> 
         <div class="container_logotipo">
-          <a href="#" name="logotipo">           
+          <a href="./proveedor.html" name="logotipo">           
             <img src="../../assets/img/logotipoAgrodoc.svg" alt="logotipo svg" title="Agrodoc" class="logotipo">
           </a>
         </div>
@@ -36,50 +37,43 @@
           <a href="../../index.html" class="a-contratista active" id="contratista" aria-label="Soy contratista">Soy contratista</a> 
           <a href="./proveedor.html" class="a-proovedor" id="proveedor" aria-label="Soy proveedor">Soy proveedor</a>
         </div>
-      </div> 
-       
-      <div class="container-selector-group"> 
-        <!-- Selector de Soporte -->
-       <div class="container-selector">
-         <a id="soporteLink" aria-haspopup="true" aria-expanded="false">Soporte <i class="fas fa-solid fa-chevron-down" aria-hidden="true"></i></a>
-         <ul id="soporteMenu" class="selector-menu">
-          <li><a href="./faq.html">FAQ</a></li>
-          <li><a href="./manual.html">Manual de uso</a></li>
-        </ul>
+      </div>
+        <div class="container-selector-group">
+         <!-- Selector de Soporte -->
+          
+        <div class="container-selector">
+          <a id="soporteLink" aria-haspopup="true" aria-expanded="false">Soporte <i class="fas fa-solid fa-chevron-down" aria-hidden="true"></i></a>
+            <ul id="soporteMenu" class="selector-menu">
+              <li><a href="./faq.html">FAQ</a></li>
+              <li><a href="./manual_uso.html">Manual de uso</a></li>
+            </ul>
         </div> 
-
-       <!-- Selector de Idioma -->
-       <!-- <div class="container-selector">
-         <a id="languageLink" aria-haspopup="true" aria-expanded="false">Idioma <i class="fas fa-solid fa-chevron-down" aria-hidden="true"></i></a>
-          <ul id="languageMenu" class="selector-menu">
-            <li><a href="#">Español</a></li>
-            <li><a href="#">Inglés</a></li>
-          </ul>
-       </div> -->
-
-       <!-- Blog -->  
+        <!-- Blog --> 
          <div class="container_blog">               
             <div class="container-selector">          
               <a href="./blog.html" id="blogLink">Blog</a>
               <div id="newBadge">NEW</div>                     
             </div>
-        </div>      
+        </div>
+        </div>
         <!-- Login -->
          <div class="loging"> 
             <a href="/views/login.php">
                 <i class="fas fa-user usuario"></i>  Entrar
             </a>
-          </div>                 
+          </div>
      </header>
      <!-- Menú de navegación -->
     <div id="menuHamburguesa" aria-label="Abrir menú">&#9776</div>
-    <nav id="nav" role="navigation">  
+    <!-- Navegador -->
+    <nav id="nav_proveedor" role="navigation">  
       <ul class="container_nav">
-        <li><a href="./proveedor.html">Inicio</a></li>
+        <li><a href="../../index.html">Inicio</a></li>
         <li><a href="./plataforma.html">Plataforma CAE</a></li>
-        <li><a href="./software.html">Software PRL</a></li>
-        <li class="enlace_soluciones"><a>Mas soluciones <i class="fas fa-solid fa-chevron-down" aria-hidden="true"></i></a>
+        <li><a href="./homolog_prov.html">Homologación de Proveedores</a></li>
+        <li class="enlace_soluciones"><a id="enlace_soluciones">Mas soluciones <i class="fas fa-solid fa-chevron-down" aria-hidden="true"></i></a>
           <ul>
+            <li><a href="./software.html">Software PRL</a></li>
             <li><a href="./directorio.html">Directorio de proveedores</a></li>
             <li><a href="./control_de_accesos.html">Control de accesos</a></li>
             <li><a href="./personal_sobre_el_terreno.html">Personal sobre el terreno</a></li>
@@ -88,13 +82,13 @@
         <li><a href="./contacto.html">Contacto</a></li>
       </ul>     
     </nav>
-  </div>
+  </div> 
     <!-- Sección de contenido -->
    <aside id="aside" role="complementary" class="aside_plataforma">
     <ul>
-      <li><a href="#plataforma-articulo_1">Plataforma CAE</a></li>
-      <li><a href="#plataforma-articulo_2">¿Qué es Plataforma CAE?</a></li>
-      <li><a href="#plataforma-articulo_3">¿Cómo funciona nuestra Plataforma CAE?</a></li>
+      <li><a href="#plataforma-articulo_1">Gestión documental CAE</a></li>
+      <li><a href="#plataforma-articulo_2">¿Qué es?</a></li>
+      <li><a href="#plataforma-articulo_3">¿Cómo funciona?</a></li>
       <li><a href="#plataforma-articulo_4">Proceso de nuestra Plataforma</a></li>
     </ul>
    </aside> 
@@ -102,24 +96,22 @@
     <main id="main_plataforma" role="main" > 
       <div class="container_plataforma">     
         <article id="plataforma-articulo_1" >
-          <h1 class="espacio_blanco">Plataforma CAE</h1>         
-          <p>En la Plataforma CAE (Coordinación de Actividades Empresariales) de Agrodoc, la gestión documental es más que un intercambio de documentación entre todas las figuras que intervienen en ella.
-             Y su principal objetivo es la prevención de accidentes laborales. Descubre todas las ventajas de nuestra Plataforma CAE.</p>
+          <h1 class="espacio_blanco">Gestión documental CAE</h1>         
+          <p>Asegúrate de que tu documentación cumple con los requerimientos de tus clientes y evita problemas de acceso a los proyectos y a la hora de cobrar, 
+            al tiempo que ofreces a miles de clientes potenciales tu mejor imagen.</p>
           <p>Aprovéchate de las sinergias de nuestras comunicaciones y podrás unirte sin coste *</p> 
-          <div class="container_enlace_plataforma">
-            <a href="./webminar.html" class="enlace-informacion"> <i class="fa-regular fa-circle-play fa-2x play"></i>Accede a nuestro webminar y realiza tus preguntas</a>
-            <a href="./contacto.html" class="enlace-suscripcion">Solicita mas información</a>
-          </div>           
+          <div class="container-enlace-suscripcion">        
+            <a href="./tarifas.html" class="enlace-suscripcion">Consulta tarifas y packs</a>
+          </div>          
         </article>
       </div> 
      <article id="plataforma-articulo_2">
       <div>
-      <h1 class="espacio_blanco"> ¿Qué es Plataforma CAE?</h1>
-      <p>La plataforma CAE de Nalanda es líder de gestión de documentos para la Coordinación de Actividades Empresariales (CAE) y Control de Accesos ligado a la documentación. 
-        Reclamamos, custodiamos, verificamos y validamos la documentación de empresa, 
-        trabajadores y maquinaria que tus subcontratas deben presentarte cuando trabajan en tus proyectos.</p>
-      <p>Gana la tranquilidad de saber que sólo trabajadores y máquinas aptas podrán acceder a tus proyectos y que pagarás a tus subcontratistas con seguridad.</p>
-      <a href="./contacto.html" class="enlace-suscripcion enlace-coste">Unete sin coste</a>
+      <h1 class="espacio_blanco"> ¿Qué es?</h1>
+      <p>Es la plataforma líder de gestión de documentos para la Coordinación de Actividades Empresarial (CAE) y Control de Accesos ligado a la documentación.</p>
+      <p>Te avisamos, custodiamos, y nos aseguramos de que toda la documentación CAE que tus clientes te exigen para trabajar en sus proyectos, esté correctamente validada por 
+        parte de nuestros expertos documentalistas.</p>
+      <a href="./contacto.html" class="enlace-suscripcion enlace-coste">Unete</a>
     </div>
    <div class="plataforma-img">
     <img src="../../assets/img/agrucultura.jpg" alt="Plataforma CAE" title="Plataforma CAE" class="img-responsive">
@@ -127,12 +119,11 @@
     </article> 
     <article id="plataforma-articulo_3">
       <div>
-        <h1>Cómo funciona nuestra Plataforma CAE</h1> 
-        <p>Mediante una metodología única, a través de nuestros certificados, conseguimos que tus departamentos 
-          de administración y prevención se alíen, condicionando los pagos a tus subcontratistas a su correcta situación
-          documental, tanto en el aspecto jurídico-laboral como preventivo. Así, tus subcontratas se ven motivadas a tener
-          toda su documentación CAE correcta, ya que saben que ésto les facilita cobrar a tiempo.
+        <h1>Cómo funciona </h1> 
+        <p>Mediante una metodología única, a través de nuestros certificados, conseguimos que tengas la documentación correcta para que tus trabajadores y máquinas cumplan con la normativa preventiva garantizando su acceso a los proyectos, 
+          al tiempo que cumples con las regulaciones administrativas, jurídicas y laborales para asegurarte el cobro en fecha por los trabajos que hayas realizado.
         </p>
+        <p>Así, además evitas reclamaciones y mejoras la seguridad en tu negocio.</p>
       </div>
     </article> 
     <article id="plataforma-articulo_4">
@@ -143,7 +134,7 @@
               <span>1</span>
               <img src="../../assets/img/subir.png" alt="icono de empleado">
             </div>
-            <p>Subcontratas suben la documentación a la nube una única vez para cualquier contratista.</p>
+            <p>Te alertamos de la documentación que debes subir y actualizar para los proyectos en los trabajas incluso si no es para ninguno de nuestros contratistas.</p>
           </div>
           <div class="proceso-item">
             <div class="proceso-icono">
@@ -157,26 +148,27 @@
               <span>3</span>
               <img src="../../assets/img/login.png" alt="icono de acceso">
             </div>
-            <p>El acceso de trabajadores y máquinas se condiciona a que sus certificados estén aptos en todo momento.</p>
+            <p>Te garantizas así, el acceso de tus trabajadores y máquinas a los proyectos en los que trabajas.</p>
           </div>
           <div class="proceso-item">
             <div class="proceso-icono">
               <span>4</span>
               <img src="../../assets/img/pay.png" alt="icono de pago">
             </div>
-            <p>El pago se condiciona a la correcta situación de la empresa, de los trabajadores y máquinaria durante los trabajos.</p>
+            <p>El pago por tus trabajos queda garantizado al obtener tu certificado, que asegura la correcta situación de tu empresa en el 
+              momento del cobro y que tus trabajadores y maquinaria accedieron como aptos a los proyectos.</p>
           </div>
         </div>  
     </article>    
       
   </main>
     <!-- Pie de página -->
-    <footer id="footer" role="contentinfo">
+    <footer id="footer_proveedor" role="contentinfo">
       <div class="footer-links">
-        <a href="./sobrenosotros.html" aria-label="Quiénes somos">Quiénes somos</a>
+        <a href="./sobrenosotros.html" aria-label="Sobre nosotros">Sobre nosotros</a>
         <a href="./faq.html" aria-label="FAQ">FAQ</a>
         <a href="./contacto.html" aria-label="Contacto">Contacto</a>
-        <a href="./politica_privacidad.html" aria-label="Política de privacidad">Política de privacidad</a>        <a href="./paginas/politica_privacidad.html" aria-label="Política de privacidad">Política de privacidad</a>
+        <a href="./politica_privacidad.html" aria-label="Política de privacidad">Política de privacidad</a> 
         <a href="mailto:agrodoc@agrodoc.com" aria-label="Enviar un correo a AgroDoc">Email: agrodoc@agrodoc.com</a>
       </div>
     
@@ -207,7 +199,7 @@
         <li><strong>Gestión Documental CAE:</strong> Cuando como contratista deseas recibir la documentación de tus subcontratistas. Cuando como subcontratista deseas recibir la documentación de tus propios subcontratistas. Cuando como promotora/propiedad, deseas solicitar la documentación a tu contratista principal y/o a todos sus subcontratistas.</li>
         <li><strong>Facturación electrónica:</strong> Cuando como comprador/contratador de bienes/servicios, deseas recibir las facturas de tus proveedores electrónicamente.</li>
         <li><strong>Homologación y Compliance de Empresas:</strong> Cuando como comprador/contratador de bienes/servicios, deseas recibir la documentación/información de homologación y/o compliance de tus proveedores según tus exigencias.</li>
-        <li><strong>Herramienta de Compras:</strong> Cuando como Empresa Contratista deseas recibir ofertas de tus proveedores a tus RFQ’s.</li>
+        <li><strong>Herramienta de Compras:</strong> Cuando como Empresa Contratista deseas recibir ofertas de tus proveedores.</li>
       </ul>
 
       <h3>Proveedor</h3>

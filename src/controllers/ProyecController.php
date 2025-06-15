@@ -44,6 +44,24 @@ class ProyecController
         }
     }
 
+            public function getProyectoPorId($id)
+    {
+        $sql = "SELECT pr.*,
+        c.nombre AS nombre_contratista,
+        p.nombre AS nombre_proveedor, 
+        f.localizacion AS localizacion_finca,
+        f.cultivo AS tipo_cultivo,
+        pr.fecha_inicio, pr.fecha_fin
+        FROM proyectos pr
+        INNER JOIN contratistas c ON pr.id_cont = c.id_cont
+        INNER JOIN proveedores p ON pr.id_prov = p.id_prov
+        INNER JOIN fincas f ON pr.id_finca = f.id_finca
+        WHERE  pr.id_proyec = ?";
+        $stmt = $this->db->conn->prepare($sql);
+        $stmt->execute([$id]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
     public function delProyecto($id)
     {
 
@@ -100,18 +118,25 @@ class ProyecController
     public function setProyecto($datos)
     {
 
-        $sql = "INSERT INTO proyectos (id_cont, id_prov, id_finca, trabajo,fecha_inicio, fecha_fin) 
-                VALUES (?, ?, ?, ?, ?, ?)";
+        $this->db->conn->beginTransaction();
 
-        $stmt = $this->db->conn->prepare($sql);
-        $stmt->execute([
-            $datos[0] ?? null,
-            $datos[1] ?? null,
-            $datos[2] ?? null,
-            $datos[3] ?? null,
-            $datos[4] ?? null,
-            $datos[5] ?? null
-        ]);
+    $sql = "INSERT INTO proyectos 
+            (id_cont, id_finca, id_prov, trabajo, fecha_inicio, fecha_fin) 
+            VALUES (?, ?, ?, ?, ?, ?);";
+    
+    $stmt = $this->db->conn->prepare($sql);
+    $stmt->execute([
+        $datos['id_cont'],
+        $datos['id_finca'],
+        $datos['id_prov'],
+        $datos['trabajo'],
+        $datos['fecha_inicio'],
+        $datos['fecha_fin']    
+    ]);
+
+    $this->db->conn->commit();
+
+    echo json_encode(["mensaje" => "Proyecto creado exitosamente."]);
     }
 
 
@@ -253,7 +278,17 @@ if (isset($_GET['action'])) {
 
         case 'crearProyecto':
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                $controller->setProyecto($_POST);
+                header('Content-Type: application/json');
+                // Leer cuerpo JSON enviado
+                $input = file_get_contents("php://input");
+                $datos = json_decode($input, true);
+
+                if (isset($datos['id_cont'], $datos['id_finca'], $datos['id_prov'], $datos['trabajo'], $datos['fecha_inicio'], $datos['fecha_fin'])) {
+                    $controller->setProyecto($datos);
+                } else {
+                    echo json_encode(["error" => "Datos incompletos o mal formateados"]);
+                }
+
             }
             break;
 

@@ -11,7 +11,7 @@ $tipo = $usuario['tipo'] ?? '';
 include_once('../controllers/TrabController.php');
 
 $controller = new TrabController();
-$datos = $controller->getTrabajadores();
+
 
 if ($tipo === 'proveedor') {
     $idProv = $usuario['id_prov'];
@@ -54,20 +54,24 @@ if ($tipo === 'proveedor') {
                     <td class='editable'><?= $trabajador['email'] ?></td>
                     <td class='editable'><?= $trabajador['telefono'] ?></td>
                     <td class='editable'><?= $trabajador['direccion'] ?></td>
-                    <td><?= $trabajador['documentos'] ? 'Sí' : 'No' ?></td>
+                    <td><?= $trabajador['documentos'] ? 'Apto' : 'No Apto' ?></td>
                     <td><?= $trabajador['nombre_proveedor'] ?? 'No disponible' ?> <?= $trabajador['apellidos_proveedor'] ?? 'No disponible' ?></td>
                     <td>
-                        <button class="editar">Modificar</button>
-                        <button class="guardar" style="display:none;">Guardar</button>
+                        <a href="javascript:cargar('#portada','/views/modificar_trab.php?id=<?= $trabajador['id_trab'] ?>')">
+                            <img src="/assets/img/editar.png" class="editar icono">
+                        </a>
                     </td>
                     <td>
-                        <button class="eliminar" onclick="eliminarTrabajador(<?= $trabajador['id_trab'] ?>)">Eliminar</button>
+                        <a href="javascript:eliminarTrabajador(<?= $trabajador['id_trab'] ?>)">
+                            <img src="/assets/img/eliminar.png" class="eliminar icono" alt="Eliminar">
+                        </a>
                     </td>
                 </tr>
             <?php endforeach; ?>
         </tbody>
     </table>
 </div>
+
 <div class="boton_crear">
     <a href="javascript:cargar('#portada','/views/nuevo_trab.php');">
         <button>Crear trabajador</button>
@@ -76,4 +80,4 @@ if ($tipo === 'proveedor') {
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="/assets/js/trabajadores.js"></script>
-<script src="/assets/js/modificar_trab.js"></script>
+<!-- <script src="/assets/js/actualizar_docu_trab.js"></script> -->

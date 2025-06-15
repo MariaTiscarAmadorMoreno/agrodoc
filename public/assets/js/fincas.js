@@ -1,4 +1,4 @@
-console.log("fincas.js cargado correctamente");
+//console.log("fincas.js cargado correctamente");
 
 //Función para actualizar los datos después de eliminar o modificar
 function cargarFincas() {
@@ -48,26 +48,6 @@ function cargarFincas() {
         .catch(error => console.error("Error al cargar fincas:", error));
 }
 
-// Eliminar finca 
-// function eliminarFinca(id) {
-//     if (confirm("¿Estás seguro de que deseas eliminar este finca?")) {
-//         fetch(`/controllers/FincasController.php?action=eliminarFinca&id=${id}`, {
-//             method: 'GET',
-//         })
-//         .then(response =>             
-//             response.json())           
-//         .then(data => {
-//             if (data.mensaje) {
-//                 alert(data.mensaje);
-//                 console.log("Finca eliminada correctamente. Actualizando la lista...");
-//                 cargarFincas();
-//             } else {
-//                 alert("Error al eliminar finca: " + data.error);
-//             }
-//         })
-//         .catch(error => console.error("Error al eliminar finca:", error));
-//     }
-// }
 
 function eliminarFinca(idFinca) {
     if (confirm("¿Estás seguro de que deseas eliminar esta finca?")) {

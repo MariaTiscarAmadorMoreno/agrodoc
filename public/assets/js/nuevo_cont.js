@@ -1,71 +1,78 @@
-// console.log("nuevo_usu.js cargado correctamente");
+console.log("nuevo_cont.js cargado correctamente");
+const form = document.getElementById('formNuevoContratista');
+form.addEventListener('submit', function (e) {
+    e.preventDefault();
 
-const form = document.getElementById('formNuevoUsuario');
-const tipoSelect = document.getElementById('tipo');
-const contratistaField = document.getElementById('contratistaField');
-const proveedorField = document.getElementById('proveedorField');
-const idContSelect = document.getElementById('id_cont');
-const idProvSelect = document.getElementById('id_prov');
+    // Para limpiar los errores
+    document.querySelectorAll('.error').forEach(div => div.textContent = '');
 
-// Evento para mostrar/ocultar campos según el tipo
-tipoSelect.addEventListener('change', () => {
-    contratistaField.style.display = 'none';
-    proveedorField.style.display = 'none';
+   
+    const nombre = document.getElementById('nombre').value.trim();
+    const cif = document.getElementById('cif').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const telefono = document.getElementById('telefono').value.trim();  
+    
+    //campos de direccion
+    const calle = document.getElementById('calle').value.trim();
+    const numero = document.getElementById('numero').value.trim();
+    const cp = document.getElementById('cp').value.trim();
+    const poblacion = document.getElementById('poblacion').value.trim();
+    const provincia = document.getElementById('provincia').value.trim();
 
-    if (tipoSelect.value === 'contratista') {
-        cargarContratistas();
-        contratistaField.style.display = 'block';
-    } else if (tipoSelect.value === 'proveedor') {
-        cargarProveedores();
-        proveedorField.style.display = 'block';
+    let hayErrores = false;
+
+    if (!nombre) {
+        document.getElementById('errorNombre').textContent = "El nombre es obligatorio.";
+        hayErrores = true;
     }
+
+    const cifRegex = /^([A-Za-z]\d{8}|\d{8}[A-Za-z])$/;
+
+    if (!cifRegex.test(cif))  {
+        document.getElementById('errorCIF').textContent = "CIF inválido. Debe comenzar con una letra seguida de 8 dígitos.";
+        hayErrores = true;
+    }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailRegex.test(email)) {
+        document.getElementById('errorEmail').textContent = "Correo electrónico no válido.";
+        hayErrores = true;
+    }
+
+    const telefonoRegex = /^[0-9]{9}$/;
+    
+    if (!telefonoRegex.test(telefono)) {
+        document.getElementById('errorTelefono').textContent = "El teléfono debe tener 9 dígitos.";
+        hayErrores = true;
+    }
+ 
+
+    if (hayErrores) return;
+
+    // Concatenamos la dirección completa
+    const direccion = `${calle}, Nº ${numero}, ${cp} ${poblacion}, ${provincia}`;
+
+    //enviar los datos
+    const formData = { nombre, cif, email, telefono, direccion };
+    console.log (formData);
+
+    fetch('/controllers/ContController.php?action=crearContratista', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify( formData )
+    })
+    .then(res => res.json())
+    .then(data => {
+        if (data.mensaje) {
+            alert(data.mensaje);
+            cargar('#portada', '/views/vercontratistas.php');
+        } else {
+            document.getElementById('errorGeneral').textContent = data.error || "Error desconocido al crear.";
+        }
+    })
+    .catch(() => {
+        document.getElementById('errorGeneral').textContent = "Error de comunicación con el servidor.";
+    });
 });
-
-// Función para cargar contratistas
-function cargarContratistas() {
-    fetch('/controllers/ContController.php?action=listarContratistas')
-        .then(response => response.json())
-        .then(data => {
-            idContSelect.innerHTML = '<option value="">-- Seleccionar Contratista --</option>';
-            data.forEach(contratista => {
-                idContSelect.innerHTML += `<option value="${contratista.id_cont}">${contratista.nombre}</option>`;
-            });
-        })
-        .catch(error => console.error("Error al cargar contratistas:", error));
-}
-
-// Función para cargar proveedores
-function cargarProveedores() {
-    fetch('/controllers/ProvController.php?action=listarProveedores')
-        .then(response => response.json())
-        .then(data => {
-            idProvSelect.innerHTML = '<option value="">-- Seleccionar Proveedor --</option>';
-            data.forEach(proveedor => {
-                idProvSelect.innerHTML += `<option value="${proveedor.id_prov}">${proveedor.nombre}</option>`;
-            });
-        })
-        .catch(error => console.error("Error al cargar proveedores:", error));
-}
-
-// Enviar datos mediante fetch
-// form.addEventListener('submit', (e) => {
-//     e.preventDefault();
-
-//     const formData = new FormData(form);
-
-//     fetch('/controllers/UserController.php?action=crearUsuario', {
-//         method: 'POST',
-//         body: formData
-//     })
-//     .then(response => response.json())
-//     .then(data => {
-//         if (data.mensaje) {
-//             alert(data.mensaje);
-//             window.location.href = "/views/verusuario.php";
-//         } else {
-//             alert(data.error);
-//         }
-//     })
-//     .catch(error => console.error("Error al crear usuario:", error));
-// });
-

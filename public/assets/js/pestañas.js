@@ -1,15 +1,10 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const tabs = document.querySelectorAll(".pestaña");
-    const contents = document.querySelectorAll(".tab-content");
+$(document).ready(function () {
+  $(".pestaña").on("click", function () {
+    $(".pestaña").removeClass("active");
+    $(".tab-content").removeClass("active");
 
-    tabs.forEach(tab => {
-      tab.addEventListener("click", () => { 
-        tabs.forEach(t => t.classList.remove("active"));
-        contents.forEach(c => c.classList.remove("active"));  
-
-        tab.classList.add("active");
-        const tabId = tab.getAttribute("data-tab");
-        document.getElementById(`tab-${tabId}`).classList.add("active");
-      });
-    });
+    $(this).addClass("active");
+    const tabId = $(this).data("tab");
+    $(`#tab-${tabId}`).addClass("active");
   });
+});

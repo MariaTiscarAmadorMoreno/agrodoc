@@ -60,25 +60,28 @@ if ($tipo === 'contratista') {
                     <td class="ocultar-sm"><?= $proyecto['id_proyec'] ?></td>
                     <td class='editable'><?= $proyecto['trabajo'] ?? 'No disponible' ?></td>
                     <td id="localizacion"><?= $proyecto['localizacion_finca'] ?? 'No disponible' ?></td>
-                    <td><a href="javascript:void(0);" class="enlace_ver">Ver en mapa</a></td>
+                    <td><a href="javascript:void(0);" class="enlace_mapa">Ver en mapa</a></td>
                     <td><?= $proyecto['tipo_cultivo'] ?? 'No disponible' ?></td>
                     <?php if ($tipo === 'admin' || $tipo === 'proveedor'): ?>
                         <td><?= $proyecto['nombre_contratista'] ?? 'No disponible' ?></td>
                     <?php endif; ?>
                     <?php if ($tipo === 'admin' || $tipo === 'contratista'): ?>
                         <td><?= $proyecto['nombre_proveedor'] ?? 'No disponible' ?></td>
-                        <td><a href="javascript:cargar('#portada','/views/vertrabajadores_proyecto.php');" class="enlace_ver">Ver trabajadores</a></td>
+                        <td><a href="javascript:cargar('#portada','/views/vertrab_proyec_admin_cont.php');" class="enlace_ver">Ver trabajadores</a></td>
                     <?php endif; ?>
                     <td class="fecha-inicio editable"><?= $proyecto['fecha_inicio'] ?></td>
                     <td class="fecha-fin editable"><?= $proyecto['fecha_fin'] ?></td>
 
                     <?php if ($tipo === 'admin' || $tipo === 'contratista'): ?>
                         <td>
-                            <button class="editar">Modificar</button>
-                            <button class="guardar" style="display:none;">Guardar</button>
+                            <a href="javascript:cargar('#portada','/views/modificar_proyec.php?id=<?= $proyecto['id_proyec'] ?>')">
+                                <img src="/assets/img/editar.png" class="editar icono">
+                            </a>
                         </td>
                         <td>
-                            <button class="eliminar" onclick="eliminarProyecto(<?= $proyecto['id_proyec'] ?>)">Eliminar</button>
+                            <a href="javascript:eliminarProyecto(<?= $proyecto['id_proyec'] ?>)">
+                                <img src="/assets/img/eliminar.png" class="eliminar icono" alt="Eliminar">
+                            </a>
                         </td>
                     <?php endif; ?>
                 </tr>
@@ -110,5 +113,4 @@ if ($tipo === 'contratista') {
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="/assets/js/proyectos.js"></script>
-<script src="/assets/js/modificar_proyec.js"></script>
 <script src="/assets/js/ver_mapa.js"></script>

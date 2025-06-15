@@ -1,5 +1,3 @@
-
-//Animación de movimiento hacia arriba y abajo (más suave)
 function animateBadge() {
     $('#newBadge').animate({ 
         top: '55%' 

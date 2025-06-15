@@ -47,11 +47,14 @@ $datos = $controller->getProveedores();
 
                     <?php if ($tipo === 'admin'): ?>
                         <td>
-                            <button class="editar">Modificar</button>
-                            <button class="guardar" style="display:none;">Guardar</button>
+                            <a href="javascript:cargar('#portada','/views/modificar_prov.php?id=<?= $proveedor['id_prov'] ?>')">
+                                <img src="/assets/img/editar.png" class="editar icono">
+                            </a>
                         </td>
                         <td>
-                            <button class="eliminar" onclick="eliminarProveedor(<?= $proveedor['id_prov'] ?>)">Eliminar</button>
+                            <a href="javascript:eliminarProveedor(<?= $proveedor['id_prov'] ?>)">
+                                <img src="/assets/img/eliminar.png" class="eliminar icono" alt="Eliminar">
+                            </a>
                         </td>
                     <?php endif; ?>
                 </tr>
@@ -76,10 +79,4 @@ $datos = $controller->getProveedores();
     </div>
 <?php endif; ?>
 
-
-<!-- Scripts solo si es admin -->
-<?php if ($tipo === 'admin'): ?>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="/assets/js/proveedores.js"></script>
-    <script src="/assets/js/modificar_prov.js"></script>
-<?php endif; ?>
+<script src="/assets/js/proveedores.js"></script>

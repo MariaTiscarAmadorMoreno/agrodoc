@@ -48,13 +48,16 @@ if ($tipo === 'contratista') {
                     <td class='editable'><?= $finca['cultivo'] ?></td>
                     <td class='editable'><?= $finca['hectarea'] ?></td>
                     <td class='editable' id="localizacion"><?= $finca['localizacion'] ?></td>
-                    <td><a href="javascript:void(0);" class="enlace_ver">Ver en mapa</a></td>
+                    <td><a href="javascript:void(0);" class="enlace_mapa">Ver mapa</a></td>
                     <td>
-                        <button class="editar">Modificar</button>
-                        <button class="guardar" style="display:none;">Guardar</button>
+                        <a href="javascript:cargar('#portada','/views/modificar_finca.php?id=<?= $finca['id_finca'] ?>')">
+                            <img src="/assets/img/editar.png" class="editar icono">
+                        </a>
                     </td>
                     <td>
-                        <button class="eliminar" onclick="eliminarFinca(<?= $finca['id_finca'] ?>)">Eliminar</button>
+                        <a href="javascript:eliminarFinca(<?= $finca['id_finca'] ?>)">
+                            <img src="/assets/img/eliminar.png" class="eliminar icono" alt="Eliminar">
+                        </a>
                     </td>
                 </tr>
             <?php endforeach; ?>
@@ -74,8 +77,7 @@ if ($tipo === 'contratista') {
     </a>
 </div>
 
-<!-- <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script> -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="/assets/js/fincas.js"></script>
-<script src="/assets/js/modificar_finca.js"></script>
 <script src="/assets/js/ver_mapa.js"></script>

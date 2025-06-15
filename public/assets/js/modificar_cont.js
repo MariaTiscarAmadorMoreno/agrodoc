@@ -1,98 +1,65 @@
-const tablaContratistas = document.getElementById("contratistasTabla");
+document.getElementById('formEditarContratista').addEventListener('submit', function (e) {
+    e.preventDefault();
 
-tablaContratistas.addEventListener("click", (event) => {
-  if (event.target.classList.contains("editar")) {
-    let row = event.target.closest("tr");
+    document.querySelectorAll('.error').forEach(div => div.textContent = '');
 
-    
-    row.dataset.originalNombre = row.querySelector("td:nth-child(2)").innerText;
-    row.dataset.originalCif = row.querySelector("td:nth-child(3)").innerText;
-    row.dataset.originalEmail= row.querySelector("td:nth-child(4)").innerText;
-    row.dataset.originalTelefono = row.querySelector("td:nth-child(5)").innerText;
-    row.dataset.originalDireccion = row.querySelector("td:nth-child(6)").innerText;  
-    row.querySelectorAll(".editable").forEach((cell) => {
-      let valor = cell.innerText;
-      cell.innerHTML = `<input type="text" value="${valor}">`;
-    });
+    const id = document.getElementById('id').value;
+    const nombre = document.getElementById('nombre').value.trim();
+    const cif = document.getElementById('cif').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const telefono = document.getElementById('telefono').value.trim();
+    const direccion = document.getElementById('direccion').value.trim();
 
-    row.querySelector(".editar").style.display = "none";
-    row.querySelector(".guardar").style.display = "inline-block";
-  }
-});
+    let hayErrores = false;
 
+    const cifRegex = /^[A-Za-z]\d{8}$/;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const telefonoRegex = /^[0-9]{9}$/;
 
-tablaContratistas.addEventListener("click", (event) => {
-  if (event.target.classList.contains("guardar")) {
-    let row = event.target.closest("tr");
-    let id = row.dataset.id;
-    let nombre = row.querySelector("td:nth-child(2) input").value;
-    let cif = row.querySelector("td:nth-child(3) input").value;
-    let email = row.querySelector("td:nth-child(4) input").value;
-    let telefono= row.querySelector("td:nth-child(5) input").value;
-    let direccion = row.querySelector("td:nth-child(6) input").value;   
-
-    //Comprobamos si los valores son iguales a los originales y si son iguales, no realizamos ningún cambio
-    if (
-      nombre === row.dataset.originalNombre &&     
-      cif === row.dataset.originalCif &&
-      email === row.dataset.originalEmail &&
-      telefono === row.dataset.originalTelefono &&
-      direccion === row.dataset.originalDireccion  
-    ) {
-      alert("No se realizaron cambios, los datos son los mismos.");
-
-      //Volvermos a mostrar los valores originales si no hay cambios
-      row.querySelector("td:nth-child(2)").innerText = row.dataset.originalNombre;
-      row.querySelector("td:nth-child(3)").innerText = row.dataset.originalCif;
-      row.querySelector("td:nth-child(4)").innerText = row.dataset.originalEmail;
-      row.querySelector("td:nth-child(5)").innerText = row.dataset.originalTelefono;
-      row.querySelector("td:nth-child(6)").innerText = row.dataset.originalDireccion;    
-      
-      row.querySelector(".editar").style.display = "inline-block";
-      row.querySelector(".guardar").style.display = "none";
-      return; 
+    if (!nombre) {
+        document.getElementById('errorNombre').textContent = "El nombre es obligatorio.";
+        hayErrores = true;
     }
 
-    let datos = [
-      id,    
-      nombre,    
-      cif,
-      email,
-      telefono,
-      direccion
- 
-    ];
+    if (!cifRegex.test(cif)) {
+        document.getElementById('errorCIF').textContent = "El CIF es obligatorio.";
+        hayErrores = true;
+    }
 
-    console.log("Datos enviados para modificar:", datos);
+    if (!emailRegex.test(email)) {
+        document.getElementById('errorEmail').textContent = "Correo no válido.";
+        hayErrores = true;
+    }
 
-    
-    fetch("/controllers/ContController.php?action=modificarContratista", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ datos: datos }),
+    if (!telefonoRegex.test(telefono)) {
+        document.getElementById('errorTelefono').textContent = "El teléfono debe tener 9 cifras.";
+        hayErrores = true;
+    }
+
+    if (!direccion) {
+        document.getElementById('errorDireccion').textContent = "La dirección es obligatoria.";
+        hayErrores = true;
+    }
+
+    if (hayErrores) return;
+
+    const datos = { id, nombre, cif, email, telefono, direccion };
+
+    fetch('/controllers/ContController.php?action=modificarContratista', {
+        method: 'POST',
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ datos })
     })
-      .then((response) => response.json())
-      .then((data) => {
+    .then(r => r.json())
+    .then(data => {
         if (data.mensaje) {
-          alert(data.mensaje);
-
-          //Actualizamos la tabla con los valores modificados
-          row.querySelector("td:nth-child(2)").innerText = nombre;
-          row.querySelector("td:nth-child(3)").innerText = cif;
-          row.querySelector("td:nth-child(4)").innerText = email;
-          row.querySelector("td:nth-child(5)").innerText = telefono;
-          row.querySelector("td:nth-child(6)").innerText = direccion;
-          row.querySelector(".editar").style.display = "inline-block";
-          row.querySelector(".guardar").style.display = "none";
+            alert(data.mensaje);
+            cargar('#portada', '/views/vercontratistas.php');
         } else {
-          alert(data.error);
+            document.getElementById('errorGeneral').textContent = data.error || "Error al modificar.";
         }
-      })
-      .catch((error) => {
-        console.error("Error al modificar contratista:", error);
-        alert("Error en el servidor.");
-      });
-  }
+    })
+    .catch(() => {
+        document.getElementById('errorGeneral').textContent = "Error en el servidor.";
+    });
 });

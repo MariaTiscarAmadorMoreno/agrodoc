@@ -141,14 +141,12 @@ if (isset($_SESSION['usuario'])) {
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="/assets/js/cargar.js"></script>
   <script src="/assets/js/menu.js"></script>
-  <script src="/assets/js/menu2.js"></script>
+  <script src="/assets/js/menu2.js">
+    activarMenuHamburguesa();
+  </script>
   <script>
     cargar('#barra', '/views/barra_admin.php');
     <?php echo $redir; ?>
-  </script>
-  <script>
-    cargar('#barra', '/views/barra_admin.php')
-    activarMenuHamburguesa();
   </script>
 </body>
 

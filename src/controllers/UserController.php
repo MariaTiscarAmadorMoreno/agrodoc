@@ -46,35 +46,66 @@ class UserController
         }
     }
 
+    public function getUsuarioPorId($id)
+    {
+        $sql = "SELECT u.*, 
+                   c.nombre AS nombre_contratista, 
+                   p.nombre AS nombre_proveedor, 
+                   p.apellidos AS apellidos_proveedor
+            FROM usuarios u
+            LEFT JOIN contratistas c ON u.id_cont = c.id_cont
+            LEFT JOIN proveedores p ON u.id_prov = p.id_prov
+            WHERE u.id_usu = ?";
 
-    public function setUsuario($datosSerializados)
+        $stmt = $this->db->conn->prepare($sql);
+        $stmt->execute([$id]);
+
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
+
+    public function setUsuario($post)
     {
         try {
-            $datos = unserialize($datosSerializados);
+            $usuario = $post['usuario'] ?? null;
+            $clave = $post['clave'] ?? null;
+            $nombre = $post['nombre'] ?? null;
+            $tipo = $post['tipo'] ?? null;
+            $id_cont = !empty($post['id_cont']) ? $post['id_cont'] : null;
+            $id_prov = !empty($post['id_prov']) ? $post['id_prov'] : null;
 
-            $id_cont = !empty($datos[4]) ? $datos[4] : null;
-            $id_prov = !empty($datos[5]) ? $datos[5] : null;
+            if (!$usuario || !$clave || !$nombre || !$tipo) {
+                echo json_encode(["error" => "Todos los campos son obligatorios."]);
+                return;
+            }
+
+            // Validamos que no exista el nombre de usuario
+            $stmt = $this->db->conn->prepare("SELECT COUNT(*) FROM usuarios WHERE usuario = ?");
+            $stmt->execute([$usuario]);
+            if ($stmt->fetchColumn() > 0) {
+                echo json_encode(["error" => "El nombre de usuario ya existe."]);
+                return;
+            }
+
+            // Para encriptar  la contraseña -pero no lo voy a usar-
+            //$claveHash = password_hash($clave, PASSWORD_DEFAULT);
 
             $sql = "INSERT INTO usuarios (usuario, clave, nombre, tipo, id_cont, id_prov) 
                 VALUES (?, ?, ?, ?, ?, ?)";
 
             $stmt = $this->db->conn->prepare($sql);
             $stmt->execute([
-                $datos[0],
-                $datos[1],
-                $datos[2],
-                $datos[3],
+                $usuario,
+                $clave,
+                $nombre,
+                $tipo,
                 $id_cont,
                 $id_prov
             ]);
 
-            //echo json_encode(["mensaje" => "Usuario creado exitosamente"]);
+            echo json_encode(["mensaje" => "Usuario creado exitosamente."]);
         } catch (PDOException $e) {
-            if ($e->getCode() == 23000) {
-                echo json_encode(["error" => "El nombre de usuario ya existe."]);
-            } else {
-                echo json_encode(["error" => $e->getMessage()]);
-            }
+            echo json_encode(["error" => $e->getMessage()]);
         }
     }
 
@@ -98,6 +129,7 @@ class UserController
 
     public function updateUsuario($datosSerializados)
     {
+        
         try {
             header('Content-Type: application/json');
 
@@ -107,12 +139,21 @@ class UserController
             $usuario = $datos['usuario'] ?? null;
             $clave = $datos['clave'] ?? null;
             $nombre = $datos['nombre'] ?? null;
-            $tipo = $datos['tipo'] ?? 'admin';  
+            $tipo = $datos['tipo'] ?? 'admin';
 
-            if (!$id || !$usuario || !$nombre) {
+            if (!$id || !$usuario || !$nombre || !$clave || !$tipo) {
                 echo json_encode(["error" => "Datos incompletos"]);
                 exit;
             }
+
+            // Verificamos si el nombre de usuario está duplicado
+            $stmt = $this->db->conn->prepare("SELECT id_usu FROM usuarios WHERE usuario = ? AND id_usu != ?");
+            $stmt->execute([$usuario, $id]);
+            if ($stmt->fetch()) {
+                echo json_encode(["error" => "El nombre de usuario ya está en uso por otro usuario."]);
+                exit;
+            }
+
 
             $sql = "UPDATE usuarios SET usuario = ?, clave = ?, nombre = ?, tipo = ? WHERE id_usu = ?";
 
@@ -129,7 +170,17 @@ class UserController
             echo json_encode(["error" => $e->getMessage()]);
         }
     }
+
+    public function existeUsuario($usuario)
+    {
+        $stmt = $this->db->conn->prepare("SELECT COUNT(*) FROM usuarios WHERE usuario = ?");
+        $stmt->execute([$usuario]);
+        $existe = $stmt->fetchColumn() > 0;
+        echo json_encode(['existe' => $existe]);
+    }
 }
+
+
 
 if (isset($_GET['action'])) {
     $controller = new UserController();
@@ -164,6 +215,11 @@ if (isset($_GET['action'])) {
         case 'crearUsuario':
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $controller->setUsuario($_POST);
+            }
+            break;
+        case 'existeUsuario':
+            if (isset($_GET['usuario'])) {
+                $controller->existeUsuario($_GET['usuario']);
             }
             break;
 

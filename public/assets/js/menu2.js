@@ -10,6 +10,3 @@ function activarMenuHamburguesa() {
   }
 }
 
-// Cargar el contenido y luego activar el menú
-// cargar('#barra', '/views/barra_admin.php')
-// activarMenuHamburguesa();

@@ -1,6 +1,6 @@
 var marker_actual;
 var circulo;
-console.log("Cargado mio.js");
+console.log("Cargado ver_mapa.js");
 var Icon = L.icon({
     iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
     shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',

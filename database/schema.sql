@@ -64,7 +64,7 @@ CREATE TABLE trabajadores (
     FOREIGN KEY (id_prov) REFERENCES proveedores(id_prov) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
---Tabla de Docuemntos
+-- Tabla de Docuemntos
 CREATE TABLE documentos (
     id_doc INTEGER AUTO_INCREMENT NOT NULL,
     tipo_documento ENUM('dni', 'alta_ss', 'prl', 'reconocimiento_medico', 'aut_maquinaria') NOT NULL,

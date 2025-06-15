@@ -35,6 +35,14 @@ class ContController
         }
     }
 
+    public function getContratistaPorId($id)
+    {
+        $sql = "SELECT * FROM contratistas WHERE id_cont = ?";
+        $stmt = $this->db->conn->prepare($sql);
+        $stmt->execute([$id]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
     public function delContratista($id)
     {
 
@@ -57,13 +65,24 @@ class ContController
     {
         try {
             $datos = json_decode($datosSerializados, true);
+           
+            $id = $datos['id'] ?? null;
+            $nombre = $datos['nombre'] ?? null;
+            $cif = $datos['cif'] ?? null;
+            $email = $datos['email'] ?? null;
+            $telefono = $datos['telefono'] ?? null;
+            $direccion = $datos['direccion'] ?? null;
 
+            if (!$id || !$nombre || !$cif || !$email || !$telefono || !$direccion) {
+                echo json_encode(["error" => "Todos los campos son obligatorios."]);
+                return;
+            }
             $sql = "UPDATE contratistas 
                 SET nombre = ?,  cif = ?, email = ?, telefono = ?, direccion = ?
                 WHERE id_cont = ?";
 
             $stmt = $this->db->conn->prepare($sql);
-            $stmt->execute([$datos[1], $datos[2], $datos[3], $datos[4], $datos[5], $datos[0]]);
+            $stmt->execute([$nombre, $cif, $email, $telefono, $direccion, $id]);
 
 
             if ($stmt->rowCount() > 0) {
@@ -78,14 +97,36 @@ class ContController
 
     //Método para crear un contratista y como no devuelve nada no usa ningun fetch
     public function setContratista($datos)
-    {
-        $datos = unserialize($datos);
-        $this->db->conn->beginTransaction();
-        $sql = "INSERT INTO contratistas VALUES (?,?,?,?,?,?);";
+{
+    try {
+        $nombre = $datos['nombre'] ?? null;
+        $cif = $datos['cif'] ?? null;
+        $email = $datos['email'] ?? null;
+        $telefono = $datos['telefono'] ?? null;
+        $direccion = $datos['direccion'] ?? null;
+
+
+        
+        // Verificar duplicado por CIF
+        $stmt = $this->db->conn->prepare("SELECT COUNT(*) FROM contratistas WHERE cif = ?");
+        $stmt->execute([$cif]);
+        if ($stmt->fetchColumn() > 0) {
+            echo json_encode(["error" => "Ya existe un contratista con ese CIF."]);
+            return;
+        }
+
+        $sql = "INSERT INTO contratistas (nombre, cif, email, telefono, direccion) 
+                VALUES (?, ?, ?, ?, ?)";
+
         $stmt = $this->db->conn->prepare($sql);
-        $stmt->execute(array(0, $datos[0], $datos[1], $datos[2], $datos[3], $datos[4]));
-        $this->db->conn->commit();
+        $stmt->execute([$nombre, $cif, $email, $telefono, $direccion]);
+
+        echo json_encode(["mensaje" => "Contratista creado exitosamente."]);
+    } catch (PDOException $e) {
+        echo json_encode(["error" => $e->getMessage()]);
     }
+}
+
 
     public function getContratistasPorProveedor($idProveedor)
     {
@@ -157,7 +198,17 @@ if (isset($_GET['action'])) {
 
         case 'crearContratista':
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                $controller->setContratista($_POST);
+               header('Content-Type: application/json');
+
+                // Leer cuerpo JSON enviado
+                $input = file_get_contents("php://input");
+                $datos = json_decode($input, true);
+
+                if (isset($datos['nombre'], $datos['cif'], $datos['email'], $datos['telefono'], $datos['direccion'])) {
+                    $controller->setContratista($datos);
+                } else {
+                    echo json_encode(["error" => "Datos incompletos o mal formateados"]);
+                }
             }
             break;
         case 'listarContratistasPorProveedor':

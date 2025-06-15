@@ -39,6 +39,18 @@ class FincasController
         }
     }
 
+    public function getFincaPorId($id)
+    {
+        $sql = "SELECT f.*, c.nombre AS nombre_contratista
+            FROM fincas f
+            LEFT JOIN contratistas c ON f.id_cont = c.id_cont
+            WHERE f.id_finca = ?";
+        $stmt = $this->db->conn->prepare($sql);
+        $stmt->execute([$id]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
+
     public function delFinca($id)
     {
 
@@ -62,17 +74,23 @@ class FincasController
         try {
             $datos = json_decode($datosSerializados, true);
 
+            $id = $datos['id'] ?? null;
+            $localizacion = $datos['localizacion'] ?? null;
+            $cultivo = $datos['cultivo'] ?? null;
+            $hectarea = $datos['hectarea'] ?? null;
+            $id_cont = $datos['id_cont'] ?? null;
+
+            if (!$id || !$localizacion || !$cultivo || !$hectarea || !$id_cont) {
+                echo json_encode(["error" => "Todos los campos son obligatorios."]);
+                return;
+            }
+
             $sql = "UPDATE fincas
-                SET cultivo = ?, hectarea = ?, localizacion = ?
+                SET localizacion = ?, cultivo = ?, hectarea = ?,  id_cont = ?
                 WHERE id_finca = ?";
 
             $stmt = $this->db->conn->prepare($sql);
-            $stmt->execute([
-                $datos[1],
-                $datos[2],
-                $datos[3],
-                $datos[0]
-            ]);
+            $stmt->execute([$localizacion, $cultivo, $hectarea, $id_cont, $id]);
 
             if ($stmt->rowCount() > 0) {
                 echo json_encode(["mensaje" => "Finca actualizada correctamente."]);
@@ -87,12 +105,20 @@ class FincasController
     //Método para crear una finca y como no devuelve nada no usa ningun fetch
     public function setFinca($datos)
     {
-        $datos = unserialize($datos);
-        $this->db->conn->beginTransaction();
-        $sql = "INSERT INTO fincas VALUES (?,?,?,?,?);";
-        $stmt = $this->db->conn->prepare($sql);
-        $stmt->execute(array(0, $datos[0], $datos[1], $datos[2], $datos[3]));
-        $this->db->conn->commit();
+        try {
+            $localizacion = $datos['localizacion'] ?? null;
+            $cultivo = $datos['cultivo'] ?? null;
+            $hectareas = $datos['hectarea'] ?? null;
+            $id_cont = $datos['id_cont'] ?? null;
+
+            $sql = "INSERT INTO fincas (localizacion, cultivo, hectarea, id_cont) VALUES (?,?,?,?);";
+            $stmt = $this->db->conn->prepare($sql);
+            $stmt->execute([$localizacion, $cultivo, $hectareas, $id_cont]);
+
+            echo json_encode(["mensaje" => "Finca creada exitosamente."]);
+        } catch (PDOException $e) {
+            echo json_encode(["error" => $e->getMessage()]);
+        }
     }
 
     //fincas asociadas a un contratista
@@ -162,6 +188,21 @@ if (isset($_GET['action'])) {
         case 'eliminarFinca':
             if (isset($_GET['id'])) {
                 $controller->delFinca($_GET['id']);
+            }
+            break;
+        case 'crearFinca':
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                header('Content-Type: application/json');
+
+                // Leer cuerpo JSON enviado
+                $input = file_get_contents("php://input");
+                $datos = json_decode($input, true);
+
+                if (isset($datos['localizacion'], $datos['cultivo'], $datos['hectarea'], $datos['id_cont'])) {
+                    $controller->setFinca($datos);
+                } else {
+                    echo json_encode(["error" => "Datos incompletos o mal formateados"]);
+                }
             }
             break;
         case 'modificarFinca':

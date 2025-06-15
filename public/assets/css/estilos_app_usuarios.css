@@ -19,7 +19,7 @@
   --font-base: 1rem;
   --font-large: 1.25rem;
   --font-xlarge: 1.5rem;
-   --font-xxlarge: 2rem;
+  --font-xxlarge: 2rem;
 }
 
 /* Estilos del elemento contenedor principal */
@@ -29,9 +29,9 @@
   flex-direction: column;
   align-items: center;
   margin: 0 auto;
-  width: 100%;  
+  width: 100%;
   text-align: left;
-  font-size: var(--font-base); 
+  font-size: var(--font-base);
 }
 
 /* Estilos del elemento header */
@@ -77,12 +77,8 @@
 
 #portada {
   width: 100%;
-  min-height: 63vh;  
+  min-height: 60vh;
   background-color: var(--color-fondo);
-}
-#portada img {
-  width: 80%;
-  height: auto;
 }
 
 /* Estilos para  selectores del header*/
@@ -171,6 +167,16 @@ h2 {
   padding: 10px;
   border-radius: 5px;
 }
+/* Estilos a los iconos */
+.text-green {
+  color: green;
+}
+.text-orange {
+  color: orange;
+}
+.text-red {
+  color: red;
+}
 /* Estilos a tablas */
 .table-responsive {
   overflow-x: auto;
@@ -178,10 +184,21 @@ h2 {
 table {
   width: 80%;
   margin: 0 auto;
+  padding-bottom: 2%;
   border-collapse: collapse;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+table .icono {
+  width: 30px;
+  height: auto;
+}
+caption h3 {
+  text-align: center;
+  padding: 2% 0;
+  color: var(--color-cuarto);
+  font-size: var(--font-large);
+}
 thead {
   background-color: #335f47;
   color: white;
@@ -202,7 +219,7 @@ tbody tr:nth-child(even) {
   background-color: #f2f2f2;
 }
 
-button {
+ button {
   padding: 5px 10px;
   background-color: #f1af00;
   border: none;
@@ -212,7 +229,7 @@ button {
   text-decoration: none;
 }
 
-button.editar {
+/*button.editar {
   padding: 5px 10px;
   background-color: orangered;
   border: none;
@@ -234,7 +251,7 @@ button.guardar {
 
 button:hover {
   background-color: rgb(236, 26, 26);
-}
+} */
 
 /* Estilos enlace crear*/
 .boton_crear {
@@ -277,7 +294,7 @@ button:hover {
 }
 .enlace_ver a button {
   color: #ffffff;
-  background-color:#f1af00 ;
+  background-color: #f1af00;
   width: 100%;
   padding: 10px 20px;
   font-size: 1rem;
@@ -311,6 +328,49 @@ button:hover {
   background-color: rgb(236, 26, 26);
 }
 
+/* Estilos modal para modificar */
+.modal {
+  position: fixed;
+  top: 5%;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  overflow: hidden;
+}
+.modal-contenido {
+  max-height: 90vh;
+  overflow-y: auto;
+  width: 80%;
+  max-width: 600px;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  border: #555 1px solid;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+.modal-contenido h3 {
+  font-size: var(--font-xlarge);
+  color: var(--color-secundario);
+  text-align: center;
+}
+
+.container_botones_modal {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+.container_botones_modal button {
+  width: 35%;
+}
+.container_botones_modal button:hover {
+  background-color: var(--color-terciario);
+}
+.oculto {
+  display: none;
+}
 /* estilos enlace mapa */
 
 #mapContainer {
@@ -385,6 +445,9 @@ button:hover {
   flex-direction: column;
   gap: 15px;
 }
+fieldset {
+  padding: 10px;
+}
 
 label {
   font-weight: bold;
@@ -404,7 +467,11 @@ select {
   font-size: 16px;
   background: #f9f9f9;
 }
-
+.error {
+  color: #C00; 
+  font-size: var(--font-base);
+  margin: 0.3rem 0;
+}
 .submit-btn {
   margin-top: 20px;
   background: #f1af00;
@@ -497,13 +564,12 @@ select {
   position: fixed;
   top: 190px;
   left: 0;
-  /* Para calcular dinámicamente la altura de del menú */
-  height: calc(50% - 50px);
+  height: 50%;
   background-color: #28784d;
   color: white;
   transition: width 0.3s ease;
   overflow: hidden;
-  width: 75px; 
+  width: 95px;
   z-index: 1000;
 }
 
@@ -813,9 +879,7 @@ select {
   .container_form {
     width: 90%;
   }
-  .container_form {
-    width: 100%;
-  }
+
   p {
     font-size: 1em;
   }

@@ -11,39 +11,40 @@ $idCont = $usuario['id_cont'] ?? null;
 ?>
 
 <div class="volver">
-    <a href="javascript:cargar('#portada','/views/verproyectos.php');"><button>Volver</button></a>
+    <?php if ($tipo === 'admin'): ?>
+        <a href="/views/app_admin.php?opcion=4"><button>Atrás</button></a>
+    <?php else: ?>
+        <a href="/views/app_proveedor.php?opcion=2"><button>Atrás</button></a>
+    <?php endif; ?>
 </div>
-<!-- fecha_inicio, fecha_fin, id_cont, id_prov, id_finca -->
+
 <div class="container_form">
     <h2 class="form-title"> Nueva Campaña </h2>
 
-    <form action="/controllers/nproyecto.php" method="POST">
+    <form id="formNuevoProyecto" method="POST">
 
         <!-- Desplegable de contratistas -->
         <?php if ($tipo === 'admin'): ?>
-            <!-- Mostrar selector de contratistas solo a administradores -->
             <div id="contratistaField">
                 <label for="id_cont">Selecciona un contratista:</label>
                 <select name="id_cont" id="id_cont">
                     <option value="">-- Seleccionar Contratista --</option>
                 </select>
+                <div class="error" id="errorContratista"></div>
             </div>
         <?php else: ?>
-            <!-- Para contratistas insertamos automáticamente su id -->
             <input type="hidden" name="id_cont" value="<?= $idCont ?>">
         <?php endif; ?>
 
         <!-- Desplegable de fincas asociadas al contratista. -->
-        <div id="fincaField">
-            <label for="id_finca">Selecciona una Finca:</label>
-            <select name="id_finca" id="id_finca">
-                <option value="">-- Seleccionar Finca --</option>
-            </select>
-        </div>
-        <div>
-            <label for="trabajo">Trabajo:</label>
-            <input placeholder="Trabajo" required="required" name="trabajo" type="text" id="trabajo">
-        </div>
+
+        <label for="id_finca">Selecciona una Finca:</label>
+        <select name="id_finca" id="id_finca">
+            <option value="">-- Seleccionar Finca --</option>
+        </select>
+        <div class="error" id="errorFinca"></div>
+
+
         <!-- Desplegable de proveedores -->
         <div id="proveedorField">
             <label for="id_prov">Selecciona un proveedor:</label>
@@ -52,16 +53,20 @@ $idCont = $usuario['id_cont'] ?? null;
             </select>
         </div>
 
-        <div>
-            <label for="fecha_inicio">Fecha Inicio:</label>
-            <input placeholder="Fecha Inicio" required name="fecha_inicio" type="date" id="fecha_inicio">
-        </div>
-        <div>
-            <label for="fecha_fin">Fecha Fin:</label>
-            <input placeholder="Fecha Fin" required name="fecha_fin" type="date" id="fecha_fin">
-        </div>
+        <label for="trabajo">Trabajo a realizar:</label>
+        <input name="trabajo" type="text" id="trabajo">
+        <div class="error" id="errorTrabajo"></div>
 
-        <input type="submit" value="Insertar" class="submit-btn">
+
+        <label for="fecha_inicio">Fecha Inicio:</label>
+        <input name="fecha_inicio" type="date" id="fecha_inicio">
+
+        <label for="fecha_fin">Fecha Fin:</label>
+        <input name="fecha_fin" type="date" id="fecha_fin">
+
+
+        <button type="submit" class="submit-btn">Crear campaña</button>
+        <div class="error" id="errorGeneral"></div>
     </form>
 </div>
 

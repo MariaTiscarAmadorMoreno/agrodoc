@@ -11,20 +11,21 @@
   <!-- FontAwasome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <!-- css -->
-  <link rel="stylesheet" type="text/css" href="../../assets/css/estilos_tv_proveedor.css">
+  <link rel="stylesheet" type="text/css" href="../../assets/css/estilos_tv.css">
   <link rel="stylesheet" type="text/css" href="../../assets/css/tarifa.css">
-
+  <!-- script para chat en vivo -->
+  <script src="//code.tidio.co/qoe3mhwmfpdrgnjupiwlei0hkc9cy2ut.js" async></script>
   <title>Agrodoc</title>
 </head>
 
 <body>
   <!--Contenedor principal-->
   <div id="principal">
-    <div class="container_header_nav">
-      <!--Cabecera-->
-      <header id="principal_header" role="banner"> 
+  <div class="container_header_nav_proveedor">
+     <!--Cabecera-->    
+     <header id="principal_header_proveedor" role="banner"> 
         <div class="container_logotipo">
-          <a href="#" name="logotipo">           
+          <a href="./proveedor.html" name="logotipo">           
             <img src="../../assets/img/logotipoAgrodoc.svg" alt="logotipo svg" title="Agrodoc" class="logotipo">
           </a>
         </div>
@@ -36,7 +37,7 @@
         </div>        
         <div class="perfiles">        
           <a href="../../index.html" class="a-contratista active" id="contratista" aria-label="Soy contratista">Soy contratista</a> 
-          <a href="#" class="a-proovedor" id="proveedor" aria-label="Soy proveedor">Soy proveedor</a>
+          <a href="./proveedor.html" class="a-proovedor" id="proveedor" aria-label="Soy proveedor">Soy proveedor</a>
         </div>
       </div>
         <div class="container-selector-group">
@@ -46,44 +47,44 @@
           <a id="soporteLink" aria-haspopup="true" aria-expanded="false">Soporte <i class="fas fa-solid fa-chevron-down" aria-hidden="true"></i></a>
             <ul id="soporteMenu" class="selector-menu">
               <li><a href="./faq.html">FAQ</a></li>
-              <li><a href="./manual_de_uso.html">Manual de uso</a></li>
+              <li><a href="./manual_uso.html">Manual de uso</a></li>
             </ul>
         </div> 
         <!-- Blog --> 
          <div class="container_blog">               
             <div class="container-selector">          
-              <a href=".blog.html" id="blogLink">Blog</a>
+              <a href="./blog.html" id="blogLink">Blog</a>
               <div id="newBadge">NEW</div>                     
             </div>
         </div>
         </div>
         <!-- Login -->
          <div class="loging"> 
-            <a href="/app/login">
+            <a href="/views/login.php">
                 <i class="fas fa-user usuario"></i>  Entrar
             </a>
           </div>
      </header>
-      <!-- Menú de navegación -->
-      <div id="menuHamburguesa" aria-label="Abrir menú">&#9776</div>
-      <!-- Navegador -->
-      <nav id="nav" role="navigation">
-        <ul class="container_nav">
-          <li><a href="./proveedor.html">Inicio</a></li>
-          <li><a href="./plataforma.html">Plataforma CAE</a></li>
-          <li><a href="./software.html">Software PRL</a></li>
-          <li class="enlace_soluciones"><a>Mas soluciones <i class="fas fa-solid fa-chevron-down"
-                aria-hidden="true"></i></a>
-            <ul>
-              <li><a href="./directorio.html">Directorio de proveedores</a></li>
-              <li><a href="./control_de_accesos.html">Control de accesos</a></li>
-              <li><a href="./personal_sobre_el_terreno.html">Personal sobre el terreno</a></li>
-            </ul>
-          </li>
-          <li><a href="./contacto.html">Contacto</a></li>
-        </ul>
-      </nav>
-    </div>
+     <!-- Menú de navegación -->
+    <div id="menuHamburguesa" aria-label="Abrir menú">&#9776</div>
+    <!-- Navegador -->
+    <nav id="nav_proveedor" role="navigation">  
+      <ul class="container_nav">
+        <li><a href="../../index.html">Inicio</a></li>
+        <li><a href="./plataforma.html">Plataforma CAE</a></li>
+        <li><a href="./homolog_prov.html">Homologación de Proveedores</a></li>
+        <li class="enlace_soluciones"><a id="enlace_soluciones">Mas soluciones <i class="fas fa-solid fa-chevron-down" aria-hidden="true"></i></a>
+          <ul>
+            <li><a href="./software.html">Software PRL</a></li>
+            <li><a href="./directorio.html">Directorio de proveedores</a></li>
+            <li><a href="./control_de_accesos.html">Control de accesos</a></li>
+            <li><a href="./personal_sobre_el_terreno.html">Personal sobre el terreno</a></li>
+          </ul>
+        </li>
+        <li><a href="./contacto.html">Contacto</a></li>
+      </ul>     
+    </nav>
+  </div>
     <!-- Contenido principal -->
     <main id="main" role="main">
       <div class="container_tarifas">
@@ -576,13 +577,12 @@
       </div>
     </main>
     <!-- Pie de página -->
-    <footer id="footer" role="contentinfo">
+    <footer id="footer_proveedor" role="contentinfo">
       <div class="footer-links">
-        <a href="../sobrenosotros.html" aria-label="Quiénes somos">Quiénes somos</a>
-        <a href="../faq.html" aria-label="FAQ">FAQ</a>
-        <a href="../contacto.html" aria-label="Contacto">Contacto</a>
-        <a href="../politica_privacidad.html" aria-label="Política de privacidad">Política de privacidad</a> <a
-          href="./paginas/politica_privacidad.html" aria-label="Política de privacidad">Política de privacidad</a>
+        <a href="./sobrenosotros.html" aria-label="Sobre nosotros">Sobre nosotros</a>
+        <a href="./faq.html" aria-label="FAQ">FAQ</a>
+        <a href="./contacto.html" aria-label="Contacto">Contacto</a>
+        <a href="./politica_privacidad.html" aria-label="Política de privacidad">Política de privacidad</a> 
         <a href="mailto:agrodoc@agrodoc.com" aria-label="Enviar un correo a AgroDoc">Email: agrodoc@agrodoc.com</a>
       </div>
 
@@ -620,7 +620,7 @@
               bienes/servicios, deseas recibir la documentación/información de homologación y/o compliance de tus
               proveedores según tus exigencias.</li>
             <li><strong>Herramienta de Compras:</strong> Cuando como Empresa Contratista deseas recibir ofertas de tus
-              proveedores a tus RFQ’s.</li>
+              proveedores.</li>
           </ul>
 
           <h3>Proveedor</h3>
@@ -640,8 +640,6 @@
         </div>
       </div>
     </div>
-
-
   </div>
   <!-- JS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"

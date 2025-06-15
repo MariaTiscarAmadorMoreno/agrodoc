@@ -1,14 +1,15 @@
+console.log("se carga el secrip para menu desplegable")
 $(function(){
     var anchura = $(this).width();
     $('#menuHamburguesa').click(function(){
-        $('#nav').toggle();
+        $('#nav, #nav_proveedor').toggle();
     });
     $(window).resize(function(){
-        
-        if(anchura > 767){
-            $('#nav').show();
+        var anchura = $(window).width();
+        if(anchura > 576){
+            $('#nav, #nav_proveedor').show();
         }else {
-            $('#nav').hide();
+            $('#nav, #nav_proveedor').hide();
         }
     });
     if(anchura > 992){

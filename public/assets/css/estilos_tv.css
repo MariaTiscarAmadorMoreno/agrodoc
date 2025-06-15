@@ -53,6 +53,31 @@
   z-index: 100;
 }
 
+/*HEADER Y NAV ANCLADO PROVEEDOR*/
+.container_header_nav_proveedor {
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+  background-color: var(--color-secundario);
+  z-index: 1000;
+  /* padding: 0px 20px; */
+}
+
+/* HEADER PROVEEDOR*/
+#principal_header_proveedor {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  gap: 20px;
+  background-color: var(--color-secundario);
+  color: var(--color-texto);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
 /*LOGOTIPO */
 .container_logotipo {
   display: flex;
@@ -82,7 +107,7 @@
   padding: 5px;
 }
 
-/*Estilo del Modal */
+/*Estilo del Modal de información de perfiles*/
 .modal {
   display: none;
   position: fixed;
@@ -154,10 +179,10 @@
 }
 
 .perfiles #contratista:hover {
-  background-color: #335f47; /* Cambio de color al pasar el ratón */
+  background-color: #335f47; 
 }
 .perfiles #proveedor:hover {
-  background-color: #aa8b39; /* Cambio de color al pasar el ratón */
+  background-color: #aa8b39; 
 }
 
 .a-contratista {
@@ -205,9 +230,9 @@
   position: absolute;
   top: 100%;
   left: 0;
-  right: 0; /* Alinea con el borde derecho del contenedor */
-  min-width: max-content; /* O fija: min-width: 180px; */
-  max-width: 100vw; /* Nunca sobresalga del viewport */
+  right: 0;
+  min-width: max-content; 
+  max-width: 100vw; 
   background-color: var(--color-texto);
   z-index: 100;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -265,7 +290,7 @@ body {
 /* blog */
 .container_blog {
   position: relative;
-  display: inline-block; /* o flex si necesitas alineación específica */
+  display: inline-block; 
 }
 
 #blogLink {
@@ -305,7 +330,7 @@ body {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-/*LOGIN */
+/*Loging*/
 
 .loging a {
   background-color: var(--color-terciario);
@@ -337,56 +362,56 @@ body {
   margin-right: 1rem;
 }
 /* Navegador con los enlaces a otras páginas */
+
 #nav {
   display: flex;
-  flex-direction: row;
   justify-content: center;
-  align-items: center;
   background-color: var(--color-primario);
   position: sticky;
   z-index: 150;
-  width: 100%;
-  margin: auto;
-
   /* margin-top: 1%; */
 }
 
-.container_nav {
+#nav_proveedor {
   display: flex;
   justify-content: center;
-  width: 80%;
+  background-color: var(--color-secundario);
+  position: sticky;
+  z-index: 150;
+  /* margin-top: 1%; */
+}
+.container_nav {
+  display: flex;  
+  padding-top: 0;
   border-top: #ffffff solid 1px;
 }
 
 nav ul {
   list-style: none;
-  width: 60%;
+  width: 80%; 
   padding: 0%;
-  margin: 0%;
+  margin: 0% auto;
 }
 nav ul li {
-  margin: 0 auto;
-  margin-left: 5%;
+  margin: 0 auto;  
 }
 nav ul a {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  white-space: nowrap;
+  display: block;
   color: var(--color-texto);
   margin: 0%;
   padding: 8px 12px;
   text-decoration: none;
-  font-size: 1.2rem;
+  font-size: 1.05rem;
+  transition: background-color 0.3s ease;
 }
 
 nav ul a:hover {
   background-color: var(--color-hover);
 }
-.container_soluciones {
-  display: inline-flex;
+.container_soluciones{
+  display: inline-flex;       
   align-items: center;
-  gap: 6px;
+  gap: 6px;                   
   white-space: nowrap;
 }
 /* menu desplegable */
@@ -437,7 +462,56 @@ nav ul li:hover > ul {
   margin: 0%;
   width: 100%;
 }
+/* Estilos de modal de vídeo */
+.modal_video {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto; 
+}
 
+
+.modal-content-video {
+  position: relative;
+  margin: 10% auto;
+  padding: 0;
+  width: 60%;
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+
+.cerrar {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  color: #fff;
+  font-size: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 10000;
+}
+
+
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%; 
+  height: 0;
+  overflow: hidden;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+/* Estilos de los artículos */
 #articulo_0 {
   display: flex;
   flex-direction: column;
@@ -459,7 +533,7 @@ nav ul li:hover > ul {
 }
 .container_suscripcion p {
   font-size: 1.2rem;
-  text-align: justify;
+  text-align: left;
   color: var(--color-texto);
 }
 .container-enlace-suscripcion {
@@ -536,7 +610,7 @@ p {
   color: var(--color-cuarto);
   font-size: 1.2rem;
   line-height: 1.5;
-  text-align: justify;
+  text-align: left;
 }
 
 article h2 {
@@ -669,7 +743,18 @@ article h3 {
   text-align: center;
   gap: 30px;
 }
-
+#footer_proveedor {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: var(--color-secundario);
+  color: var(--color-texto);
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 40px;
+  text-align: center;
+  gap: 30px;
+  flex-direction: column;
+}
 .footer-links {
   display: flex;
   flex-direction: row;
@@ -686,6 +771,10 @@ article h3 {
 
 .footer-links a:hover {
   color: var(--color-secundario);
+}
+
+#footer_proveedor .footer-links a:hover {
+color: var(--color-primario);
 }
 .container_rrss {
   display: flex;
@@ -710,16 +799,23 @@ article h3 {
   transition: transform 0.3s ease-in-out, opacity 0.3s;
   opacity: 0.8;
 }
-/* ✅ RESPONSIVE */
+/* Estilos al contenedor que contiene al manual de uso */
+#manualPDF{
+  width: 100%;
+  height: 100vh;
+}
+
+/* RESPONSIVE */
 @media (max-width: 768px) {
   #principal_header {
     flex-direction: column;
     gap: 10px;
   }
-  #nav {
-    display: inline-flex;
-    justify-content: center;
+    #principal_header_proveedor {
+    flex-direction: column;
+    gap: 10px;
   }
+   
   .loging {
     width: 100%;
     display: block;
@@ -757,6 +853,17 @@ article h3 {
   .cuadricula .descripcion {
     font-size: 0.85rem;
   }
+  /* Estilos de modal de vídeo */
+.modal_video {
+
+
+  z-index: 9999;
+  right: 10%;
+  top: 30px;
+  width: 80%;
+  height: 100%;
+  overflow: auto; 
+}
 }
 
 @media (max-width: 576px) {
@@ -775,22 +882,16 @@ article h3 {
     padding: 2px;
   }
   .container-selector-group {
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: row;
+    align-items: center;
     gap: 10px;
   }
   .container_nav {
     flex-direction: column;
-    gap: 10px;
-    /* gap: 0; */
+    gap: 10px;   
     border-top: solid 0px;
     margin-left: 0;
   }
-
-  #nav {
-    display: none;
-  }
-
   #menuHamburguesa {
     display: block;
   }

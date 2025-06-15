@@ -11,25 +11,50 @@ $idCont = $usuario['id_cont'] ?? null;
 ?>
 
 <div class="volver">
-    <a href="javascript:cargar('#portada','/views/verfincas.php');"><button>Volver</button></a>
+    <?php if ($tipo === 'admin'): ?>
+        <a href="/views/app_admin.php?opcion=3"><button>Atrás</button></a>
+    <?php else: ?>
+        <a href="/views/app_contratista.php?opcion=1"><button>Atrás</button></a>
+    <?php endif; ?>
 </div>
 
 <div class="container_form">
     <h2 class="form-title"> Nueva finca </h2>
 
-    <form action="/controllers/nfinca.php" method="POST" class="form">
-        <div>
-            <label for="localizacion">Localización:</label>
-            <input placeholder="Localización" required="required" name="localizacion" type="text" id="localizacion">
-        </div>
-        <div>
-            <label for="cultivo">Cultivo:</label>
-            <input placeholder="Cultivo" required="required" name="cultivo" type="text" id="cultivo">
-        </div>
-        <div>
-            <label for="hectarea">Tamaño en hectáreas:</label>
-            <input placeholder="Héctareas" required="required" name="hectarea" type="text" id="hectarea">
-        </div>
+    <form id="formNuevaFinca" method="POST" class="form">
+
+        <fieldset>
+            <legend>Localización</legend>
+
+            <label for="calle">Calle:</label>
+            <input type="text" id="calle" name="calle">
+            <div class="error" id="errorCalle"></div>
+
+            <label for="numero">Número:</label>
+            <input type="text" id="numero" name="numero">
+            <div class="error" id="errorNumero"></div>
+
+            <label for="cp">Código Postal:</label>
+            <input type="text" id="cp" name="cp">
+            <div class="error" id="errorCP"></div>
+
+            <label for="poblacion">Población:</label>
+            <input type="text" id="poblacion" name="poblacion">
+            <div class="error" id="errorPoblacion"></div>
+
+            <label for="provincia">Provincia:</label>
+            <input type="text" id="provincia" name="provincia">
+            <div class="error" id="errorProvincia"></div>
+        </fieldset>
+
+        <label for="cultivo">Cultivo:</label>
+        <input placeholder="Cultivo" name="cultivo" type="text" id="cultivo">
+        <div class="error" id="errorCultivo"></div>
+
+        <label for="hectarea">Tamaño en hectáreas:</label>
+        <input placeholder="Héctareas" name="hectarea" type="text" id="hectarea">
+        <div class="error" id="errorHectarea"></div>
+
         <!-- Desplegable de contratistas -->
         <?php if ($tipo === 'admin'): ?>
             <!-- Mostrar selector de contratistas solo a administradores -->
@@ -38,12 +63,17 @@ $idCont = $usuario['id_cont'] ?? null;
                 <select name="id_cont" id="id_cont">
                     <option value="">-- Seleccionar Contratista --</option>
                 </select>
+                <div class="error" id="errorContratista"></div>
             </div>
+
         <?php else: ?>
             <!-- Para contratistas insertamos automáticamente su id -->
             <input type="hidden" name="id_cont" value="<?= $idCont ?>">
         <?php endif; ?>
-        <input type="submit" value="Insertar" class="submit-btn">
+
+        <button type="submit" class="submit-btn">Crear finca</button>
+        <div class="error" id="errorGeneral"></div>
     </form>
 </div>
+
 <script src="/assets/js/nueva_finca.js"></script>

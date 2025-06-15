@@ -1,236 +1,234 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Plataforma AgroDoc - Gestión documental agrícola" />
-    <meta name="keywords" content="agricultura, gestión documental, agro, empresas, proveedores" />
-    <link rel="icon" type="image/png" sizes="128x128" href="./assets/img/favicon.png">
-    <!-- FontAwasome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- css -->
-    <link rel="stylesheet" type="text/css" href="./assets/css/estilos_tv.css">
-      <!-- script para chat en vivo -->
-    <script src="//code.tidio.co/qoe3mhwmfpdrgnjupiwlei0hkc9cy2ut.js" async></script>
-    <title>Agrodoc</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Plataforma AgroDoc - Gestión documental agrícola" />
+  <meta name="keywords" content="agricultura, gestión documental, agro, empresas, proveedores" />
+  <link rel="icon" type="image/png" sizes="128x128" href="./assets/img/favicon.png">
+  <!-- FontAwasome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- css -->
+  <link rel="stylesheet" type="text/css" href="./assets/css/estilos_tv.css">
+  <!-- script para chat en vivo -->
+  <script src="//code.tidio.co/qoe3mhwmfpdrgnjupiwlei0hkc9cy2ut.js" async></script>
+  <title>Agrodoc</title>
 </head>
+
 <body>
   <!--Contenedor principal-->
   <div id="principal">
     <div class="container_header_nav">
-     <!--Cabecera-->    
-     <header id="principal_header" role="banner"> 
+      <!--Cabecera-->
+      <header id="principal_header" role="banner">
         <div class="container_logotipo">
-          <a href="#" name="logotipo">           
+          <a href="#" name="logotipo">
             <img src="./assets/img/logotipoAgrodoc.svg" alt="logotipo svg" title="Agrodoc" class="logotipo">
           </a>
         </div>
         <div class="container_perfiles">
-          <div class="informacion"> 
+          <div class="informacion">
             <a href="#" aria-label="Información">
-              <i class="fa-solid fa-circle-info fa-2x"></i>
+              <i class="fa-solid fa-circle-info fa-2x" aria-label="Más información"></i>
             </a>
-        </div>        
-        <div class="perfiles">        
-          <a href="#" class="a-contratista active" id="contratista" aria-label="Soy contratista">Soy contratista</a> 
-          <a href="./paginas/proveedor/proveedor.html" class="a-proovedor" id="proveedor" aria-label="Soy proveedor">Soy proveedor</a>
+          </div>
+          <div class="perfiles">
+            <a href="#" class="a-contratista active" id="contratista" aria-label="Soy contratista">Soy contratista</a>
+            <a href="./paginas/proveedor/proveedor.html" class="a-proovedor" id="proveedor"
+              aria-label="Soy proveedor">Soy proveedor</a>
+          </div>
         </div>
-      </div>
         <div class="container-selector-group">
-         <!-- Selector de Soporte -->
-          
-        <div class="container-selector">
-          <a id="soporteLink" aria-haspopup="true" aria-expanded="false">Soporte <i class="fas fa-solid fa-chevron-down" aria-hidden="true"></i></a>
+          <!-- Selector de Soporte -->
+          <div class="container-selector">
+            <a id="soporteLink" aria-haspopup="true" aria-expanded="false">Soporte <i
+                class="fas fa-solid fa-chevron-down" aria-hidden="true"></i></a>
             <ul id="soporteMenu" class="selector-menu">
               <li><a href="./paginas/faq.html">FAQ</a></li>
-              <li><a href="./paginas/manual.html">Manual de uso</a></li>
+              <li><a href="./paginas/manual_uso.html">Manual de uso</a></li>
             </ul>
-        </div> 
-        <!-- Selector de Idioma -->
-        <!-- <div class="container-selector">
-          <a id="languageLink" aria-haspopup="true" aria-expanded="false">Idioma <i class="fas fa-solid fa-chevron-down" aria-hidden="true"></i></a>
-            <ul id="languageMenu" class="selector-menu">
-              <li><a href="#">Español</a></li>
-              <li><a href="#">Inglés</a></li>
-            </ul>
-        </div> -->
-        <!-- Blog --> 
-         <div class="container_blog">               
-            <div class="container-selector">          
+          </div>
+          <!-- Blog -->
+          <div class="container_blog">
+            <div class="container-selector">
               <a href="./paginas/blog.html" id="blogLink">Blog</a>
-              <div id="newBadge">NEW</div>                     
+              <div id="newBadge">NEW</div>
             </div>
-        </div>
+          </div>
         </div>
         <!-- Login -->
-         <div class="loging"> 
-            <a href="/app/login">
-                <i class="fas fa-user usuario"></i>  Entrar
-            </a>
-          </div>
-     </header>
-     <!-- Menú de navegación -->
-    <div id="menuHamburguesa" aria-label="Abrir menú">&#9776</div>
-    <!-- Navegador -->
-    <nav id="nav" role="navigation">  
-      <ul class="container_nav">
-        <li><a href="#">Inicio</a></li>
-        <li><a href="./paginas/plataforma.html">Plataforma CAE</a></li>
-        <li><a href="./paginas/software.html">Software PRL</a></li>
-        <li class="enlace_soluciones"><a id="enlace_soluciones">Mas soluciones <i class="fas fa-solid fa-chevron-down" aria-hidden="true"></i></a>
-          <ul>
-            <li><a href="./paginas/directorio.html">Directorio de proveedores</a></li>
-            <li><a href="./paginas/control_de_accesos.html">Control de accesos</a></li>
-            <li><a href="./paginas/personal_sobre_el_terreno.html">Personal sobre el terreno</a></li>
-          </ul>
-        </li>
-        <li><a href="./paginas/contacto.html">Contacto</a></li>
-      </ul>     
-    </nav>
-  </div>
-    <!-- Sección de actualidad -->
-   <!-- <aside id="aside_index" role="complementary">   
-    <div class="container_suscripcion">
-      <h1>Tranquilidad en tu cadena de suministro y subcontratación</h1> 
-      <p>Únete sin coste* como contratista a la nube inteligente de soluciones de Agrodoc, 
-        y optimiza la relación con tus proveedores a lo largo de las fases de tu cadena de suministro y 
-        subcontratación.</p>
-      <div class="container-enlace-suscripcion enlace_fila">
-        <a href="./paginas/quienes_somos.html" class="enlace-informacion"><i class="fa-regular fa-circle-play fa-2x play"></i>Conócenos en 2 minutos</a>
-        <a href="./paginas/contacto.html" class="enlace-suscripcion">Solicita más información</a>
-      </div>
-     </div>
-   </aside>  -->
-   <!-- Contenido principal -->
-  <main id="main" role="main">
-      <div class="container_suscripcion">
-        <article id="articulo_0" >  
-        <h1>Tranquilidad en tu cadena de suministro y subcontratación</h1> 
-        <p>Únete sin coste* como contratista a la nube inteligente de soluciones de Agrodoc, 
-          y optimiza la relación con tus proveedores a lo largo de las fases de tu cadena de suministro y 
-          subcontratación.</p>
-        <div class="container-enlace-suscripcion enlace_fila">
-          <a href="./paginas/quienes_somos.html" class="enlace-informacion"><i class="fa-regular fa-circle-play fa-2x play"></i>Conócenos en 2 minutos</a>
-          <a href="./paginas/contacto.html" class="enlace-suscripcion">Solicita más información</a>
+        <div class="loging">
+          <a href="/app/login">
+            <i class="fas fa-user usuario"></i> Entrar
+          </a>
         </div>
-      </article> 
-       </div>
-     
-        <article id="articulo_1">
-          <h2 class="espacio_blanco">¿QUE SOMOS?</h2>         
-          <p>
-          Somos una empresa española que aglutina a grandes empresas agrícolas y a sus proveedores  alrededor de una plataforma digital en la que intercambiamos documentación,
-          compras, facturas e información empresarial. Estamos especializados en coordinación de actividades empresariales. Nuestras diferentes soluciones disminuyen tus tiempos,
-          costes, riesgos y te ayudan a conseguir una relación empresarial más transparente a través de una nube inteligente que conecta a todos fácilmente.  
-          </p>             
+      </header>
+      <!-- Menú de navegación -->
+      <div id="menuHamburguesa" aria-label="Abrir menú">&#9776</div>
+      <!-- Navegador -->
+      <nav id="nav" role="navigation">
+        <ul class="container_nav">
+          <li><a href="#">Inicio</a></li>
+          <li><a href="./paginas/plataforma.html">Plataforma CAE</a></li>
+          <li><a href="./paginas/homolog_prov.html">Homologación de Proveedores</a></li>
+          <li class="enlace_soluciones"><a id="enlace_soluciones">Mas soluciones <i class="fas fa-solid fa-chevron-down"
+                aria-hidden="true"></i></a>
+            <ul>
+              <li><a href="./paginas/software.html">Software PRL</a></li>
+              <li><a href="./paginas/directorio.html">Directorio de proveedores</a></li>
+              <li><a href="./paginas/control_de_accesos.html">Control de accesos</a></li>
+              <li><a href="./paginas/personal_sobre_el_terreno.html">Personal sobre el terreno</a></li>
+            </ul>
+          </li>
+          <li><a href="./paginas/contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
 
-          <p>En la <b>Plataforma AgroDoc</b>, la gestión documental agrícola es más que un simple almacenamiento de archivos. Nuestro objetivo es garantizar el cumplimiento normativo, mejorar la trazabilidad y facilitar la colaboración entre productores, proveedores y certificadoras.</p>
-          
-          <p>Optimiza la gestión documental y mejora la eficiencia operativa de tu empresa agroindustrial con AgroDoc.</p>
-        </article> 
-        <div class="container_cuadricula">
-          <div class="cuadricula">
-            <img src="./assets/img/aceptar.png" alt="Imagen de documentos aceptados">
-            <h3 class="titulo">Coordinación de Actividades Empresariales</h3>           
-            <p class="descripcion">Gestión documental CAE ligable a sistemas de control de accesos/presencia</p>
-            <a href="./paginas/plataforma.html">Leer más</a>        
+    <!-- Contenido principal -->
+    <main id="main" role="main">
+      <div class="container_suscripcion">
+        <article id="articulo_0">
+          <h1>Tranquilidad en tu cadena de suministro y subcontratación</h1>
+          <p>Únete sin coste* como contratista a la nube inteligente de soluciones de Agrodoc,
+            y optimiza la relación con tus proveedores a lo largo de las fases de tu cadena de suministro y
+            subcontratación.</p>
+          <div class="container-enlace-suscripcion enlace_fila">
+            <a href="#" id="abrirVideo" class="enlace-informacion">
+              <i class="fa-regular fa-circle-play fa-2x play"></i>Conócenos en 2 minutos</a>
+            <a href="./paginas/contacto.html" class="enlace-suscripcion">Solicita más información</a>
           </div>
-          <div class="cuadricula">
-            <img src="./assets/img/documento.png" alt="Imagen de documentos homologados">
-            <h3 class="titulo">Homologación de proveedores</h3>           
-            <p class="descripcion">Asegúrate con quien trabajas. Descubre si es fiable, solvente y respeta la legalidad</p>
-            <a href="./paginas/personal_sobre_el_terreno.html">Leer más</a>        
-          </div>
-          <div class="cuadricula">
-            <img src="./assets/img/documento-oficial.png" alt="Imagen de documentos software">
-            <h3 class="titulo">Software PRL colaborativo</h3>           
-            <p class="descripcion">Toma el control de la gestión preventiva de tu empresa, optimízala, y ahorra tiempo y errores</p>
-            <a href="./paginas/software.html">Leer más</a>        
-          </div>
-          <div class="cuadricula">
-            <img src="./assets/img/repartidor.png" alt="Imagen de lista de trabajadores">
-            <h3 class="titulo">Directorio proveedores</h3>           
-            <p class="descripcion">Encuentra proveedores de fiabilidad y solvencia contrastada documentalmente</p>
-            <a href="./paginas/directorio.html">Leer más</a>        
-          </div>
-          <div class="cuadricula">
-            <img src="./assets/img/lista-de-control-de-acceso.png" alt="Imagen de control de acceso">
-            <h3 class="titulo">Control de accesos</h3>           
-            <p class="descripcion">Controla que sólo accedan a tus proyectos trabajadores y máquinas aptas</p>
-            <a href="./paginas/control_de_accesos.html">Leer más</a>        
-          </div>
-        </div> 
-        <article id="articulo_2"> 
-          <h2>Beneficios para compradores</h2>
-          <p>Nuestra plataforma de coordinación de actividades empresariales, homologación, compras y facturación ayuda a culminar de forma exitosa y 
-            segura los procesos inherentes a la cadena de suministro y subcontratación de nuestras contratistas clientes.</p>
-          
-          <p>Al tiempo, cuidamos de los proveedores, aportándoles nuevas oportunidades, reforzando su confianza con sus clientes y maximizando su visibilidad ante miles de clientes potenciales.</p>
-          <div class="columnas">
-            <div class="columna">
-              <div class="ventaja">
-                <i class="fas fa-solid fa-triangle-exclamation icono"></i>
-                <div>
-                  <h3>Reduce riesgos</h3>
-                  <p>Con una selección y seguimiento adecuados de tus proveedores que te permite trabajar con los más fiables.</p>
-                </div>
-              </div>
-              <div class="ventaja">
-                <i class="fas fa-solid fa-handshake-angle icono"></i>
-                <div>
-                  <h3>Mejora la transparencia</h3>
-                  <p>Facilitando a tus proveedores que cumplan con normativas propias y ajenas.</p>
-                </div>
-              </div>
-            </div>
-            <div class="columna">
-              <div class="ventaja">
-                <i class="fas fa-solid fa-hourglass-half icono"></i>
-                <div>
-                  <h3>Reduce tiempos</h3>
-                  <p>Conectándote a través de la nube con tus proveedores y estandarizando la relación con ellos.</p>
-                </div>
-              </div>
-              <div class="ventaja">
-                <i class="fas fa-solid fa-door-open icono"></i>
-                <div>
-                  <h3>Encuentra oportunidades</h3>
-                  <p>La información aportada por los proveedores te permite elegir entre los mejores.</p>
-                </div>
-              </div>
-            </div>
-            <div class="columna">
-              <div class="ventaja">
-                <i class="fas fa-solid fa-leaf icono"></i>
-                <div>
-                  <h3>Reduce costes y papel</h3>
-                  <p>Todo online, sin montañas de papeles y correos casi imposibles de clasificar, actualizar y seguir.</p>
-                </div>
-              </div>
-              <div class="ventaja">
-                <i class="fas fa-solid fa-face-smile-wink icono"></i>
-                <div>
-                  <h3>Motiva a tus trabajadores</h3>
-                  <p>Libera a tus equipos de papeles y burocracias para que se centren en lo que saben hacer mejor.</p>
-                </div>
-              </div>
-            </div>
-          </div> 
         </article>
+      </div>
+
+      <article id="articulo_1">
+        <h2 class="espacio_blanco">¿QUE SOMOS?</h2>
+        <p>
+          Somos una empresa española que aglutina a grandes empresas agrícolas y a sus proveedores alrededor de una
+          plataforma digital en la que intercambiamos documentación,
+          compras, facturas e información empresarial. Estamos especializados en coordinación de actividades
+          empresariales. Nuestras diferentes soluciones disminuyen tus tiempos,
+          costes, riesgos y te ayudan a conseguir una relación empresarial más transparente a través de una nube
+          inteligente que conecta a todos fácilmente.
+        </p>
+
+        <p>En la <b>Plataforma AgroDoc</b>, la gestión documental agrícola es más que un simple almacenamiento de
+          archivos. Nuestro objetivo es garantizar el cumplimiento normativo, mejorar la trazabilidad y facilitar la
+          colaboración entre productores, proveedores y certificadoras.</p>
+
+        <p>Optimiza la gestión documental y mejora la eficiencia operativa de tu empresa agroindustrial con AgroDoc.</p>
+      </article>
+      <div class="container_cuadricula">
+        <div class="cuadricula">
+          <img src="./assets/img/aceptar.png" alt="Imagen de documentos aceptados">
+          <h3 class="titulo">Coordinación de Actividades Empresariales</h3>
+          <p class="descripcion">Gestión documental CAE ligable a sistemas de control de accesos/presencia</p>
+          <a href="./paginas/plataforma.html">Leer más</a>
+        </div>
+        <div class="cuadricula">
+          <img src="./assets/img/documento.png" alt="Imagen de documentos homologados">
+          <h3 class="titulo">Homologación de proveedores</h3>
+          <p class="descripcion">Asegúrate con quien trabajas. Descubre si es fiable, solvente y respeta la legalidad
+          </p>
+          <a href="./paginas/personal_sobre_el_terreno.html">Leer más</a>
+        </div>
+        <div class="cuadricula">
+          <img src="./assets/img/documento-oficial.png" alt="Imagen de documentos software">
+          <h3 class="titulo">Software PRL colaborativo</h3>
+          <p class="descripcion">Toma el control de la gestión preventiva de tu empresa, optimízala, y ahorra tiempo y
+            errores</p>
+          <a href="./paginas/software.html">Leer más</a>
+        </div>
+        <div class="cuadricula">
+          <img src="./assets/img/repartidor.png" alt="Imagen de lista de trabajadores">
+          <h3 class="titulo">Directorio proveedores</h3>
+          <p class="descripcion">Encuentra proveedores de fiabilidad y solvencia contrastada documentalmente</p>
+          <a href="./paginas/directorio.html">Leer más</a>
+        </div>
+        <div class="cuadricula">
+          <img src="./assets/img/lista-de-control-de-acceso.png" alt="Imagen de control de acceso">
+          <h3 class="titulo">Control de accesos</h3>
+          <p class="descripcion">Controla que sólo accedan a tus proyectos trabajadores y máquinas aptas</p>
+          <a href="./paginas/control_de_accesos.html">Leer más</a>
+        </div>
+      </div>
+      <article id="articulo_2">
+        <h2>Beneficios para compradores</h2>
+        <p>Nuestra plataforma de coordinación de actividades empresariales, homologación, compras y facturación ayuda a
+          culminar de forma exitosa y
+          segura los procesos inherentes a la cadena de suministro y subcontratación de nuestras contratistas clientes.
+        </p>
+
+        <p>Al tiempo, cuidamos de los proveedores, aportándoles nuevas oportunidades, reforzando su confianza con sus
+          clientes y maximizando su visibilidad ante miles de clientes potenciales.</p>
+        <div class="columnas">
+          <div class="columna">
+            <div class="ventaja">
+              <i class="fas fa-solid fa-triangle-exclamation icono"></i>
+              <div>
+                <h3>Reduce riesgos</h3>
+                <p>Con una selección y seguimiento adecuados de tus proveedores que te permite trabajar con los más
+                  fiables.</p>
+              </div>
+            </div>
+            <div class="ventaja">
+              <i class="fas fa-solid fa-handshake-angle icono"></i>
+              <div>
+                <h3>Mejora la transparencia</h3>
+                <p>Facilitando a tus proveedores que cumplan con normativas propias y ajenas.</p>
+              </div>
+            </div>
+          </div>
+          <div class="columna">
+            <div class="ventaja">
+              <i class="fas fa-solid fa-hourglass-half icono"></i>
+              <div>
+                <h3>Reduce tiempos</h3>
+                <p>Conectándote a través de la nube con tus proveedores y estandarizando la relación con ellos.</p>
+              </div>
+            </div>
+            <div class="ventaja">
+              <i class="fas fa-solid fa-door-open icono"></i>
+              <div>
+                <h3>Encuentra oportunidades</h3>
+                <p>La información aportada por los proveedores te permite elegir entre los mejores.</p>
+              </div>
+            </div>
+          </div>
+          <div class="columna">
+            <div class="ventaja">
+              <i class="fas fa-solid fa-leaf icono"></i>
+              <div>
+                <h3>Reduce costes y papel</h3>
+                <p>Todo online, sin montañas de papeles y correos casi imposibles de clasificar, actualizar y seguir.
+                </p>
+              </div>
+            </div>
+            <div class="ventaja">
+              <i class="fas fa-solid fa-face-smile-wink icono"></i>
+              <div>
+                <h3>Motiva a tus trabajadores</h3>
+                <p>Libera a tus equipos de papeles y burocracias para que se centren en lo que saben hacer mejor.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
     </main>
     <!-- Pie de página -->
     <footer id="footer" role="contentinfo">
       <div class="footer-links">
-        <a href="./paginas/sobrenosotros.html" aria-label="Quiénes somos">Quiénes somos</a>
+        <a href="./paginas/sobrenosotros.html" aria-label="Sobre nosotros">Sobre nosotros</a>
         <a href="./paginas/faq.html" aria-label="FAQ">FAQ</a>
         <a href="./paginas/contacto.html" aria-label="Contacto">Contacto</a>
         <a href="./paginas/politica_privacidad.html" aria-label="Política de privacidad">Política de privacidad</a>
         <a href="mailto:agrodoc@agrodoc.com" aria-label="Enviar un correo a AgroDoc">Email: agrodoc@agrodoc.com</a>
-      </div>    
+      </div>
       <div>
         © 2025 AGRODOC GLOBAL, S.A. &#45; Todos los derechos reservados.
-      </div>    
+      </div>
       <div class="container_rrss">
         <a href="https://www.instagram.com/" target="_blank" aria-label="Instagram">
           <img src="./assets/img/instagram.png" alt="Instagram" class="rrss">
@@ -244,38 +242,64 @@
       </div>
     </footer>
     <!--Modal de Información -->
-<div id="infoModal" class="modal">
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <h2>Información para Contratistas y Proveedores</h2>
-    <div class="info-content">
-      <h3>Contratista</h3>
-      <ul>
-        <li><strong>Gestión Documental CAE:</strong> Cuando como contratista deseas recibir la documentación de tus subcontratistas. Cuando como subcontratista deseas recibir la documentación de tus propios subcontratistas. Cuando como promotora/propiedad, deseas solicitar la documentación a tu contratista principal y/o a todos sus subcontratistas.</li>
-        <li><strong>Facturación electrónica:</strong> Cuando como comprador/contratador de bienes/servicios, deseas recibir las facturas de tus proveedores electrónicamente.</li>
-        <li><strong>Homologación y Compliance de Empresas:</strong> Cuando como comprador/contratador de bienes/servicios, deseas recibir la documentación/información de homologación y/o compliance de tus proveedores según tus exigencias.</li>
-        <li><strong>Herramienta de Compras:</strong> Cuando como Empresa Contratista deseas recibir ofertas de tus proveedores.</li>
-      </ul>
+    <div id="infoModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Información para Contratistas y Proveedores</h2>
+        <div class="info-content">
+          <h3>Contratista</h3>
+          <ul>
+            <li><strong>Gestión Documental CAE:</strong> Cuando como contratista deseas recibir la documentación de tus
+              subcontratistas. Cuando como subcontratista deseas recibir la documentación de tus propios
+              subcontratistas. Cuando como promotora/propiedad, deseas solicitar la documentación a tu contratista
+              principal y/o a todos sus subcontratistas.</li>
+            <li><strong>Facturación electrónica:</strong> Cuando como comprador/contratador de bienes/servicios, deseas
+              recibir las facturas de tus proveedores electrónicamente.</li>
+            <li><strong>Homologación y Compliance de Empresas:</strong> Cuando como comprador/contratador de
+              bienes/servicios, deseas recibir la documentación/información de homologación y/o compliance de tus
+              proveedores según tus exigencias.</li>
+            <li><strong>Herramienta de Compras:</strong> Cuando como Empresa Contratista deseas recibir ofertas de tus
+              proveedores.</li>
+          </ul>
 
-      <h3>Proveedor</h3>
-      <ul>
-        <li><strong>Gestión Documental CAE:</strong> Cuando como subcontratista, debes remitir tu documentación y/o las de tus propias subcontratas a tu contratista principal. Cuando como subcontratista de nivel inferior, debes remitir tu documentación a tu subcontratista de nivel superior. Cuando como contratista principal, debes remitir tu documentación y/o la de todos tus subcontratistas a tu promotora/propiedad.</li>
-        <li><strong>Facturación electrónica:</strong> Cuando como proveedor/vendedor/contratista, debes emitir las facturas a tus clientes/contratistas/administración pública electrónicamente.</li>
-        <li><strong>Homologación y Compliance de Empresas:</strong> Cuando como proveedor de bienes/servicios, debes remitir la documentación de homologación y/o compliance o según las exigencias de tu empresa a tus proveedores.</li>
-        <li><strong>Información de proyectos:</strong> Cuando como proveedor, deseas encontrar nuevos  proyectos y/o clientes a los que vender tus bienes y servicios.</li>
-      </ul>
+          <h3>Proveedor</h3>
+          <ul>
+            <li><strong>Gestión Documental CAE:</strong> Cuando como subcontratista, debes remitir tu documentación y/o
+              las de tus propias subcontratas a tu contratista principal. Cuando como subcontratista de nivel inferior,
+              debes remitir tu documentación a tu subcontratista de nivel superior. Cuando como contratista principal,
+              debes remitir tu documentación y/o la de todos tus subcontratistas a tu promotora/propiedad.</li>
+            <li><strong>Facturación electrónica:</strong> Cuando como proveedor/vendedor/contratista, debes emitir las
+              facturas a tus clientes/contratistas/administración pública electrónicamente.</li>
+            <li><strong>Homologación y Compliance de Empresas:</strong> Cuando como proveedor de bienes/servicios, debes
+              remitir la documentación de homologación y/o compliance o según las exigencias de tu empresa a tus
+              proveedores.</li>
+            <li><strong>Información de proyectos:</strong> Cuando como proveedor, deseas encontrar nuevos proyectos y/o
+              clientes a los que vender tus bienes y servicios.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!--Modal de Vídeo -->
+    <div id="modalVideo" class="modal_video">
+      <div class="modal-content-video">
+        <span class="cerrar">&times;</span>
+        <div class="video-container">
+          <iframe src="https://www.youtube.com/embed/HmVRH8ICYqI?si=qhnE2M9FG5xXvSLS" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;
+           picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+      </div>
     </div>
   </div>
-</div>
-
-    
-</div> 
   <!-- JS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+    integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="./assets/js/menu.js"></script>
   <script src="./assets/js/perfil.js"></script>
   <script src="./assets/js/animation_new.js"></script>
   <script src="./assets/js/icon_infomation.js"></script>
-  <!-- <script src="./assets/js/desplegable.js"></script> -->
+  <script src="./assets/js/video.js"></script>
+
 </body>
-</html> 
+
+</html>

@@ -74,7 +74,7 @@ if (isset($_GET['opcion'])) {
     <!--Cabecera-->
     <header id="principal_header" role="banner">
       <div class="container_logotipo">
-        <a href="javascript:cargar('#portada','/views/app_contratista.php');" name="logotipo">
+        <a href="/views/app_contratista.php" name="logotipo">
           <img src="/assets/img/logotipoAgrodoc.svg" alt="Logotipo Agrodoc" class="logotipo">
         </a>
       </div>
@@ -98,8 +98,7 @@ if (isset($_GET['opcion'])) {
 
   </div>
   <footer id="footer" role="contentinfo">
-    <div class="footer-links">
-      <a href="javascript:cargar('#portada','/views/contacto.php');" aria-label="Quiénes somos">Quiénes somos</a>
+    <div class="footer-links">    
       <a href="javascript:cargar('#portada','/views/faq.php');" aria-label="FAQ">FAQ</a>
       <a href="javascript:cargar('#portada','/views/contacto.php');" aria-label="Contacto">Contacto</a>
       <a href="javascript:cargar('#portada','/views/politica_privacidad.php');" aria-label="Política de privacidad">Política de privacidad</a>
