@@ -55,7 +55,7 @@ if (!$finca) {
         <input type="hidden" id="id_cont" name="id_cont" value="<?= htmlspecialchars($finca['id_cont']) ?>">
 
 
-        <button type="submit">Guardar cambios</button>
+        <button type="submit" class="submit-btn">Guardar cambios</button>
         <div class="error" id="errorGeneral"></div>
     </form>
 </div>

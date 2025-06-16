@@ -89,12 +89,12 @@
   height: 50px;
 }
 .proceso-item h3 {
-  font-size: 1.5rem;
+  font-size: var(--font-xlarge);
   color: var(--color-secundario);
   text-align: center;
 }
 .proceso-item p {
-  font-size: 1rem;
+  font-size: var(--font-base);
   color: var(--color-primario);
   text-align: center;
 }
@@ -109,7 +109,7 @@
   }
   .container_software h1 {
     margin: 0%;
-    font-size: 2em;
+    font-size: var(--font-xxlarge);
   }
 
   #software-articulo_2 h2 {

@@ -71,9 +71,9 @@ class ProyecController
             $stmt->execute([$id]);
 
             if ($stmt->rowCount() > 0) {
-                echo json_encode(["mensaje" => "Proyecto eliminado correctamente."]);
+                echo json_encode(["mensaje" => "Campaña eliminado correctamente."]);
             } else {
-                echo json_encode(["error" => "No se encontró el proyecto para eliminar."]);
+                echo json_encode(["error" => "No se encontró la campaña para eliminar."]);
             }
         } catch (PDOException $e) {
             echo json_encode(["error" => $e->getMessage()]);
@@ -104,9 +104,9 @@ class ProyecController
             ]);
 
             if ($stmt->rowCount() > 0) {
-                echo json_encode(["mensaje" => "Proyecto actualizado correctamente."]);
+                echo json_encode(["mensaje" => "Campaña actualizada correctamente."]);
             } else {
-                echo json_encode(["error" => "No se encontró el proyecto o los datos son los mismos."]);
+                echo json_encode(["error" => "No se encontró la campaña o los datos son los mismos."]);
             }
         } catch (PDOException $e) {
             echo json_encode(["error" => $e->getMessage()]);
@@ -136,7 +136,7 @@ class ProyecController
 
     $this->db->conn->commit();
 
-    echo json_encode(["mensaje" => "Proyecto creado exitosamente."]);
+    echo json_encode(["mensaje" => "Campaña creado exitosamente."]);
     }
 
 
@@ -241,7 +241,7 @@ class ProyecController
         $sql = "DELETE FROM proyectos_trabajadores WHERE id_trab = ? AND id_proyec = ?";
         $stmt = $this->db->conn->prepare($sql);
         $stmt->execute([$idTrab, $idProy]);
-        echo json_encode(["mensaje" => "Trabajador eliminado del proyecto"]);
+        echo json_encode(["mensaje" => "Trabajador eliminado de la campaña"]);
         exit;
     }
 }

@@ -75,8 +75,8 @@ class ProvController
             $direccion = $datos['direccion'] ?? null;
 
 
-            if (!$id || !$nombre || !$apellidos || !$cif || !$email || !$telefono || !$direccion) {
-                echo json_encode(["error" => "Todos los campos son obligatorios."]);
+            if (!$id || !$nombre || !$cif || !$email || !$telefono || !$direccion) {
+                echo json_encode(["error" => "Todos los campos marcados son obligatorios."]);
                 return;
             }
 
@@ -145,9 +145,10 @@ if (isset($_GET['action'])) {
 
                 $input = file_get_contents('php://input');
                 $data = json_decode($input, true);
-
-                if (isset($datos['nombre'], $datos['apellidos'], $datos['cif'], $datos['email'], $datos['telefono'], $datos['direccion'])) {
-                    $controller->setProveedor($datos);
+                
+                if (isset($data['datos'])) {
+                    $controller = new ProvController();
+                    $controller->updateProveedor(json_encode($data['datos']));
                 } else {
                     echo json_encode(["error" => "Datos incompletos o mal formateados"]);
                 }
@@ -157,7 +158,7 @@ if (isset($_GET['action'])) {
         case 'crearProveedor':
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 header('Content-Type: application/json');
-                             // Leer cuerpo JSON enviado
+                             
                 $input = file_get_contents("php://input");
                 $datos = json_decode($input, true);
                 

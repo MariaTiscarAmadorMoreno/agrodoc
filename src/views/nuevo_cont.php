@@ -14,24 +14,24 @@ if (!isset($_SESSION['usuario'])) {
     <h2 class="form-title"> Nuevo contratista</h2>
 
     <form id="formNuevoContratista" method="POST">
-        <label for="nombre">Nombre:</label>
+        <label for="nombre">Nombre:<span>*</span></label>
         <input type="text" id="nombre" name="nombre">
         <div class="error" id="errorNombre"></div>
 
-        <label for="cif">CIF:</label>
+        <label for="cif">CIF:<span>*</span></label>
         <input type="text" id="cif" name="cif">
         <div class="error" id="errorCIF"></div>
 
-        <label for="email">Correo electrónico:</label>
+        <label for="email">Correo electrónico:<span>*</span></label>
         <input type="email" id="email" name="email">
         <div class="error" id="errorEmail"></div>
 
-        <label for="telefono">Teléfono:</label>
+        <label for="telefono">Teléfono:<span>*</span></label>
         <input type="text" id="telefono" name="telefono">
         <div class="error" id="errorTelefono"></div>
 
         <fieldset>
-            <legend>Dirección</legend>
+            <legend>Dirección<span>*</span></legend>
 
             <label for="calle">Calle:</label>
             <input type="text" id="calle" name="calle">

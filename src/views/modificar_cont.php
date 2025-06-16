@@ -43,7 +43,7 @@ if (!$contratista) {
         <input type="text" id="direccion" name="direccion" value="<?= htmlspecialchars($contratista['direccion']) ?>">
         <div class="error" id="errorDireccion"></div>
 
-        <button type="submit">Guardar cambios</button>
+        <button type="submit" class="submit-btn">Guardar cambios</button>
         <div class="error" id="errorGeneral"></div>
     </form>
 </div>

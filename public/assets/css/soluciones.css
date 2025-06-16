@@ -22,7 +22,7 @@
   .aside_soluciones li a {
     color: var(--color-primario);
     text-decoration: none;
-    font-size: 17px;
+    font-size: 1.1rem;
     font-weight: 500;
     padding: 8px;
     display: block;
@@ -113,14 +113,14 @@
     box-shadow: #555 2px 2px 5px;
     padding: 10px 20px;
     text-align: justify;
-    font-size: 1.2vw;
+    font-size: 1.2rem;
     line-height: 1.5;
   }
   .directorio_proveedores_3 div {
     padding: 5%;
   }
   .directorio_proveedores_3 h1 {
-    font-size: 2.5vw;
+    font-size: 2.5rem;
     color: var(--color-primario);
   }
   
@@ -251,7 +251,7 @@
   box-shadow: #555 2px 2px 5px;
   padding: 10px 20px;
   text-align: justify;
-  font-size: 1.2vw;
+  font-size: 1.2rem;
   line-height: 1.5;
 }
 #control-articulo_3 div {

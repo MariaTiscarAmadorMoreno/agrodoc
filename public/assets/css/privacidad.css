@@ -19,11 +19,11 @@
     margin-bottom: 20px;
   }
   .politica-privacidad h2{
-    font-size: 1.9em;
+    font-size: 2rem;
   }
   .politica-privacidad p {
     margin-bottom: 20px;
-    font-size: 16px;
+    font-size: 1rem;
     text-align: justify;
   }
   
@@ -34,7 +34,7 @@
   
   .politica-privacidad li {
     margin-bottom: 10px;
-    font-size: 16px;
+    font-size: 1rem;
     color: #333;
   }
   
@@ -56,11 +56,11 @@
   
     .politica-privacidad h1,
     .politica-privacidad h2 {
-      font-size: 20px;
+      font-size: 1.25rem;
     }
   
     .politica-privacidad p,
     .politica-privacidad li {
-      font-size: 14px;
+      font-size: 0.875rem;
     }
   }

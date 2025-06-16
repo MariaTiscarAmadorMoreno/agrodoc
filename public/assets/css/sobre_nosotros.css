@@ -47,21 +47,13 @@
   font-size: 3.5rem;
   font-weight: bold;
 }
-/* .container_sobrenosotros p {
-  color: black;
-  font-weight: bold;
-} */
 
-/* .container_sobrenosotros article {
-  width: 50%;
-  margin-left: 5%;
-} */
 .container_enlace_sobrenosotros {
   display: flex;
   justify-content: center;
   margin: 5% 0;
   gap: 20px;
-  font-size: 1.2rem;
+  font-size: var(--font-large);
 }
 
 .enlace-coste {
@@ -175,7 +167,7 @@
     font-size: 2.2rem;
   }
   #sobrenosotros-articulo_3 h2 {
-    font-size: 2rem;
+    font-size: var(--font-xxlarge);
   }
   #sobrenosotros-articulo_4 h2 {
     font-size: 1.7rem;

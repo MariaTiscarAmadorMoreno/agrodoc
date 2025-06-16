@@ -26,7 +26,7 @@ $idCont = $usuario['id_cont'] ?? null;
         <!-- Desplegable de contratistas -->
         <?php if ($tipo === 'admin'): ?>
             <div id="contratistaField">
-                <label for="id_cont">Selecciona un contratista:</label>
+                <label for="id_cont">Selecciona un contratista:<span>*</span></label>
                 <select name="id_cont" id="id_cont">
                     <option value="">-- Seleccionar Contratista --</option>
                 </select>
@@ -38,7 +38,7 @@ $idCont = $usuario['id_cont'] ?? null;
 
         <!-- Desplegable de fincas asociadas al contratista. -->
 
-        <label for="id_finca">Selecciona una Finca:</label>
+        <label for="id_finca">Selecciona una Finca:<span>*</span></label>
         <select name="id_finca" id="id_finca">
             <option value="">-- Seleccionar Finca --</option>
         </select>
@@ -47,21 +47,21 @@ $idCont = $usuario['id_cont'] ?? null;
 
         <!-- Desplegable de proveedores -->
         <div id="proveedorField">
-            <label for="id_prov">Selecciona un proveedor:</label>
+            <label for="id_prov">Selecciona un proveedor:<span>*</span></label>
             <select name="id_prov" id="id_prov">
                 <option value="">-- Seleccionar Proveedor --</option>
             </select>
         </div>
 
-        <label for="trabajo">Trabajo a realizar:</label>
+        <label for="trabajo">Trabajo a realizar:<span>*</span></label>
         <input name="trabajo" type="text" id="trabajo">
         <div class="error" id="errorTrabajo"></div>
 
 
-        <label for="fecha_inicio">Fecha Inicio:</label>
+        <label for="fecha_inicio">Fecha Inicio:<span>*</span></label>
         <input name="fecha_inicio" type="date" id="fecha_inicio">
 
-        <label for="fecha_fin">Fecha Fin:</label>
+        <label for="fecha_fin">Fecha Fin:<span>*</span></label>
         <input name="fecha_fin" type="date" id="fecha_fin">
 
 

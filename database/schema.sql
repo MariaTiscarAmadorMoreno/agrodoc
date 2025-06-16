@@ -26,7 +26,7 @@ CREATE TABLE fincas (
 -- Tabla de Proveedores
 CREATE TABLE proveedores (
     id_prov INTEGER AUTO_INCREMENT NOT NULL,
-    nombre VARCHAR(20),
+    nombre VARCHAR(50),
     apellidos VARCHAR(60),
     cif VARCHAR(20),
     email VARCHAR(50),

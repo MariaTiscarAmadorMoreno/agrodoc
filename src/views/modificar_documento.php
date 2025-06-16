@@ -42,7 +42,7 @@ if (!$documento) {
         <input type="date" name="fecha_caducidad" id="fecha_caducidad" value="<?= htmlspecialchars($documento['fecha_caducidad']) ?>">
         <div class="error" id="errorFecha"></div>
 
-        <button type="submit">Guardar cambios</button>
+        <button type="submit" class="submit-btn">Guardar cambios</button>
         <div class="error" id="errorGeneral"></div>
     </form>
 </div>

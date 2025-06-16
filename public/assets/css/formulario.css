@@ -52,7 +52,7 @@ input[type="checkbox"] {
   gap: 10px;
 }
 .consentimiento {
-  font-size: 14px;
+  font-size: 0.875rem;
   color: #666;
   line-height: 1.5;
   margin-bottom: 15px;

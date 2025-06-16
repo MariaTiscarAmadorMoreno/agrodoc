@@ -23,28 +23,28 @@ $idProv = $usuario['id_prov'] ?? null;
 
     <form id="formNuevoTrabajador" method="POST">
 
-        <label for="nombre">Nombre:</label>
+        <label for="nombre">Nombre:<span>*</span></label>
         <input placeholder="Nombre" name="nombre" type="text" id="nombre">
         <div class="error" id="errorNombre"></div>
 
-        <label for="apellidos">Apellidos:</label>
+        <label for="apellidos">Apellidos:<span>*</span></label>
         <input placeholder="Apellidos" name="apellidos" type="text" id="apellidos">
         <div class="error" id="errorApellidos"></div>
 
-        <label for="dni">DNI:</label>
+        <label for="dni">DNI:<span>*</span></label>
         <input placeholder="DNI" name="dni" type="text" id="dni">
         <div class="error" id="errorDni"></div>
 
-        <label for="email">Correo Electrónico:</label>
+        <label for="email">Correo Electrónico:<span>*</span></label>
         <input placeholder="Email" name="email" type="email" id="email">
         <div class="error" id="errorEmail"></div>
 
-        <label for="telefono">Teléfono:</label>
+        <label for="telefono">Teléfono:<span>*</span></label>
         <input placeholder="Teléfono" name="telefono" type="text" id="telefono">
         <div class="error" id="errorTelefono"></div>
 
         <fieldset>
-            <legend>Dirección</legend>
+            <legend>Dirección<span>*</span></legend>
 
             <label for="calle">Calle:</label>
             <input type="text" id="calle" name="calle">
@@ -70,7 +70,7 @@ $idProv = $usuario['id_prov'] ?? null;
         <!-- Desplegable de proveedores -->
         <?php if ($tipo === 'admin'): ?>
             <div id="proveedorField">
-                <label for="id_prov">Selecciona un proveedor:</label>
+                <label for="id_prov">Selecciona un proveedor:<span>*</span></label>
                 <select name="id_prov" id="id_prov">
                     <option value="">-- Seleccionar Proveedor --</option>
                 </select>

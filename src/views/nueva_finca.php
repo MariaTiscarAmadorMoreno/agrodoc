@@ -24,7 +24,7 @@ $idCont = $usuario['id_cont'] ?? null;
     <form id="formNuevaFinca" method="POST" class="form">
 
         <fieldset>
-            <legend>Localización</legend>
+            <legend>Localización<span>*</span></legend>
 
             <label for="calle">Calle:</label>
             <input type="text" id="calle" name="calle">
@@ -47,11 +47,11 @@ $idCont = $usuario['id_cont'] ?? null;
             <div class="error" id="errorProvincia"></div>
         </fieldset>
 
-        <label for="cultivo">Cultivo:</label>
+        <label for="cultivo">Cultivo:<span>*</span></label>
         <input placeholder="Cultivo" name="cultivo" type="text" id="cultivo">
         <div class="error" id="errorCultivo"></div>
 
-        <label for="hectarea">Tamaño en hectáreas:</label>
+        <label for="hectarea">Tamaño en hectáreas:<span>*</span></label>
         <input placeholder="Héctareas" name="hectarea" type="text" id="hectarea">
         <div class="error" id="errorHectarea"></div>
 
@@ -59,7 +59,7 @@ $idCont = $usuario['id_cont'] ?? null;
         <?php if ($tipo === 'admin'): ?>
             <!-- Mostrar selector de contratistas solo a administradores -->
             <div id="contratistaField">
-                <label for="id_cont">Selecciona un contratista:</label>
+                <label for="id_cont">Selecciona un contratista:<span>*</span></label>
                 <select name="id_cont" id="id_cont">
                     <option value="">-- Seleccionar Contratista --</option>
                 </select>

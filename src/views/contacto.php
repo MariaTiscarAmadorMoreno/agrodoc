@@ -7,42 +7,42 @@
             <!-- Nombre y apellidos -->
             <div class="form-group">
                 <label for="nombre">Nombre <span>*</span></label>
-                <input type="text" id="nombre" name="nombre" required>
+                <input type="text" id="nombre" name="nombre">
             </div>
         
             <div class="form-group">
                 <label for="apellidos">Apellidos <span>*</span></label>
-                <input type="text" id="apellidos" name="apellidos" required>
+                <input type="text" id="apellidos" name="apellidos">
             </div>
         
             <!-- Nombre de la empresa -->
             <div class="form-group">
                 <label for="empresa">Nombre de la empresa <span>*</span></label>
-                <input type="text" id="empresa" name="empresa" required>
+                <input type="text" id="empresa" name="empresa">
             </div>
         
             <!-- Correo electrónico -->
             <div class="form-group">
                 <label for="email">Correo corporativo <span>*</span></label>
-                <input type="email" id="email" name="email" required>
+                <input type="email" id="email" name="email">
             </div>
         
             <!-- CIF -->
             <div class="form-group">
                 <label for="cif">CIF de la empresa <span>*</span></label>
-                <input type="text" id="cif" name="cif" required>
+                <input type="text" id="cif" name="cif">
             </div>
         
             <!-- Número de teléfono -->
             <div class="form-group">
                 <label for="telefono">Número de teléfono <span>*</span></label>
-                <input type="tel" id="telefono" name="telefono" pattern="[0-9]{9}" required>
+                <input type="tel" id="telefono" name="telefono" pattern="[0-9]{9}">
             </div>
         
             <!-- Departamento -->
             <div class="form-group">
                 <label for="departamento">Departamento <span>*</span></label>
-                <select id="departamento" name="departamento" required>
+                <select id="departamento" name="departamento">
                     <option value="">-- Ninguno --</option>
                     <option value="ventas">Ventas</option>
                     <option value="atencion-cliente">Atención al cliente</option>

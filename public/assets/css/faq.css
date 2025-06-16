@@ -28,7 +28,7 @@
     padding: 30px 15px;
     text-align: left;
     cursor: pointer;
-    font-size: x-large;
+    font-size: 1.5rem;
   }
   .titulo-preguntas {
     color: var(--color-secundario);
@@ -80,7 +80,7 @@
     }
     .titulo-preguntas{
       margin: 0;
-      font-size: 2em;
+      font-size: 2rem;
     }
     .pregunta{
       padding: 10px 5px;

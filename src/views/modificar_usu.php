@@ -49,7 +49,7 @@ if (!$usuario) {
         <input type="text" name="clave" id="clave" class="editable" value="<?= htmlspecialchars($usuario['clave']) ?>">
         <div class="error" id="errorClave"></div>
 
-        <button type="submit">Guardar cambios</button>
+        <button type="submit" class="submit-btn">Guardar cambios</button>
 
         <div class="error" id="errorGeneral"></div>
     </form>

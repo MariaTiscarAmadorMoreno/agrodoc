@@ -22,10 +22,6 @@ document.getElementById('formEditarProveedor').addEventListener('submit', functi
         hayErrores = true;
     }
 
-        if (!apellidos) {
-        document.getElementById('errorApellidos').textContent = "Los apellidos son obligatorios.";
-        hayErrores = true;
-    }
 
     if (!cifRegex.test(cif)) {
         document.getElementById('errorCIF').textContent = "El CIF es obligatorio.";

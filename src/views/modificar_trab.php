@@ -80,7 +80,7 @@ if (!$trabajador) {
         <input type="hidden" id="id_prov" name="id_prov" value="<?= htmlspecialchars($trabajador['id_prov']) ?>">
 
 
-        <button type="submit">Guardar cambios</button>
+        <button type="submit" class="submit-btn">Guardar cambios</button>
         <div class="error" id="errorGeneral"></div>
     </form>
 </div>

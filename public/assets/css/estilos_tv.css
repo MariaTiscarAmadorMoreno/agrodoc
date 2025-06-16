@@ -103,7 +103,7 @@
 
 .informacion a {
   color: #ffffff;
-  font-size: 20px;
+  font-size: var(--font-large);
   padding: 5px;
 }
 
@@ -219,7 +219,7 @@
   /* padding: 8px 20px; */
   border: none;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: var(--font-base);
   display: flex;
   align-items: center;
   gap: 10px;
@@ -259,7 +259,7 @@
   width: 100%;
   padding: 5px 10px;
   display: block;
-  font-size: 0.85rem;
+  font-size: var(--font-small);
   text-decoration: none;
   transition: background-color 0.3s ease;
 }
@@ -323,7 +323,7 @@ body {
   background-color: #3d0dc1;
   color: #ffffff;
   padding: 3px 6px;
-  font-size: 12px;
+  font-size: var(--font-small);
   font-weight: bold;
   border-radius: 4px;
   z-index: 10;
@@ -338,7 +338,7 @@ body {
   padding: 8px 20px;
   border-radius: 4px;
   text-decoration: none;
-  font-size: 1rem;
+  font-size: var(--font-base);
   display: flex;
   align-items: center;
   transition: background-color 0.3s ease;
@@ -356,7 +356,7 @@ body {
   display: none;
   background: none;
   border: none;
-  font-size: 2rem;
+  font-size: var(--font-xxlarge);
   cursor: pointer;
   color: var(--color-texto);
   margin-right: 1rem;
@@ -432,7 +432,7 @@ nav ul ul li {
 
 nav ul ul a {
   color: var(--color-primario);
-  font-size: 1rem;
+  font-size: var(--font-base);
   margin: 0;
 }
 
@@ -532,7 +532,7 @@ nav ul li:hover > ul {
   margin-bottom: 5px;
 }
 .container_suscripcion p {
-  font-size: 1.2rem;
+  font-size: var(--font-large);
   text-align: left;
   color: var(--color-texto);
 }
@@ -618,7 +618,7 @@ article h2 {
   font-size: 2.2rem;
 }
 article h3 {
-  font-size: 2rem;
+  font-size: var(--font-xxlarge);
 }
 .titulo {
   font-size: 2.5rem;
@@ -660,7 +660,7 @@ article h3 {
   margin-bottom: 15px;
 }
 .cuadricula .titulo {
-  font-size: 17px;
+  font-size: 1.1rem;
   font-weight: bold;
   text-align: left;
   color: var(--color-primario);
@@ -668,7 +668,7 @@ article h3 {
 }
 
 .cuadricula .descripcion {
-  font-size: 15px;
+  font-size: var(--font-base);
   color: #666;
   line-height: 1.5;
   margin-bottom: 15px;
@@ -726,7 +726,7 @@ article h3 {
 }
 
 .ventaja p {
-  font-size: 1rem;
+  font-size: var(--font-base);
   line-height: 1.6;
   color: #333;
 }
@@ -766,7 +766,7 @@ article h3 {
 .footer-links a {
   color: var(--color-texto);
   text-decoration: none;
-  font-size: 1.25rem;
+  font-size: var(--font-large);
 }
 
 .footer-links a:hover {
@@ -787,7 +787,7 @@ color: var(--color-primario);
 .container_rrss a {
   color: var(--color-texto);
   text-decoration: none;
-  font-size: 1rem;
+  font-size: var(--font-base);
 }
 
 .container_rrss a:hover {
@@ -830,7 +830,7 @@ color: var(--color-primario);
     max-height: 70vh;
   }
   .modal-content h2 {
-    font-size: 1.25rem;
+    font-size: var(--font-large);
   }
   .modal-content h3 {
     font-size: 1.125rem;
@@ -847,7 +847,7 @@ color: var(--color-primario);
   }
 
   .cuadricula .titulo {
-    font-size: 1rem;
+    font-size: var(--font-base);
   }
 
   .cuadricula .descripcion {
@@ -873,7 +873,7 @@ color: var(--color-primario);
     height: auto;
   }
   .informacion a {
-    font-size: 1rem;
+    font-size: var(--font-base);
     padding: 2px;
   }
   .informacion a {
@@ -905,10 +905,10 @@ color: var(--color-primario);
     margin: 3% auto;
   }
   .container_suscripcion h1 {
-    font-size: 1.5rem;
+    font-size: var(--font-xlarge);
   }
   .container_suscripcion p {
-    font-size: 1rem;
+    font-size: var(--font-base);
   }
   .enlace-suscripcion,
   .enlace-informacion {
@@ -922,10 +922,10 @@ color: var(--color-primario);
     font-size: 1.2rem;
   }
   article h2 {
-    font-size: 1.5rem;
+    font-size: var(--font-xlarge);
   }
   article p {
-    font-size: 1rem;
+    font-size: var(--font-base);
   }
   #footer {
     padding: 1rem;

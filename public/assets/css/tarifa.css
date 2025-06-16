@@ -21,7 +21,7 @@ h1 {
 }
 h2 {
   color: var(--color-primario);
-  font-size: 2rem;
+  font-size: var(--font-xxlarge);
   text-align: center;
 }
 

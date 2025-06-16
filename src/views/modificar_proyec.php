@@ -33,7 +33,7 @@ if (! $proyecto) {
     <?php endif; ?>
 </div>
 <div class="container_form">
-    <h2 class="form-title">Modificar Proyecto</h2>
+    <h2 class="form-title">Modificar Campaña</h2>
     <form id="formEditarProyecto">
         <input type="hidden" id="id" value="<?=  $proyecto['id_proyec'] ?>">
 
@@ -58,7 +58,7 @@ if (! $proyecto) {
         <div class="error" id="errorFechaFin"></div>
 
 
-        <button type="submit">Guardar cambios</button>
+        <button type="submit" class="submit-btn">Guardar cambios</button>
         <div class="error" id="errorGeneral"></div>
     </form>
 </div>

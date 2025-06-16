@@ -261,7 +261,7 @@ button:hover {
   background-color: rgb(236, 26, 26);
   width: 100%;
   padding: 10px 20px;
-  font-size: 1rem;
+  font-size: var(--font-base);
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s;
@@ -405,7 +405,7 @@ button:hover {
 }
 
 .container_form h3 {
-  font-size: 2rem;
+  font-size: var(--font-xxlarge);
   margin-bottom: 10px;
   color:var(--color-secundario);
 }
@@ -639,7 +639,7 @@ fieldset {
     padding: 0 10px;
   }
   .loging i {
-    font-size: small;
+    font-size: var(--font-small);
     margin-right: 0;
   }
   .container_menu_nombre #nom {
@@ -648,7 +648,7 @@ fieldset {
   #container_out p {
     padding: 1%;
   }
-  #portada img {
+  #portada #img_portada {
     width: 100%;
     height: auto;
     margin: auto;

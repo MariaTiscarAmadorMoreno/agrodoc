@@ -16,19 +16,19 @@ if (!isset($_SESSION['usuario'])) {
     <form id="formNuevoUsuario" method="POST">
         <h3>Crear nuevo usuario</h3>
 
-        <label for="usuario">Nombre de usuario:</label>
+        <label for="usuario">Nombre de usuario:<span>*</span></label>
         <input type="text" id="usuario" name="usuario">
         <div class="error" id="errorUsuario"></div>
 
-        <label for="clave">Contraseña:</label>
+        <label for="clave">Contraseña:<span>*</span></label>
         <input type="text" id="clave" name="clave">
         <div class="error" id="errorClave"></div>
 
-        <label for="nombre">Nombre completo:</label>
+        <label for="nombre">Nombre completo:<span>*</span></label>
         <input type="text" id="nombre" name="nombre">
         <div class="error" id="errorNombre"></div>
 
-        <label for="tipo">Tipo de usuario:</label>
+        <label for="tipo">Tipo de usuario:<span>*</span></label>
         <select id="tipo" name="tipo">
             <option value="">-- Seleccionar tipo --</option>
             <option value="admin">Administrador</option>
@@ -39,14 +39,14 @@ if (!isset($_SESSION['usuario'])) {
 
         <!-- Contratista (aparece solo si se selecciona) -->
         <div id="contratistaField" style="display: none;">
-            <label for="id_cont">Contratista:</label>
+            <label for="id_cont">Contratista:<span>*</span></label>
             <select id="id_cont" name="id_cont"></select>
             <div class="error" id="errorCont"></div>
         </div>
 
         <!-- Proveedor (aparece solo si se selecciona) -->
         <div id="proveedorField" style="display: none;">
-            <label for="id_prov">Proveedor:</label>
+            <label for="id_prov">Proveedor:<span>*</span></label>
             <select id="id_prov" name="id_prov"></select>
             <div class="error" id="errorProv"></div>
         </div>
