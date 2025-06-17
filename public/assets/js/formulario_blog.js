@@ -14,6 +14,16 @@ contactFormSuscripcion.addEventListener('submit', function (event) {
     const value = field.type === 'checkbox' ? field.checked : field.value.trim();
     const errorElement = document.getElementById(`error-${id}`);
 
+        // Validación específica del email
+    if (id === 'email' && value) {
+      const patronEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      if (!patronEmail.test(field.value.trim())) {
+        muestraError(field, errorElement, 'Introduce un correo válido');
+        isValid = false;
+        if (!firstError) firstError = field;
+      }
+    }
+
     // Validación general
     if (
       (field.type === 'checkbox' && !value) ||
@@ -26,15 +36,7 @@ contactFormSuscripcion.addEventListener('submit', function (event) {
       clearError(field, errorElement);
     }
 
-    // Validación específica del email
-    if (id === 'email' && value) {
-      const patronEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-      if (!patronEmail.test(field.value.trim())) {
-        muestraError(field, errorElement, 'Introduce un correo válido');
-        isValid = false;
-        if (!firstError) firstError = field;
-      }
-    }
+
   });
 
   if (isValid) {

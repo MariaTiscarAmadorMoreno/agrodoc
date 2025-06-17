@@ -318,7 +318,7 @@ body {
 #newBadge {
   position: absolute;
   top: 0;
-  right: -30px;
+  right: -35px;
   transform: translateY(0%);
   background-color: #3d0dc1;
   color: #ffffff;
@@ -541,7 +541,7 @@ nav ul li:hover > ul {
   width: 100%;
   align-items: center;
   justify-content: center;
-  gap: 12px;
+  /* gap: 12px; */
 }
 
 .enlace-informacion,

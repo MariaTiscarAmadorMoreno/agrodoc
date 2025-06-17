@@ -1,4 +1,5 @@
 $(document).ready(function () {
+  // console.log('pestañas cargado');
   $(".pestaña").on("click", function () {
     $(".pestaña").removeClass("active");
     $(".tab-content").removeClass("active");

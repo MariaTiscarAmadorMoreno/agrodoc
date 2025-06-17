@@ -1,4 +1,3 @@
-console.log("se carga el secrip para menu desplegable")
 $(function(){
     var anchura = $(this).width();
     $('#menuHamburguesa').click(function(){

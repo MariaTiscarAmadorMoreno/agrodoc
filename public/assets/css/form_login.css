@@ -100,6 +100,17 @@ input {
   font-size: 1em;
   color: #aaa;
 }
+/* Para evitar que el navegador muestre su propio icono. Solo para en algunos navegadores */
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear {
+  display: none;
+}
+
+input[type="password"]::-webkit-credentials-auto-fill-button,
+input[type="password"]::-webkit-reveal-password-button {
+  display: none !important;
+}
+
 
 #login {
   width: 99%;

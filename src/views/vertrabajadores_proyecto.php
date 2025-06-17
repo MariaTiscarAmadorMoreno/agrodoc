@@ -17,7 +17,7 @@ $trabController = new TrabController();
 // Obtener campañas del proveedor
 $proyectos = $proyecController->getProyectosPorProveedor($idProveedor);
 // Obtener trabajadores disponibles del proveedor
-$trabajadoresDisponibles = $trabController->getTrabajadoresPorProveedor($idProveedor);
+$trabajadoresDisponibles = $trabController->getTrabajadoresPorProveedorAptos($idProveedor);
 ?>
 <div class="volver">
     <a href="javascript:cargar('#portada','/views/verproyectos.php');"><button>Volver a lista de Campañas</button></a>
@@ -43,7 +43,7 @@ $trabajadoresDisponibles = $trabController->getTrabajadoresPorProveedor($idProve
             ?>
         </ul>
         <!-- Formulario para añadir trabajador -->
-        <form action="/controllers/ntrabajador_proyecto.php" method="POST">
+        <form action="/api/ntrabajador_proyecto.php" method="POST">
             <?php
             // Array de los trabajadores ya asignados
             $idsAsignados = array_column($asignados, 'id_trab');

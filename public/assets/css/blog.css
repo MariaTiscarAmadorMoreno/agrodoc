@@ -163,7 +163,9 @@ form{
     width: 60%;
     margin: 0 auto;
 }
-
+.error-message{
+  color: red;
+}
 .button{
     display: flex;
     justify-content: center;

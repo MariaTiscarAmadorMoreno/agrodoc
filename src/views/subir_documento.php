@@ -48,11 +48,11 @@ if (!$trabajador) {
         <input type="hidden" name="tipo_documento" value="<?= $tipoDocumento ?>">
 
         <label for="archivo">Seleccionar archivo:</label>
-        <input type="file" name="archivo" id="archivo" accept="application/pdf,image/*" required>
+        <input type="file" name="archivo" id="archivo" accept="application/pdf,image/*">
         <div class="error" id="errorArchivo"></div>
 
         <label for="fecha_caducidad">Fecha de caducidad:</label>
-        <input type="date" name="fecha_caducidad" id="fecha_caducidad" required>
+        <input type="date" name="fecha_caducidad" id="fecha_caducidad">
         <div class="error" id="errorFecha"></div>
 
         <button type="submit">Subir documento</button>

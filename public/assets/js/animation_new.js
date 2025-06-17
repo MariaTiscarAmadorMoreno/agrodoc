@@ -1,8 +1,9 @@
+console.log("se carga animacion")
 function animateBadge() {
     $('#newBadge').animate({ 
-        top: '55%' 
+        top: '49%' 
     }, 500).animate({
-        top: '50%'
+        top: '55%'
     }, 500, animateBadge);
 }
 

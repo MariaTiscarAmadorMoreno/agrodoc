@@ -86,108 +86,119 @@
    <!-- Contenido principal -->
     <main id="main" role="main"> 
       <div class="container_form">
-        <form id="contactForm" class="contact-form" novalidate>
+          <form id="contactForm" class="contact-form">
             <h2>Si te interesa alguno de nuestros servicios o necesitas más información, déjanos tus datos.</h2>
             <p>Si ya eres cliente y necesitas soporte técnico ve al área de soporte.</p>
-        
+
             <!-- Nombre y apellidos -->
             <div class="form-group">
-                <label for="nombre">Nombre <span>*</span></label>
-                <input type="text" id="nombre" name="nombre" required>
-            </div>
-        
-            <div class="form-group">
-                <label for="apellidos">Apellidos <span>*</span></label>
-                <input type="text" id="apellidos" name="apellidos" required>
-            </div>
-        
-            <!-- Nombre de la empresa -->
-            <div class="form-group">
-                <label for="empresa">Nombre de la empresa <span>*</span></label>
-                <input type="text" id="empresa" name="empresa" required>
-            </div>
-        
-            <!-- Correo electrónico -->
-            <div class="form-group">
-                <label for="email">Correo corporativo <span>*</span></label>
-                <input type="email" id="email" name="email" required>
-            </div>
-        
-            <!-- CIF -->
-            <div class="form-group">
-                <label for="cif">CIF de la empresa <span>*</span></label>
-                <input type="text" id="cif" name="cif" required>
-            </div>
-        
-            <!-- Número de teléfono -->
-            <div class="form-group">
-                <label for="telefono">Número de teléfono <span>*</span></label>
-                <input type="tel" id="telefono" name="telefono" pattern="[0-9]{9}" required>
-            </div>
-        
-            <!-- Departamento -->
-            <div class="form-group">
-                <label for="departamento">Departamento <span>*</span></label>
-                <select id="departamento" name="departamento" required>
-                    <option value="">-- Ninguno --</option>
-                    <option value="ventas">Ventas</option>
-                    <option value="atencion-cliente">Atención al cliente</option>
-                    <option value="soporte">Soporte</option>
-                    <option value="marketing">Marketing</option>
-                </select>
-            </div>
-        
-            <!-- Cargo -->
-            <div class="form-group">
-                <label for="cargo">Cargo <span>*</span></label>
-                <select id="cargo" name="cargo" required>
-                    <option value="">-- Ninguno --</option>
-                    <option value="director">Director</option>
-                    <option value="gerente">Gerente</option>
-                    <option value="empleado">Empleado</option>
-                </select>
-            </div>
-        
-            <!-- Servicio que interesa -->
-            <div class="form-group">
-                <label for="servicio">Servicio que te interesa <span>*</span></label>
-                <select id="servicio" name="servicio" required>
-                    <option value="">-- Ninguno --</option>
-                    <option value="gestión-documental">Gestión Documental</option>
-                    <option value="facturación-electrónica">Facturación Electrónica</option>
-                    <option value="homologación">Homologación de Empresas</option>
-                    <option value="compras">Herramienta de Compras</option>
-                </select>
-            </div>
-        
-            <!-- Comentarios -->
-            <div class="form-group">
-                <label for="mensaje">¿En qué podemos ayudarte? <span>*</span></label>
-                <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
-            </div>
-        
-            <!-- Consentimiento -->
-            <div class="form-group">
-                <p class="consentimiento">
-                    Sus datos serán tratados por AgroDoc para atender su solicitud de información y en su caso para enviar comunicaciones comerciales. 
-                    Podrá ejercer sus derechos mediante correo postal a C. Proción, 7, 28023 Madrid, o por correo electrónico a 
-                    <a href="mailto:dpo@agrodoc.com">dpo@agrodoc.com</a> aportando DNI o documento equivalente, identificándose como usuario del servicio de AgroDoc.
-                </p>
+              <label for="nombre">Nombre <span>*</span></label>
+              <input type="text" id="nombre" name="nombre" class="required" aria-describedby="error-nombre">
+              
             </div>
 
+            <div class="form-group">
+              <label for="apellidos">Apellidos</label>
+              <input type="text" id="apellidos" name="apellidos">
+            </div>
+
+            <!-- Nombre de la empresa -->
+            <div class="form-group">
+              <label for="empresa">Nombre de la empresa <span>*</span></label>
+              <input type="text" id="empresa" name="empresa" class="required" aria-describedby="error-empresa">
+              
+            </div>
+
+            <!-- Correo electrónico -->       
+            <div class="form-group">
+              <label for="email">Correo corporativo <span>*</span></label>
+              <input type="email" id="email" name="email" class="required" aria-describedby="error-email">
+              
+            </div>
+
+            <!-- CIF -->
+            <div class="form-group">
+              <label for="cif">CIF de la empresa <span>*</span></label>
+              <input type="text" id="cif" name="cif" class="required" aria-describedby="error-cif">
+              
+            </div>
+
+            <!-- Teléfono -->
+            <div class="form-group">
+              <label for="telefono">Número de teléfono</label>
+              <input type="tel" id="telefono" name="telefono" aria-describedby="error-telefono">
+              
+            </div>
+
+            <!-- Departamento -->
+            <div class="form-group">
+              <label for="departamento">Departamento</label>
+              <select id="departamento" name="departamento">
+                <option value="">-- Ninguno --</option>
+                <option value="ventas">Ventas</option>
+                <option value="atencion-cliente">Atención al cliente</option>
+                <option value="soporte">Soporte</option>
+                <option value="marketing">Marketing</option>
+              </select>
+            </div>
+
+            <!-- Cargo -->
+            <div class="form-group">
+              <label for="cargo">Cargo</label>
+              <select id="cargo" name="cargo">
+                <option value="">-- Ninguno --</option>
+                <option value="director">Director</option>
+                <option value="gerente">Gerente</option>
+                <option value="empleado">Empleado</option>
+              </select>
+            </div>
+
+            <!-- Servicio que interesa -->
+            <div class="form-group">
+              <label for="servicio">Servicio que te interesa</label>
+              <select id="servicio" name="servicio">
+                <option value="">-- Ninguno --</option>
+                <option value="gestión-documental">Gestión Documental</option>
+                <option value="facturación-electrónica">Facturación Electrónica</option>
+                <option value="homologación">Homologación de Empresas</option>
+                <option value="compras">Herramienta de Compras</option>
+                <option value="empleo">Oferta de empleo</option>
+              </select>
+            </div>
+
+            <!-- Comentarios -->
+            <div class="form-group">
+              <label for="mensaje">¿En qué podemos ayudarte?</label>
+              <textarea id="mensaje" name="mensaje" rows="5"></textarea>
+            </div>
+
+            <!-- Consentimiento -->
+            <div class="form-group">
+              <p class="consentimiento">
+                Sus datos serán tratados por AgroDoc para atender su solicitud de información y en su caso para enviar
+                comunicaciones comerciales.
+                Podrá ejercer sus derechos mediante correo postal a C. Proción, 7, 28023 Madrid, o por correo
+                electrónico a
+                <a href="mailto:dpo@agrodoc.com">dpo@agrodoc.com</a> aportando DNI o documento equivalente,
+                identificándose como usuario del servicio de AgroDoc.
+              </p>
+            </div>
+     
             <div class="form-group checkbox-group">
-                <input type="checkbox" id="consentimiento" name="consentimiento" required>
-                <label for="consentimiento">Acepto las políticas de privacidad de AgroDoc <span>*</span></label>
-            </div>        
+              <input type="checkbox" id="consentimiento" name="consentimiento" class="required"
+                aria-describedby="error-consentimiento">
+              <label for="consentimiento">Acepto las políticas de privacidad de AgroDoc <span>*</span></label>
+              <div id="error-consentimiento" class="error-message" role="alert"></div>
+            </div>
             <!-- Deseo recibir comunicaciones comerciales -->
             <div class="form-group checkbox-group">
-                <input type="checkbox" id="comercial" name="comercial">
-                <label for="comercial">Deseo recibir comunicaciones comerciales de AgroDoc</label>
+              <input type="checkbox" id="comercial" name="comercial">
+              <label for="comercial">Deseo recibir comunicaciones comerciales de AgroDoc</label>
             </div>
-        
+
             <!-- Botón de enviar -->
             <button type="submit" class="btn-submit">Enviar</button>
-        </form>
+          </form>
       </div>
   </main>
     <!-- Pie de página -->

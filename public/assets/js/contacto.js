@@ -8,7 +8,7 @@ contactForm.addEventListener('submit', function (event) {
 
   // Patrones
   const patronEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-  const patronCIF = /^[A-HJNPQRSUVW]\d{7}$/i;
+  const patronCIF = /^[A-HJNPQRSUVW]\d{8}$/i;
   const patronTel = /^\d{9}$/;
 
   // Limpiar errores previos
@@ -32,7 +32,7 @@ contactForm.addEventListener('submit', function (event) {
 
       // Validar el CIF
       if (field.id === 'cif' && !patronCIF.test(value)) {
-        crearError(field, 'Introduce un CIF válido, debe tener una letra y 7 dígitos');
+        crearError(field, 'Introduce un CIF válido, debe tener una letra y 8 dígitos');
         isValid = false;
         if (!firstError) firstError = field;
       }

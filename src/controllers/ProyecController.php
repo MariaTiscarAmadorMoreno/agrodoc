@@ -44,7 +44,7 @@ class ProyecController
         }
     }
 
-            public function getProyectoPorId($id)
+    public function getProyectoPorId($id)
     {
         $sql = "SELECT pr.*,
         c.nombre AS nombre_contratista,
@@ -85,7 +85,7 @@ class ProyecController
         try {
             $datos = json_decode($datosSerializados, true);
 
-           
+
             if (count($datos) !== 4) {
                 echo json_encode(["error" => "Número incorrecto de parámetros"]);
                 return;
@@ -120,23 +120,23 @@ class ProyecController
 
         $this->db->conn->beginTransaction();
 
-    $sql = "INSERT INTO proyectos 
+        $sql = "INSERT INTO proyectos 
             (id_cont, id_finca, id_prov, trabajo, fecha_inicio, fecha_fin) 
             VALUES (?, ?, ?, ?, ?, ?);";
-    
-    $stmt = $this->db->conn->prepare($sql);
-    $stmt->execute([
-        $datos['id_cont'],
-        $datos['id_finca'],
-        $datos['id_prov'],
-        $datos['trabajo'],
-        $datos['fecha_inicio'],
-        $datos['fecha_fin']    
-    ]);
 
-    $this->db->conn->commit();
+        $stmt = $this->db->conn->prepare($sql);
+        $stmt->execute([
+            $datos['id_cont'],
+            $datos['id_finca'],
+            $datos['id_prov'],
+            $datos['trabajo'],
+            $datos['fecha_inicio'],
+            $datos['fecha_fin']
+        ]);
 
-    echo json_encode(["mensaje" => "Campaña creado exitosamente."]);
+        $this->db->conn->commit();
+
+        echo json_encode(["mensaje" => "Campaña creado exitosamente."]);
     }
 
 
@@ -226,7 +226,7 @@ class ProyecController
     public function asociarTrabajadorAProyecto($idTrab, $idProy)
     {
         $sql = "INSERT INTO proyectos_trabajadores (id_trab, id_proyec) VALUES (?, ?)";
-    
+
         try {
             $stmt = $this->db->conn->prepare($sql);
             $stmt->execute([$idTrab, $idProy]);
@@ -235,7 +235,7 @@ class ProyecController
             exit;
         }
     }
-    
+
     public function eliminarTrabajadorDeProyecto($idTrab, $idProy)
     {
         $sql = "DELETE FROM proyectos_trabajadores WHERE id_trab = ? AND id_proyec = ?";
@@ -244,6 +244,8 @@ class ProyecController
         echo json_encode(["mensaje" => "Trabajador eliminado de la campaña"]);
         exit;
     }
+
+ 
 }
 
 if (isset($_GET['action'])) {
@@ -288,7 +290,6 @@ if (isset($_GET['action'])) {
                 } else {
                     echo json_encode(["error" => "Datos incompletos o mal formateados"]);
                 }
-
             }
             break;
 
@@ -310,6 +311,7 @@ if (isset($_GET['action'])) {
             break;
         case 'asociarTrabajador':
             if (isset($_GET['id_proyec'], $_GET['id_trab'])) {
+
                 $controller->asociarTrabajadorAProyecto($_GET['id_trab'], $_GET['id_proyec']);
             }
             break;

@@ -147,7 +147,7 @@ class TrabController
                    p.apellidos AS apellidos_proveedor
             FROM trabajadores t
             LEFT JOIN proveedores p ON t.id_prov = p.id_prov
-            WHERE p.id_prov = ?";
+            WHERE p.id_prov = ?"; 
 
             $stmt = $this->db->conn->prepare($sql);
             $stmt->execute([$id_prov]);
@@ -172,13 +172,50 @@ class TrabController
             }
         }
     }
+    public function getTrabajadoresPorProveedorAptos($id_prov)
+    {
+        try {
+            $sql = "SELECT t.*, 
+                   p.nombre AS nombre_proveedor,
+                   p.apellidos AS apellidos_proveedor
+            FROM trabajadores t
+            LEFT JOIN proveedores p ON t.id_prov = p.id_prov
+            WHERE p.id_prov = ?
+            AND t.documentos = 1"; 
 
+            $stmt = $this->db->conn->prepare($sql);
+            $stmt->execute([$id_prov]);
+            $trabajadores = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            //Si se llama por AJAX, devuelve JSON
+            if (!empty($_GET['action']) && $_GET['action'] === 'listarTrabajadoresPorProveedorAptos') {
+                header('Content-Type: application/json');
+                echo json_encode($trabajadores);
+                exit;
+            }
+
+            //Si se llama desde PHP, simplemente retorna
+            return $trabajadores;
+        } catch (PDOException $e) {
+            if (!empty($_GET['action'])) {
+                header('Content-Type: application/json');
+                echo json_encode(["error" => $e->getMessage()]);
+                exit;
+            } else {
+                return [];
+            }
+        }
+    }
+
+    //Funcion para actualizar campo estado de documentacion si tiene todos los documentos.
     public function actualizarEstadoDocumentacion($id_trab, $estado)
     {
         $sql = "UPDATE trabajadores SET documentos = ? WHERE id_trab = ?";
         $stmt = $this->db->conn->prepare($sql);
         return $stmt->execute([$estado ? 1 : 0, $id_trab]);
     }
+
+
 
 }
 
@@ -231,6 +268,11 @@ if (isset($_GET['action'])) {
             }
             break;
         case 'listarTrabajadoresPorProveedor':
+            if (isset($_GET['id_prov'])) {
+                $controller->getTrabajadoresPorProveedor($_GET['id_prov']);
+            }
+            break;
+                case 'listarTrabajadoresPorProveedorAptos':
             if (isset($_GET['id_prov'])) {
                 $controller->getTrabajadoresPorProveedor($_GET['id_prov']);
             }

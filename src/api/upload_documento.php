@@ -30,15 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     $dni = $trabajador['dni'];
-    // $directorioDestino = realpath(__DIR__ . '/../documentos_trab') . '/';
-   
-    // $directorioDestino = $_SERVER['DOCUMENT_ROOT'] . '/documentos_trab/';
-    // $directorioDestino = __DIR__ . '/../documentos_trab';
     $directorioDestino = '/var/www/documentos_trab';
-
-
-
- 
 
 
     
