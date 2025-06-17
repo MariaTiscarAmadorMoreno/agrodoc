@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($_SESSION['intentos'] >= 3) {
         echo "<script>
             alert('Has alcanzado el máximo de 3 intentos. Por favor, contacta con la plataforma en soporte@agrodoc.com.');
-        </script>";
+        </script>";        
     } else {
         $usuario = $_POST['usu'];
         $clave = $_POST['pas'];
