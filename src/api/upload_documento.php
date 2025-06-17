@@ -17,12 +17,20 @@ $trabController = new TrabController();
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $id_trab = $_POST['id_trab'] ?? null;
     $tipo = $_POST['tipo_documento'] ?? null;
-    $fecha_caducidad = $_POST['fecha_caducidad'] ?? null;  
+    $fecha_caducidad = $_POST['fecha_caducidad'] ?? null;
 
     if (!$id_trab || !$tipo || !isset($_FILES['archivo'])) {
-        die("Faltan datos requeridos.");
+        echo json_encode(["error" => "Faltan datos requeridos."]);
+        exit;
     }
 
+    $ext = pathinfo($_FILES['archivo']['name'], PATHINFO_EXTENSION);
+    $extPermitidas = ['pdf', 'png', 'jpg', 'jpeg'];
+
+    if (!in_array(strtolower($ext), $extPermitidas)) {
+        echo json_encode(["error" => "Tipo de archivo no permitido."]);
+        exit;
+    }
     $trabajador = $trabController->getTrabajadorPorId($id_trab);
     if (!$trabajador) {
         echo json_encode(["error" => "Trabajador no encontrado."]);
@@ -33,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $directorioDestino = '/var/www/documentos_trab';
 
 
-    
+
     $nombreArchivo = "{$tipo}_{$dni}.pdf";
     $rutaFinal = $directorioDestino . '/' . $nombreArchivo;
 
@@ -54,10 +62,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $docController->insertarDocumento($tipo, "documentos_trab/$nombreArchivo", $fecha_caducidad, $id_trab);
         }
         echo json_encode(["mensaje" => "Documento subido correctamente."]);
-    exit;
-} else {
-    echo json_encode(["error" => "Error al subir el archivo."]);
-    exit;
+        exit;
+    } else {
+        echo json_encode(["error" => "Error al subir el archivo."]);
+        exit;
+    }
 }
-}
-?>
