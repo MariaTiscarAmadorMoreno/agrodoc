@@ -14,9 +14,11 @@ services:
       - ./documentos_trab:/var/www/documentos_trab
       - ./docker/apache/apache.conf:/etc/apache2/sites-available/000-default.conf
     ports:
-      - "8080:80"
+      - "80:80"  
     depends_on:
       - db
+    networks:
+      - agro_net
 
   db:
     image: mysql:8.0
@@ -28,9 +30,11 @@ services:
       MYSQL_USER: maria              
       MYSQL_PASSWORD: 1234           
     ports:
-      - "3307:3306"
+      - "3307:3306"  
     volumes:
       - ./database/mysql:/var/lib/mysql
+    networks:
+      - agro_net
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
@@ -44,6 +48,9 @@ services:
       PMA_PASSWORD: root
     ports:
       - "8081:80"
+    networks:
+      - agro_net
 
-volumes:
-  db_data:
+networks:
+  agro_net:
+    driver: bridge

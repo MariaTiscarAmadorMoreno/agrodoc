@@ -99,13 +99,36 @@ class ProvController
 
     public function setProveedor($datos)
     {
-        $datos = unserialize($datos);
-        $this->db->conn->beginTransaction();
-        $sql = "INSERT INTO proveedores VALUES (?,?,?,?,?,?,?);";
-        $stmt = $this->db->conn->prepare($sql);
-        $stmt->execute(array(0, $datos[0], $datos[1], $datos[2], $datos[3], $datos[4], $datos[5]));
-        $this->db->conn->commit();
+        try {
+            $nombre = $datos['nombre'] ?? null;
+            $apellidos = $datos['apellidos'] ?? null;
+            $cif = $datos['cif'] ?? null;
+            $email = $datos['email'] ?? null;
+            $telefono = $datos['telefono'] ?? null;
+            $direccion = $datos['direccion'] ?? null;
+
+
+
+            // Verificar duplicado por CIF
+            $stmt = $this->db->conn->prepare("SELECT COUNT(*) FROM proveedores WHERE cif = ?");
+            $stmt->execute([$cif]);
+            if ($stmt->fetchColumn() > 0) {
+                echo json_encode(["error" => "Ya existe un proveedor con ese CIF."]);
+                return;
+            }
+
+            $sql = "INSERT INTO proveedores (nombre, apellidos, cif, email, telefono, direccion) 
+                VALUES (?, ?, ?, ?, ?, ?)";
+
+            $stmt = $this->db->conn->prepare($sql);
+            $stmt->execute([$nombre, $apellidos, $cif, $email, $telefono, $direccion]);
+
+            echo json_encode(["mensaje" => "Proveedor creado exitosamente."]);
+        } catch (PDOException $e) {
+            echo json_encode(["error" => $e->getMessage()]);
+        }
     }
+
     public function getProveedoresPorContratista($idContratista)
     {
 
@@ -145,7 +168,7 @@ if (isset($_GET['action'])) {
 
                 $input = file_get_contents('php://input');
                 $data = json_decode($input, true);
-                
+
                 if (isset($data['datos'])) {
                     $controller = new ProvController();
                     $controller->updateProveedor(json_encode($data['datos']));
@@ -158,17 +181,15 @@ if (isset($_GET['action'])) {
         case 'crearProveedor':
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 header('Content-Type: application/json');
-                             
+
                 $input = file_get_contents("php://input");
                 $datos = json_decode($input, true);
-                
+
                 if (isset($datos['nombre'], $datos['apellidos'], $datos['cif'], $datos['email'], $datos['telefono'], $datos['direccion'])) {
                     $controller->setProveedor($datos);
                 } else {
                     echo json_encode(["error" => "Datos incompletos o mal formateados"]);
                 }
-
-                
             }
             break;
 
